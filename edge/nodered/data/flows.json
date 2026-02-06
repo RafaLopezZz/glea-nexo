@@ -1,0 +1,124 @@
+[
+    {
+        "id": "ea264a2e957706b2",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ec180c9e0e55132b",
+        "type": "tab",
+        "label": "Flujo 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "09638ffb10f47e9e",
+        "type": "mqtt-broker",
+        "name": "mosquitto",
+        "broker": "mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "76ddf6df47f481f2",
+        "type": "mqtt in",
+        "z": "ea264a2e957706b2",
+        "name": "",
+        "topic": "agro/#",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "09638ffb10f47e9e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "4a4ae0ef4252de4c"
+            ]
+        ]
+    },
+    {
+        "id": "4a4ae0ef4252de4c",
+        "type": "debug",
+        "z": "ea264a2e957706b2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0c32672fdbe34650",
+        "type": "mqtt in",
+        "z": "ec180c9e0e55132b",
+        "name": "",
+        "topic": "agro/#",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "09638ffb10f47e9e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "03b0dcf58c97f8a1"
+            ]
+        ]
+    },
+    {
+        "id": "03b0dcf58c97f8a1",
+        "type": "debug",
+        "z": "ec180c9e0e55132b",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 200,
+        "wires": []
+    }
+]

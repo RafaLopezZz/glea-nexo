@@ -1,0 +1,12 @@
+flowchart LR
+  Sensors[ Sensores ] -->|telemetria| MQTT[(Mosquitto en RPi)]
+  Actuators[ Actuadores ] -->|estado/feedback| MQTT
+  MQTT -->|telemetria| NR[Node-RED]
+  MQTT -->|comandos| NR
+  NR -->|normalizacion/alertas| PY[Python services]
+  PY -->|buffer local| BUF[(Buffer local)]
+  PY -->|HTTP/REST| API[API Spring Boot]
+  API -->|persistencia| PG[(PostgreSQL)]
+  API -->|datos/alertas| FE[Angular App]
+  NR -->|alertas| MQTT
+  API -->|comandos| MQTT

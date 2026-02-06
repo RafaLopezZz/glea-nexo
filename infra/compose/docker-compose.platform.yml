@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: glea-postgres
+    ports:
+      - "3608:5432"
+    environment:
+      POSTGRES_DB: glea_nexo
+      POSTGRES_USER: glea
+      POSTGRES_PASSWORD: glea_123
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U glea -d glea_nexo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - platform-net
+
+  backend:
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile
+    container_name: glea-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/glea_nexo
+      SPRING_DATASOURCE_USERNAME: glea
+      SPRING_DATASOURCE_PASSWORD: glea_123
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/actuator/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - platform-net
+
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: Dockerfile
+    container_name: glea-frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      CHOKIDAR_INTERVAL: "1000"
+      NG_CLI_ANALYTICS: "false"
+    volumes:
+      - ../../frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - platform-net
+
+volumes:
+  pgdata:
+    name: glea-pgdata
+
+networks:
+  platform-net:
+    name: glea-platform-net

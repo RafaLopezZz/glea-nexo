@@ -1,0 +1,146 @@
+flowchart TB
+  %% =========================
+  %% 1) ONBOARDING - PRIMER DIA
+  %% =========================
+  subgraph P["👤 Persona"]
+    P0([Descubre GleaFlow<br>y pide demo])
+    P1([Crea finca y zonas])
+    P2([Añade sensores y equipos])
+    P3[Configura reglas<br>umbrales y horarios]
+    P4([Supervisa panel<br>a diario])
+    P5{Hay alerta?}
+    P6([Decide actuar<br>ahora o programar])
+    P7([Activa riego o válvula])
+    P8[Registra incidencia<br>nota o foto]
+    P9([Revisa histórico<br>e informe])
+    P10([Comparte informe<br>y cierra piloto])
+  end
+
+  subgraph UI["🖥️ App Web - Angular SPA"]
+    U0[Landing y Demo guiada]
+    U1[Wizard: finca - zonas - sensores]
+    U2[Panel tiempo real por zonas]
+    U3[Reglas y alertas]
+    U4[Centro de avisos]
+    U5[Botón Acción: Regar X min]
+    U6[Bitácora e Incidencias]
+    U7[Histórico y gráficos]
+    U8[Informe antes y después]
+  end
+
+  subgraph BE["🧠 Backend - Spring Boot"]
+    B1[API Auth y Roles]
+    B2[API Fincas y Dispositivos]
+    B3[Ingesta MQTT y normalización]
+    B4[Motor reglas y alertas]
+    B5[Comandos de control]
+    B6[Auditoría y bitácora]
+    B7[Reporting KPIs]
+  end
+
+  subgraph DB["🗄️ PostgreSQL"]
+    D1[(Usuarios y Permisos)]
+    D2[(Fincas y Dispositivos)]
+    D3[(Telemetría histórica)]
+    D4[(Alertas y Auditoría)]
+    D5[(Incidencias)]
+  end
+
+  subgraph MQ["📨 MQTT Broker - Mosquitto"]
+    M1[(Topics telemetría)]
+    M2[(Topics comandos)]
+    M3[(QoS y Retained)]
+  end
+
+  subgraph EDGE["📟 GleaNode - Raspberry Pi"]
+    E1[Conecta sensores y equipos]
+    E2[Buffer offline local]
+    E3[Reintentos con backoff]
+    E4[Idempotencia anti-duplicados]
+    E5[Publica telemetría a MQTT]
+    E6[Suscribe comandos y ejecuta]
+    E7[Diagnóstico local]
+  end
+
+  subgraph FIELD["🌱 Campo"]
+    F1[Sensor suelo y ambiente]
+    F2[Contador caudal y presión]
+    F3[Válvula y bomba]
+  end
+
+  %% =========
+  %% Conexiones onboarding
+  %% =========
+  P0 --> U0
+  U0 --> P1
+  P1 --> U1
+  U1 --> P2
+  P2 --> P3
+  P3 --> U3
+  U3 --> P4
+  P4 --> U2
+  U2 --> P5
+  P5 -- No --> P4
+  P5 -- Sí --> U4
+  U4 --> P6
+
+  %% =========================
+  %% 2) MOMENTO WOW: ALERTA - ACCION
+  %% =========================
+  P6 --> U5
+  U5 --> P7
+
+  %% =========
+  %% Accion y control E2E
+  %% =========
+  U5 --> B5
+  B5 --> M2
+  M2 --> E6
+  E6 --> F3
+  F3 --> E5
+  E5 --> M1
+  M1 --> B3
+  B3 --> D3
+  B6 --> D4
+  B4 --> D4
+
+  %% =========
+  %% Telemetria y reglas
+  %% =========
+  F1 --> E1
+  F2 --> E1
+  E1 --> E2
+  E2 --> E3
+  E3 --> E4
+  E4 --> E5
+  B3 --> B4
+  B4 --> U4
+
+  %% =========
+  %% Offline y fiabilidad
+  %% =========
+  E7 --> M1
+  M3 -.-> M1
+  M3 -.-> M2
+
+  %% =========
+  %% Auth y datos maestros
+  %% =========
+  U0 --> B1
+  B1 --> D1
+  U1 --> B2
+  B2 --> D2
+
+  %% =========
+  %% Incidencias e informe
+  %% =========
+  P8 --> U6
+  U6 --> B6
+  B6 --> D5
+  P9 --> U7
+  U7 --> B7
+  B7 --> D3
+  B7 --> U8
+  U8 --> P10
+
+

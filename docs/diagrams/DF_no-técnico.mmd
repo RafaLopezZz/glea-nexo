@@ -1,0 +1,58 @@
+flowchart TB
+  subgraph A["👤 Persona - campo u oficina"]
+    A0([Empiezo el día])
+    A1[Abro la app]
+    A2[Elijo finca y zona]
+    A3[Reviso el estado<br/>de la zona]
+    A4{Hay aviso importante?}
+    A5[Leo el aviso<br/>y la recomendación]
+    A6{Actúo ahora?}
+    A7[Hago una acción<br/>por ejemplo regar]
+    A8[Programo para más tarde]
+    A9[Registro una nota o foto]
+    A10[Reviso el historial<br/>de lo ocurrido]
+    A11[Genero un informe<br/>para justificar decisiones]
+    A12([Termino])
+  end
+
+  subgraph B["📱 App - lo que la persona ve"]
+    B1[Panel por zonas<br/>con estado sencillo]
+    B2[Lista de avisos<br/>priorizados]
+    B3[Botón de acción rápido<br/>con confirmación]
+    B4[Bitácora de notas y fotos]
+    B5[Historial y resumen<br/>por días y semanas]
+    B6[Informe de resultados]
+  end
+
+  subgraph C["🌱 Campo - lo que está pasando"]
+    C1[La zona cambia con el tiempo]
+    C2[La app detecta situaciones<br/>que requieren atención]
+    C3[La acción se ejecuta y se confirma]
+    C4[Todo queda registrado]
+  end
+
+  %% Flujo principal
+  A0 --> A1
+  A1 --> A2
+  A2 --> A3
+  A3 --> B1
+  B1 --> C1
+  C1 --> C2
+  C2 --> B2
+  B2 --> A4
+  A4 -->|No| A3
+  A4 -->|Sí| A5
+  A5 --> A6
+  A6 -->|Sí| A7
+  A6 -->|No| A8
+  A7 --> B3
+  A8 --> B3
+  B3 --> C3
+  C3 --> A9
+  A9 --> B4
+  B4 --> C4
+  C4 --> A10
+  A10 --> B5
+  B5 --> A11
+  A11 --> B6
+  B6 --> A12

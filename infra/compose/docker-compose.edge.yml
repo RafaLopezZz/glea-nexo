@@ -1,0 +1,44 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: glea-mosquitto
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+    volumes:
+      - ../../edge/mosquitto/config:/mosquitto/config
+      - ../../edge/mosquitto/data:/mosquitto/data
+      - ../../edge/mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+    networks:
+      - edge-net
+
+  nodered:
+    image: nodered/node-red:3.1
+    container_name: glea-nodered
+    ports:
+      - "1880:1880"
+    volumes:
+      - ../../edge/nodered/data:/data
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+    networks:
+      - edge-net
+
+  edge-python:
+    image: python:3.11-slim
+    container_name: glea-edge-python
+    working_dir: /app
+    volumes:
+      - ../../edge/python/services:/app
+    command: ["python", "-c", "import time; time.sleep(10**9)"]
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+    networks:
+      - edge-net
+
+networks:
+  edge-net:
+    name: glea-edge-net
