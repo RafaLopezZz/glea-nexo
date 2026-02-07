@@ -43,12 +43,12 @@
 
 **GleaNexo** es una plataforma IoT para agricultura de precisión que utiliza **MQTT** y una **Raspberry Pi** como gateway de borde. El sistema permite:
 
-- 📡 **Monitoreo casi en tiempo real** de sensores agrícolas (humedad del suelo, temperatura, pH, EC, luminosidad, viento, lluvia, presión, batería).
-- 🚨 **Alertas inteligentes** basadas en umbrales y reglas configurables.
-- 🔧 **Control de actuadores** (válvulas, bombas, relés) con feedback de estado.
-- 🏢 **Multi-ubicación** — modelado por convención de tópicos `finca/zona` en MQTT.
-- 📴 **Resiliencia offline** — captura y actuación local con sincronización posterior y deduplicación por `messageId`.
-- 📊 **Históricos** para análisis y toma de decisiones.
+- **Monitoreo casi en tiempo real** de sensores agrícolas (humedad del suelo, temperatura, pH, EC, luminosidad, viento, lluvia, presión, batería).
+- **Alertas inteligentes** basadas en umbrales y reglas configurables.
+- **Control de actuadores** (válvulas, bombas, relés) con feedback de estado.
+- **Multi-ubicación** — modelado por convención de tópicos `finca/zona` en MQTT.
+- **Resiliencia offline** — captura y actuación local con sincronización posterior y deduplicación por `messageId`.
+- **Históricos** para análisis y toma de decisiones.
 
 > **Nota:** Este proyecto está en fase de desarrollo activo. Varias funcionalidades descritas están en proceso de implementación.
 
@@ -58,8 +58,8 @@
 
 ```mermaid
 flowchart LR
-  Sensors[🌡️ Sensores] -->|telemetría| MQTT[(Mosquitto en RPi)]
-  Actuators[⚙️ Actuadores] -->|estado/feedback| MQTT
+  Sensors[Sensores] -->|telemetría| MQTT[(Mosquitto en RPi)]
+  Actuators[Actuadores] -->|estado/feedback| MQTT
   MQTT -->|telemetría| NR[Node-RED]
   MQTT -->|comandos| NR
   NR -->|normalización/alertas| PY[Python Services]
@@ -75,20 +75,20 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  M[📏 Medir] --> E[📤 Enviar]
-  E --> D[🧠 Decidir regla]
-  D --> A[⚡ Actuar]
-  A --> F[✅ Confirmar estado]
-  F --> L[🔔 Avisar si alerta]
-  L --> G[💾 Guardar histórico]
-  G --> V[📊 Mostrar en tablero]
+  M[Medir] --> E[Enviar]
+  E --> D[Decidir regla]
+  D --> A[Actuar]
+  A --> F[Confirmar estado]
+  F --> L[Avisar si alerta]
+  L --> G[Guardar histórico]
+  G --> V[Mostrar en tablero]
 ```
 
 ### Resiliencia offline
 
 ```mermaid
 flowchart TD
-  NET{🌐 Internet disponible?} -->|No| OFF[Seguir capturando y actuando local]
+  NET{Internet disponible?} -->|No| OFF[Seguir capturando y actuando local]
   OFF --> BUF[Buffer local persistente]
   BUF --> RET[Reintentos con backoff]
   RET --> NET
