@@ -388,11 +388,11 @@ gantt
 
 ### Objetivos futuros (demo → piloto)
 
-- 🔄 Offline robusto con replay y deduplicación completa
-- 🔒 TLS MQTT + gestión de certificados
-- 📱 Device provisioning automático
-- 🔄 OTA / gestión remota del gateway
-- 📊 Observabilidad (métricas, logs, tracing distribuido)
+- Offline robusto con replay y deduplicación completa
+- TLS MQTT + gestión de certificados
+- Device provisioning automático
+- OTA / gestión remota del gateway
+- Observabilidad (métricas, logs, tracing distribuido)
 
 ---
 
