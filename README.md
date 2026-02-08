@@ -169,52 +169,7 @@ glea-nexo/
 | Docker Compose | v2 |
 | PowerShell | 5.1+ (Windows) |
 
-> 💡 No necesitas instalar Java, Node.js, ni Python localmente — todo corre en contenedores Docker.
-
----
-
-## 🚀 Instalación y arranque rápido
-
-### 1. Clonar el repositorio
-
-```bash
-git clone https://github.com/RafaLopezZz/glea-nexo.git
-cd glea-nexo
-```
-
-### 2. Construir las imágenes
-
-```powershell
-docker compose -f infra/compose/docker-compose.platform.yml build
-```
-
-### 3. Levantar todo el sistema
-
-```powershell
-docker compose -f infra/compose/docker-compose.edge.yml -f infra/compose/docker-compose.platform.yml up -d
-```
-
-### 4. Verificar que todo está corriendo
-
-```powershell
-docker compose -f infra/compose/docker-compose.edge.yml -f infra/compose/docker-compose.platform.yml ps
-```
-
-### 5. Validaciones rápidas
-
-```powershell
-# Broker MQTT vivo
-docker compose -f infra/compose/docker-compose.edge.yml exec mosquitto mosquitto_sub -h localhost -t '$SYS/broker/uptime' -C 1 -v
-
-# Backend health
-Invoke-WebRequest -Uri http://localhost:8080/actuator/health -UseBasicParsing
-
-# Backend ping
-Invoke-WebRequest -Uri http://localhost:8080/api/ping -UseBasicParsing
-
-# Frontend cargando
-Invoke-WebRequest -Uri http://localhost:4200 -UseBasicParsing
-```
+> 💡 No se necesita instalar Java, Node.js, ni Python localmente — todo corre en contenedores Docker.
 
 ---
 
@@ -266,35 +221,6 @@ agro/{fincaId}/{zonaId}/alerts                       # Alertas
 | Estado actuador | 1 | `true` | Último estado conocido |
 | Alertas | 1 | `false` | Notificación inmediata |
 
----
-
-## 🧪 Validación end-to-end
-
-### Publicar telemetría de prueba
-
-```powershell
-$ts = (Get-Date).ToString('o')
-$msg = '{"deviceId":"temp-01","ts":"' + $ts + '","value":23.4,"unit":"C","battery":88,"rssi":-70,"messageId":"m-0001"}'
-docker compose -f infra/compose/docker-compose.edge.yml exec mosquitto mosquitto_pub -h localhost -t agro/finca-01/zona-01/sensor/temperatura/telemetry -m $msg
-```
-
-### Publicar alerta de prueba
-
-```powershell
-$ts = (Get-Date).ToString('o')
-$msg = '{"deviceId":"temp-01","ts":"' + $ts + '","severity":"HIGH","message":"umbral superado","messageId":"a-0001"}'
-docker compose -f infra/compose/docker-compose.edge.yml exec mosquitto mosquitto_pub -h localhost -t agro/finca-01/zona-01/alerts -m $msg
-```
-
-### Comando a actuador
-
-```powershell
-$ts = (Get-Date).ToString('o')
-$msg = '{"deviceId":"valv-01","ts":"' + $ts + '","command":"OPEN","messageId":"c-0001"}'
-docker compose -f infra/compose/docker-compose.edge.yml exec mosquitto mosquitto_pub -h localhost -t agro/finca-01/zona-01/actuator/valvula/cmd -m $msg
-```
-
----
 
 ## 📈 Estado del desarrollo
 
@@ -393,18 +319,6 @@ gantt
 - Device provisioning automático
 - OTA / gestión remota del gateway
 - Observabilidad (métricas, logs, tracing distribuido)
-
----
-
-## 🤝 Contribuir
-
-¡Las contribuciones son bienvenidas! Si deseas colaborar:
-
-1. Haz un fork del proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/mi-feature`)
-3. Haz commit de tus cambios (`git commit -m 'feat: agregar mi feature'`)
-4. Haz push a la rama (`git push origin feature/mi-feature`)
-5. Abre un Pull Request
 
 ---
 
