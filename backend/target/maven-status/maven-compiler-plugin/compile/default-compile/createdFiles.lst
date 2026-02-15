@@ -1,0 +1,16 @@
+com\glea\nexo\application\ingest\IngestItemProcessor.class
+com\glea\nexo\application\ingest\TopicParser.class
+com\glea\nexo\api\dto\ingest\IngestBatchRequestDto.class
+com\glea\nexo\api\dto\ingest\IngestReadingDto.class
+com\glea\nexo\domain\repository\ZoneRepository.class
+com\glea\nexo\api\dto\ingest\IngestBatchResponseDto.class
+com\glea\nexo\api\dto\ingest\IngestBatchItemResponseDto.class
+com\glea\nexo\domain\repository\OrganizationRepository.class
+com\glea\nexo\api\controller\IngestController.class
+com\glea\nexo\domain\repository\FarmRepository.class
+com\glea\nexo\application\ingest\IngestItemProcessor$ItemStatus.class
+com\glea\nexo\application\ingest\IngestItemProcessor$IngestItemResult.class
+com\glea\nexo\application\ingest\IngestService.class
+com\glea\nexo\application\ingest\IngestServiceImpl.class
+com\glea\nexo\domain\repository\DeviceRepository.class
+com\glea\nexo\application\ingest\TopicParser$TopicParts.class

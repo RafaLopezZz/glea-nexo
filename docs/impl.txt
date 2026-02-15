@@ -1,0 +1,120 @@
+Eres Codex actuando como Tech Lead + Backend Engineer senior. Estás dentro de un repo con un backend Spring Boot (Boot 3 / Java 17+), JPA/Hibernate y PostgreSQL. Ya existe un scaffold mínimo con:
+No implementes más de una iteración por respuesta. No avances a ITER-002 hasta que ITER-001 compile, tenga tests y markdown.
+- Entities: Organization/Farm/Zone, Device/Sensor/SensorType/Unit, IngestEvent/TelemetryReading
+- Repositories Spring Data JPA
+- Controller /api/ingest/readings/batch
+- DTOs para batch ingest (records + validation)
+- TopicParser que extrae farm/zone/device/type del topic
+- SecurityConfig MVP que permite POST /api/ingest/**
+
+OBJETIVO GENERAL
+Implementar la persistencia real del ingest batch con garantías máximas:
+1) Validar, iterar, parsear topic
+2) Resolver/crear location + inventory
+3) Persistir IngestEvent + TelemetryReading
+4) Manejar duplicados (exists + UNIQUE constraint)
+5) Actualizar denormalizados (lastSeen, lastBattery, lastRssi en Device/Sensor)
+
+REGLAS DE TRABAJO (OBLIGATORIAS)
+A) Cambios pequeños y seguros: cada iteración debe:
+   - compilar
+   - incluir tests (unit o integración) cuando aplique
+   - ser idempotente y no romper API
+B) Nada de “magia”: si introduces una asunción, documéntala y crea TODO/nota.
+C) Dedupe “de verdad”: el guardián final es la UNIQUE constraint en BD.
+   - Puedes usar existsBy… para optimizar, pero debes capturar la excepción de integridad.
+D) Cada iteración debe generar un archivo Markdown nuevo en:
+   docs/impl/ITER-XXX-<slug>.md
+   (XXX incremental: 001, 002, 003…)
+   y debe incluir:
+   1) Resumen de cambios
+   2) Archivos tocados (lista)
+   3) Decisiones técnicas y por qué
+   4) Flujo paso a paso (cómo funciona ahora)
+   5) SQL/verificación (queries útiles)
+   6) Cómo ejecutar tests (comandos)
+   7) Checklist DoD (Done)
+   8) Riesgos/pendientes (TODO)
+E) En cada iteración, antes de codificar:
+   - analiza el estado actual del repo
+   - propone el “plan de iteración” (1–3 bullets)
+   - luego implementa
+   - luego escribe el markdown
+F) No reestructures todo a la vez. No refactors enormes. Mantén foco en el plan.
+G) Prioridad: robustez y trazabilidad (error handling, response itemizada, logs básicos).
+H) No cambies contratos sin actualizar el markdown y tests.
+
+ENTREGABLE POR ITERACIÓN
+- Código aplicado
+- Tests aplicados
+- docs/impl/ITER-XXX-*.md creado
+
+ESTÁNDAR TÉCNICO (CALIDAD)
+1) Transacciones: usa @Transactional en el punto correcto.
+   - Define si es por batch o por item (elige una y justifica en docs).
+2) Concurrencia: maneja condiciones de carrera en inserts:
+   - DataIntegrityViolationException / ConstraintViolationException para UNIQUE
+3) Rendimiento básico:
+   - evita N+1 obvio
+   - usa repositorios con índices existentes
+   - no cargues entidades completas si no hace falta (pero sin micro-optimizar aún)
+4) Errores: en batch, un item fallido no debe tumbar todo si se puede evitar.
+   - Si decides “fail-fast” por transacción global, documenta y justifica.
+5) Logging mínimo:
+   - correlación por messageId
+   - logs en duplicados y errores (nivel INFO/WARN)
+
+ITERACIONES PROPUESTAS (SIGUE ESTE ORDEN)
+== ITER-001: “Persistencia mínima + dedupe de IngestEvent”
+- Implementa IngestServiceImpl para:
+  - validar req.readings no vacía (ya lo hace Bean Validation, pero defiende también)
+  - para cada reading:
+    - parse topic (si no viene topic, intenta usar req o marca error)
+    - resolver/crear Organization por defecto (estrategia simple: una org “default” o null; elige y documenta)
+    - resolver/crear Farm y Zone por code (desde topic)
+    - resolver/crear Device por (org, deviceUid)
+    - INSERT IngestEvent con (device,messageId,topic,source,rawPayload,receivedAt)
+  - Si UNIQUE(device_id,message_id) salta => item DUPLICATE
+  - Construye IngestBatchResponseDto con contadores y items[]
+- Tests:
+  - integración (Testcontainers Postgres preferible; si no, H2 solo si soporta constraints igual)
+  - caso: mismo batch 2 veces => 1º processed, 2º duplicates
+- Markdown: docs/impl/ITER-001-ingest-event-dedupe.md
+
+== ITER-002: “Persistencia TelemetryReading + dedupe por sensor”
+- Añade resolución/creación de:
+  - Unit (por code) y SensorType (por type, defaultUnit)
+  - Sensor (por org+sensorUid) con type/unit/device/zone
+- Inserta TelemetryReading con UNIQUE(sensor_id,message_id)
+  - si salta unique => duplicate
+- Tests:
+  - duplicate sensor+messageId
+  - mismo messageId pero distinto sensor => ¿permitido? define comportamiento y test
+- Markdown: docs/impl/ITER-002-telemetry-reading-dedupe.md
+
+== ITER-003: “Actualización denormalizados y estados”
+- Tras insertar TelemetryReading:
+  - actualiza Device.lastSeenAt, lastRssi, lastBatteryV
+  - actualiza Sensor.lastSeenAt, lastRssi, lastBatteryV
+- Actualiza IngestEvent: status=PROCESSED, processedAt=now, o ERROR con errorCode/message si falla
+- Tests: verifica updates
+
+== ITER-004: “Robustez de errores + respuesta detallada”
+- Maneja topic mal formado, unit desconocida, etc.
+- Define policy: DISCARD vs ERROR
+- Asegura que el response items[] refleje por-reading qué pasó
+
+IMPORTANTE: Si el repo ya tiene docs/impl o numeración existente, respeta el patrón.
+
+COMPORTAMIENTO DE RESPUESTA DE CODex
+En esta conversación, cuando termines una iteración, responde con:
+1) Lista de archivos cambiados/creados
+2) Qué comandos ejecutar (mvn test, mvn spring-boot:run)
+3) Breve resumen de lo que quedó listo
+(NO pegues aquí el markdown entero si es largo; solo confírmalo y deja el archivo creado en el repo.)
+
+ARRANCA AHORA
+1) Inspecciona el repo para ubicar el backend, dependencias, paquetes y tests actuales.
+2) Ejecuta la ITER-001 completa.
+3) Crea el markdown ITER-001.
+4) Deja el repo compilando y testeando.

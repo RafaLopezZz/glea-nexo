@@ -203,3 +203,13 @@
 1770155504: Saving in-memory database to /mosquitto/data//mosquitto.db.
 1770157305: Saving in-memory database to /mosquitto/data//mosquitto.db.
 1770159106: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1770499638: mosquitto version 2.0.22 starting
+1770499638: Config loaded from /mosquitto/config/mosquitto.conf.
+1770499638: Opening ipv4 listen socket on port 1883.
+1770499638: Opening ipv6 listen socket on port 1883.
+1770499638: mosquitto version 2.0.22 running
+1770499640: New connection from 172.19.0.3:52036 on port 1883.
+1770499640: New client connected from 172.19.0.3:52036 as nodered_522f2ed1b444e1be (p2, c1, k60).
+1770499683: Client nodered_522f2ed1b444e1be disconnected.
+1770499693: mosquitto version 2.0.22 terminating
+1770499693: Saving in-memory database to /mosquitto/data//mosquitto.db.
