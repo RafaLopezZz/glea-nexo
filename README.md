@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Glea Nexo
 
 **Plataforma IoT para Agricultura 4.0**
