@@ -52,6 +52,7 @@ class IngestControllerIntegrationTest {
         registry.add("spring.datasource.password", postgres::getPassword);
         registry.add("spring.jpa.hibernate.ddl-auto", () -> "create-drop");
         registry.add("spring.jpa.open-in-view", () -> "false");
+        registry.add("spring.flyway.enabled", () -> "false");
     }
 
     @Autowired
