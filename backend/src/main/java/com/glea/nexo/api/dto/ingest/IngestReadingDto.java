@@ -8,8 +8,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.validation.constraints.NotBlank;
 
 public record IngestReadingDto(
-        @NotBlank String messageId,
-        @NotBlank String deviceId,
+        @NotBlank
+        String messageId,
+        @NotBlank
+        String deviceId,
         String topic,
         Instant ts,
         BigDecimal value,
@@ -17,4 +19,5 @@ public record IngestReadingDto(
         Integer rssi,
         BigDecimal battery,
         JsonNode rawPayload) {
+
 }

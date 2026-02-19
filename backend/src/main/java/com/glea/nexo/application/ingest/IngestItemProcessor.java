@@ -1,6 +1,7 @@
 package com.glea.nexo.application.ingest;
 
 import java.time.Instant;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,15 +83,16 @@ public class IngestItemProcessor {
     public IngestItemResult process(IngestBatchRequestDto request, IngestReadingDto reading, int index) {
         String resolvedTopic = resolveTopic(request, reading);
         TopicParser.TopicParts topicParts = topicParser.parse(resolvedTopic);
-        String deviceUid = resolveDeviceUid(reading, topicParts);
+        // String deviceUid = resolveDeviceUid(reading, topicParts);
+        String gatewayUid = resolveGatewayUid(reading, topicParts);
 
         Organization organization = resolveOrganization();
         Farm farm = resolveFarm(organization, topicParts.farmCode());
         Zone zone = resolveZone(farm, topicParts.zoneCode());
-        Device device = resolveDevice(organization, farm, zone, deviceUid);
+        Device device = resolveDevice(organization, farm, zone, gatewayUid);
 
         if (ingestEventRepository.existsByDevice_IdAndMessageId(device.getId(), reading.messageId())) {
-            log.info("ingest duplicate pre-check messageId={} deviceUid={}", reading.messageId(), deviceUid);
+            log.info("ingest duplicate pre-check messageId={} gatewayUid={}", reading.messageId(), gatewayUid);
             return IngestItemResult.duplicate(index, reading.messageId(), "duplicate ingest event by exists check");
         }
 
@@ -127,10 +129,9 @@ public class IngestItemProcessor {
             }
 
             // ═══════════════════════════════════════════════════════════
-            // FASE 5: Resolver/crear sensor
+            // FASE 5: Resolver/crear sensor (multisensor: gatewayUid + sensorUid)
             // ═══════════════════════════════════════════════════════════
-            // SIMPLIFICACIÓN MVP: sensorUid = deviceId (1 device = 1 sensor)
-            String sensorUid = deviceUid;
+            String sensorUid = resolveSensorUid(reading, topicParts);
             Sensor sensor = resolveSensor(
                     organization, farm, zone, device,
                     sensorType, unit, sensorUid
@@ -185,16 +186,17 @@ public class IngestItemProcessor {
             ingestEvent.setProcessedAt(Instant.now());
             ingestEventRepository.save(ingestEvent);
 
-            log.info("Telemetry persisted: messageId={}, sensorUid={}, value={}",
-                    reading.messageId(), sensorUid, reading.value());
+            log.info("Telemetry persisted: messageId={}, gatewayUid={}, sensorUid={}, value={}",
+                    reading.messageId(), gatewayUid, sensorUid, reading.value());
 
             return IngestItemResult.processed(index, reading.messageId(),
                     "telemetry reading persisted");
 
         } catch (DataIntegrityViolationException ex) {
             // Constraint UNIQUE saltó (race condition)
-            log.info("Duplicate by unique constraint: messageId={}, deviceUid={}",
-                    reading.messageId(), deviceUid);
+            log.info("Duplicate by unique constraint: messageId={}, gatewayUid={}, value={}. Cause={}",
+                    reading.messageId(), gatewayUid, reading.value(), ex.getMostSpecificCause().getMessage());
+
             return IngestItemResult.duplicate(index, reading.messageId(),
                     "duplicate by unique constraint");
 
@@ -231,14 +233,35 @@ public class IngestItemProcessor {
         throw new IllegalArgumentException("topic is missing in reading and batch");
     }
 
-    private String resolveDeviceUid(IngestReadingDto reading, TopicParser.TopicParts parts) {
-        if (StringUtils.hasText(parts.deviceUidFromTopic())) {
-            return parts.deviceUidFromTopic();
+    private String resolveGatewayUid(IngestReadingDto reading, TopicParser.TopicParts topicParts) {
+        // Preferimos lo que viene en el topic (v2)
+        if (StringUtils.hasText(topicParts.deviceUidFromTopic())) {
+            return topicParts.deviceUidFromTopic().trim();
         }
+
+        // Fallback: payload deviceId
         if (StringUtils.hasText(reading.deviceId())) {
-            return reading.deviceId();
+            String raw = reading.deviceId().trim();
+            int idx = raw.indexOf(':');
+            return (idx > 0) ? raw.substring(0, idx) : raw;
         }
-        throw new IllegalArgumentException("deviceId is required");
+
+        throw new IllegalArgumentException("gatewayUid/deviceId is required (topic or payload)");
+    }
+
+    private String resolveSensorUid(IngestReadingDto reading, TopicParser.TopicParts topicParts) {
+        if (StringUtils.hasText(topicParts.sensorUid())) {
+            return topicParts.sensorUid().trim(); // ✅ v2
+        }
+
+        String raw = reading.deviceId().trim();
+        int idx = raw.indexOf(':');
+        if (idx > 0 && idx < raw.length() - 1) {
+            return raw.substring(idx + 1); // fallback legacy gw:sensor
+        }
+
+        throw new IllegalArgumentException("sensorUid is required in topic v2 (or deviceId as gw:sensor)");
+
     }
 
     private Organization resolveOrganization() {
@@ -294,9 +317,23 @@ public class IngestItemProcessor {
         }
     }
 
-    private Device resolveDevice(Organization organization, Farm farm, Zone zone, String deviceUid) {
-        return deviceRepository.findByOrganization_IdAndDeviceUid(organization.getId(), deviceUid)
-                .orElseGet(() -> createDeviceWithRetry(organization, farm, zone, deviceUid));
+    private Device resolveDevice(Organization org, Farm farm, Zone zone, String gatewayUid) {
+
+        return deviceRepository.findByOrganization_IdAndDeviceUid(org.getId(), gatewayUid)
+                .orElseGet(() -> {
+                    deviceRepository.insertIgnore(
+                            UUID.randomUUID(),
+                            gatewayUid,
+                            OnlineState.UNKNOWN.name(),
+                            org.getId(),
+                            farm.getId(),
+                            zone.getId(),
+                            null
+                    );
+
+                    return deviceRepository.findByOrganization_IdAndDeviceUid(org.getId(), gatewayUid)
+                            .orElseThrow(() -> new IllegalStateException("Device upsert failed for gatewayUid=" + gatewayUid));
+                });
     }
 
     private Device createDeviceWithRetry(Organization organization, Farm farm, Zone zone, String deviceUid) {

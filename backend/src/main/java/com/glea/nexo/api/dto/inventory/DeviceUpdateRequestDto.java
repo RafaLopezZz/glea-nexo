@@ -9,5 +9,4 @@ public record DeviceUpdateRequestDto(
         @Size(max = 120)
         String name,
         OnlineState state
-) {
-}
+) {}

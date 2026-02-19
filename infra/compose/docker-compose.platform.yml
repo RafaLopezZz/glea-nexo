@@ -3,7 +3,7 @@ services:
     image: postgres:15
     container_name: glea-postgres
     ports:
-      - "3608:5432"
+      - "3609:5432"
     environment:
       POSTGRES_DB: glea_nexo
       POSTGRES_USER: glea

@@ -28,9 +28,20 @@ MQTT_PASS = os.getenv("MQTT_PASS", "")
 INTERVAL_SEC = int(env("INTERVAL_SEC", "60"))
 SENSORS = int(env("SENSORS", "10"))
 
+def normalize_sensor_type(raw: str) -> str:
+    # "soil_moisture" -> "SOIL_MOISTURE"
+    # "soil-moisture" -> "SOIL_MOISTURE"
+    # "soil moisture" -> "SOIL_MOISTURE"
+    return str(raw).strip().upper().replace("-", "_").replace(" ", "_")
 
+"""
 def topic_telemetry(sensor_type: str) -> str:
     return f"agro/{FINCA_ID}/{ZONA_ID}/{DEVICE_ID}/sensor/{sensor_type}/telemetry"
+"""
+
+def topic_telemetry(sensor_id: str, sensor_type: str) -> str:
+    sensor_type_canon = normalize_sensor_type(sensor_type)
+    return f"agro/{FINCA_ID}/{ZONA_ID}/{DEVICE_ID}/sensor/{sensor_id}/{sensor_type_canon}/telemetry"
 
 
 def topic_status(sensor_id: str) -> str:
@@ -128,7 +139,7 @@ def main():
         while True:
             for sensor_id, sensor_type, unit in SENSOR_LIST:
                 payload = build_payload(sensor_id, sensor_type, unit)
-                t = topic_telemetry(sensor_type)
+                t = topic_telemetry(sensor_id, sensor_type)
                 client.publish(t, json.dumps(payload), qos=1, retain=False)
             time.sleep(INTERVAL_SEC)
     except KeyboardInterrupt:
