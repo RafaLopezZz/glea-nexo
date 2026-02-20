@@ -1,0 +1,17 @@
+
+# Node-RED: no runtime pesado ni secretos
+edge/nodered/data/node_modules/
+edge/nodered/data/.npm/
+edge/nodered/data/flows_cred.json
+edge/nodered/data/*.backup
+edge/nodered/data/.config.*.json
+
+# SQLite: nunca subir bases de datos
+*.db
+*.sqlite
+*.sqlite3
+edge/sqlite/*.db
+
+# Mosquitto runtime (si alguna vez queda en repo)
+edge/mosquitto/data/
+edge/mosquitto/log/

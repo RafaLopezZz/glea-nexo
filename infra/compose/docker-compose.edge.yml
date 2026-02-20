@@ -19,7 +19,8 @@ services:
     ports:
       - "1880:1880"
     volumes:
-      - ../../edge/nodered/data:/data
+      - ../../edge/nodered:/data
+      - ../../edge/sqlite:/data/sqlite 
     depends_on:
       - mosquitto
     restart: unless-stopped
@@ -32,6 +33,7 @@ services:
     working_dir: /app
     volumes:
       - ../../edge/python/services:/app
+      - ../../edge/sqlite:/data/sqlite
     command: ["python", "-c", "import time; time.sleep(10**9)"]
     depends_on:
       - mosquitto

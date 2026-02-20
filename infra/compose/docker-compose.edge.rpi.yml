@@ -1,0 +1,5 @@
+services:
+  nodered:
+    volumes:
+      - /opt/glea-nexo/edge-data/nodered:/data
+      - /opt/glea-nexo/edge-data/sqlite:/data/sqlite
