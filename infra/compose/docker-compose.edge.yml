@@ -19,7 +19,7 @@ services:
     ports:
       - "1880:1880"
     volumes:
-      - ../../edge/nodered:/data
+      - ../../edge/nodered/data:/data
       - ../../edge/sqlite:/data/sqlite 
     depends_on:
       - mosquitto

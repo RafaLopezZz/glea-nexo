@@ -1,4 +1,10 @@
 services:
+  mosquitto:
+    volumes:
+      - ../../edge/mosquitto/config:/mosquitto/config
+      - /opt/glea-nexo/edge-data/mosquitto/data:/mosquitto/data
+      - /opt/glea-nexo/edge-data/mosquitto/log:/mosquitto/log
+
   nodered:
     volumes:
       - /opt/glea-nexo/edge-data/nodered:/data
