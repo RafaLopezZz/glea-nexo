@@ -12,6 +12,8 @@ edge/nodered/data/.config.*.json
 *.sqlite3
 edge/sqlite/*.db
 
-# Mosquitto runtime (si alguna vez queda en repo)
-edge/mosquitto/data/
-edge/mosquitto/log/
+# Mosquitto runtime (never commit)
+edge/mosquitto/data/*
+edge/mosquitto/log/*
+!edge/mosquitto/data/.gitkeep
+!edge/mosquitto/log/.gitkeep
