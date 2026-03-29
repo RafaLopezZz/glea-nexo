@@ -1,29 +1,69 @@
 # Glea Nexo
 
-**Plataforma IoT para Agricultura 4.0**
+**Plataforma IoT para agricultura conectada, operativa incluso con conectividad irregular.**
 
-Sistema IoT agrícola con edge (Mosquitto/Node-RED/Python), backend Spring Boot y frontend Angular.
+Glea Nexo es una plataforma IoT agrícola orientada a monitorización, trazabilidad operativa y evolución progresiva hacia automatización e inteligencia aplicada.
+Combina una capa **edge** (Mosquitto, Node-RED, Python, SQLite) con una **plataforma** (Spring Boot, PostgreSQL, Angular) para capturar telemetría, estructurar inventario operativo y construir una experiencia de observabilidad útil por finca, zona y dispositivo.
 
-***
+---
 
-## Tabla de Contenidos
+## Qué es Glea Nexo
 
-- [Visión](#visión)
-- [Arquitectura](#arquitectura)
-- [Stack Tecnológico](#stack-tecnológico)
-- [Inicio Rápido](#inicio-rápido)
-- [Servicios y Puertos](#servicios-y-puertos)
-- [Inventario (CRUD)](#inventario-crud)
-- [OpenAPI / Swagger](#openapi--swagger)
-- [Testing](#testing)
-- [Documentación](#documentación)
-- [Roadmap](#roadmap)
+El objetivo de Glea Nexo no es ser una demo genérica de IoT, sino una base realista para casos de uso agrícolas donde importan:
 
-***
+- ingestión fiable de telemetría
+- operación con edge/gateway local
+- visibilidad por finca, zona y dispositivo
+- trazabilidad de eventos y estados
+- evolución posterior hacia alertas, automatización y ML cuando tenga sentido
 
-## Visión
+---
 
-Glea Nexo permite monitoreo de sensores, ingestión de telemetría y gestión de inventario operativo (`farm`, `zone`, `device`) con scoping por organización.
+## Estado actual del proyecto
+
+### Base ya construida
+
+- **Edge** con Mosquitto, Node-RED y servicios Python
+- **Backend** Spring Boot con ingestión de telemetría y persistencia
+- **Inventario operativo**: `farm`, `zone`, `device`
+- **Scoping por organización**
+- **Infraestructura Compose** para edge y plataforma
+- **Documentación base de arquitectura e iteraciones**
+
+### Iteraciones completadas
+
+- ✅ **ITER-001** — ingest event + deduplicación
+- ✅ **ITER-002** — persistencia de telemetría
+- ✅ **ITER-003** — inventory CRUD (`farm`, `zone`, `device`)
+
+### Iteración actual en foco
+
+## Observabilidad operativa v1
+
+La iteración activa del proyecto está orientada a cerrar una primera vertical de producto útil y demostrable:
+
+- histórico de telemetría por zona/dispositivo
+- snapshot operativo de estado actual
+- alertas básicas visibles
+- una interfaz mínima pero útil de observabilidad
+
+### Qué entra en esta iteración
+
+- consulta histórica
+- lectura de último estado
+- alertas simples
+- frontend con filtros, gráfico y panel de alertas
+
+### Qué NO entra todavía
+
+- realtime con WebSocket/SSE
+- seguridad completa JWT + roles
+- motor complejo de reglas
+- notificaciones externas
+- capa ML/MLOps
+- observabilidad avanzada de infraestructura
+
+---
 
 ## Arquitectura
 
@@ -36,42 +76,59 @@ flowchart LR
   API --> FE[Angular]
 ```
 
-## Stack Tecnológico
+### Capas
 
-- Backend: Spring Boot **3.5.0**, Java 21, Spring Data JPA, Flyway
-- Frontend: Angular 17 (modo dev)
-- Edge: Mosquitto 2.x, Node-RED 3.1, Python 3.11
-- Infra: Docker Compose v2
+- **Edge**: captura, transporte y preprocesado operativo
+- **Backend**: dominio, persistencia, consultas y contratos API
+- **Frontend**: visualización operativa y experiencia de uso
+- **Infra**: arranque reproducible con Docker Compose
 
-***
+---
 
-## Inicio Rápido
+## Stack tecnológico
+
+- **Backend:** Spring Boot 3.5.0, Java 21, Spring Data JPA, Flyway
+- **Frontend:** Angular 17
+- **Edge:** Mosquitto 2.x, Node-RED 3.1, Python 3.11, SQLite
+- **Base de datos:** PostgreSQL
+- **Infra:** Docker Compose v2
+
+---
+
+## Inicio rápido
 
 ### Prerrequisitos
 
 - Docker Desktop + Docker Compose v2
 - PowerShell
 
-### Comandos (PowerShell)
+### Build plataforma
 
 ```powershell
-# Build plataforma
 docker compose -f infra/compose/docker-compose.platform.yml build
+```
 
-# Levantar edge + platform
+### Levantar edge + platform
+
+```powershell
 docker compose `
   -f infra/compose/docker-compose.edge.yml `
   -f infra/compose/docker-compose.platform.yml `
   up -d
+```
 
-# Estado
+### Ver estado
+
+```powershell
 docker compose `
   -f infra/compose/docker-compose.edge.yml `
   -f infra/compose/docker-compose.platform.yml `
   ps
 ```
 
-### Checks rápidos
+---
+
+## Checks rápidos
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost:8080/actuator/health -UseBasicParsing
@@ -82,94 +139,84 @@ docker compose -f infra/compose/docker-compose.edge.yml exec mosquitto `
   mosquitto_sub -h localhost -t '$SYS/broker/uptime' -C 1 -v
 ```
 
-## Servicios y Puertos
+---
 
-- Backend: `http://localhost:8080` (interno contenedor `8081`)
-- Frontend: `http://localhost:4200`
-- Node-RED: `http://localhost:1880`
-- Mosquitto: `mqtt://localhost:1883`
-- PostgreSQL host: `localhost:3608`
+## Servicios y puertos
 
-***
+- **Backend:** `http://localhost:8080`
+- **Frontend:** `http://localhost:4200`
+- **Node-RED:** `http://localhost:1880`
+- **Mosquitto:** `mqtt://localhost:1883`
+- **PostgreSQL host:** `localhost:3608`
 
-## Inventario (CRUD)
+---
 
-### Header de organización
+## API disponible hoy
+
+### Inventario operativo
+
+#### Header de organización
 
 - Header opcional: `X-Org-Code`
 - Si falta: usa organización `default`
 - Si no existe: `404 NOT_FOUND`
 
-### Endpoints principales
+#### Endpoints principales
 
-- Farms
+- **Farms**
   - `POST /api/farms`
   - `GET /api/farms?page&size&sort&q?`
   - `GET /api/farms/{farmId}`
   - `PUT /api/farms/{farmId}`
   - `DELETE /api/farms/{farmId}`
-- Zones
+
+- **Zones**
   - `POST /api/farms/{farmId}/zones`
   - `GET /api/farms/{farmId}/zones?page&size&sort&q?`
   - `GET /api/zones/{zoneId}`
   - `PUT /api/zones/{zoneId}`
   - `DELETE /api/zones/{zoneId}`
-- Devices
+
+- **Devices**
   - `POST /api/zones/{zoneId}/devices`
   - `GET /api/devices?page&size&sort&farmId?&zoneId?&state?&q?`
   - `GET /api/devices/{deviceId}`
   - `PUT /api/devices/{deviceId}`
   - `DELETE /api/devices/{deviceId}`
 
-Regla de contrato: `deviceUid` es inmutable después de creación.  
-`PUT /api/devices/{deviceId}` solo permite actualizar `name` y `state`.
+### Contrato relevante actual
 
-### Ejemplo PowerShell
+- `deviceUid` es inmutable después de creación
+- `PUT /api/devices/{deviceId}` solo permite actualizar `name` y `state`
 
-```powershell
-$farmBody = @{ code='finca-demo'; name='Finca Demo' } | ConvertTo-Json
-Invoke-WebRequest -Method POST `
-  -Uri http://localhost:8080/api/farms `
-  -Headers @{ 'Content-Type'='application/json'; 'X-Org-Code'='default'; 'X-Correlation-Id'='demo-001' } `
-  -Body $farmBody
-```
+---
 
-### Ejemplo curl
+## Próxima API en construcción
 
-```bash
-curl -X POST http://localhost:8080/api/farms \
-  -H 'Content-Type: application/json' \
-  -H 'X-Org-Code: default' \
-  -d '{"code":"finca-curl","name":"Finca Curl"}'
-```
+Para la iteración **Observabilidad operativa v1**, el siguiente bloque de API se orienta a:
 
-### Ejemplo PUT Device (sin deviceUid)
+- histórico de lecturas
+- snapshot operativo por zona
+- alertas persistidas y consultables
 
-```bash
-curl -X PUT http://localhost:8080/api/devices/<DEVICE_ID> \
-  -H 'Content-Type: application/json' \
-  -H 'X-Org-Code: default' \
-  -d '{"name":"Gateway Renombrado","state":"ONLINE"}'
-```
+A nivel de diseño, los contratos previstos son:
 
-### Status codes
+- `GET /api/readings`
+- `GET /api/readings/series`
+- `GET /api/zones/{zoneId}/snapshot`
+- `GET /api/alerts`
+- `POST /api/ingest/events` *(si se persisten eventos desde edge en esta fase)*
 
-- `201` creación
-- `200` lectura/actualización/listado
-- `204` borrado
-- `400` validación
-- `404` no encontrado
-- `409` conflicto de constraint
-- `500` error interno
+> Estos contratos forman parte del foco actual del proyecto y pueden ajustarse durante la iteración mientras se mantenga estable el objetivo funcional.
 
-***
+---
 
 ## OpenAPI / Swagger
 
 - OpenAPI JSON: `http://localhost:8080/v3/api-docs`
 - Swagger UI: `http://localhost:8080/swagger-ui/index.html`
 
-***
+---
 
 ## Testing
 
@@ -178,27 +225,49 @@ cd backend
 mvn test
 ```
 
-Incluye tests de integración con Testcontainers para ingest y CRUD de inventario.
+Incluye base de testing para backend y validación de iteraciones previas.
 
-***
+---
 
-## Documentación
+## Documentación del repo
 
 - Operación base: `agents.md`
-- Runbook Inventario: `docs/runbook/inventory-crud.md`
-- API Inventario: `docs/api/inventory-openapi.md`
-- Iteración inventario: `docs/iterations/ITER-003-inventory-crud.md`
-- Iteración ingest (previa): `docs/impl/ITER-001-ingest-event-dedupe.md`
+- API inventario: `docs/api/inventory-openapi.md`
+- Runbook inventario: `docs/runbook/inventory-crud.md`
+- Iteraciones: `docs/iterations/`
+- Diagramas: `docs/diagrams/`
+- Roadmap ampliado: `roadmap.md`
 
-***
+---
 
-## Roadmap
+## Roadmap inmediato
 
-- ✅ ITER-001: ingest event + deduplicación
-- ✅ ITER-002: persistencia de telemetría
-- ✅ ITER-003: inventory CRUD (farm/zone/device)
-- ⏭️ Siguiente: históricos, alertas y seguridad JWT+roles
+### Cerrado
+- ✅ ingest + deduplicación
+- ✅ persistencia de telemetría
+- ✅ inventory CRUD
 
-***
+### En foco ahora
+- ⏭️ histórico por zona/dispositivo
+- ⏭️ snapshot operativo
+- ⏭️ alertas básicas
+- ⏭️ frontend de observabilidad
 
-**Última actualización:** 15/02/2026
+### Después
+- seguridad JWT + roles
+- control de actuadores más sólido
+- automatización basada en reglas
+- IA/ML solo cuando el caso de uso y los datos lo justifiquen
+
+---
+
+## Posicionamiento del proyecto
+
+Glea Nexo no busca parecer complejo: busca parecer útil.
+
+La prioridad actual no es meter más piezas, sino cerrar una vertical demostrable de producto:
+**ver qué está pasando, dónde está pasando y cuándo requiere atención.**
+
+---
+
+**Última actualización:** 2026-03-29
