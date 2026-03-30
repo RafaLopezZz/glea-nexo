@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ExceptionHandler({MethodArgumentTypeMismatchException.class, HttpMessageNotReadableException.class})
+    @ExceptionHandler({MethodArgumentTypeMismatchException.class, HttpMessageNotReadableException.class, IllegalArgumentException.class})
     public ResponseEntity<ApiErrorResponse> handleBadRequest(Exception ex, HttpServletRequest request) {
         return buildResponse(
                 HttpStatus.BAD_REQUEST,

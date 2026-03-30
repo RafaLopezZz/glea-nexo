@@ -1,12 +1,17 @@
 package com.glea.nexo.security;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -17,6 +22,7 @@ public class SecurityConfig {
     // MVP: sin JWT todavía. Permitimos ingest y health para avanzar.
     return http
         .csrf(csrf -> csrf.disable())
+        .cors(Customizer.withDefaults())
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/actuator/health", "/api/ping").permitAll()
             .requestMatchers(HttpMethod.POST, "/api/ingest/**").permitAll()
@@ -24,6 +30,20 @@ public class SecurityConfig {
         )
         .httpBasic(Customizer.withDefaults())
         .build();
+  }
+
+  @Bean
+  CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration configuration = new CorsConfiguration();
+    configuration.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
+    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    configuration.setAllowedHeaders(List.of("*"));
+    configuration.setExposedHeaders(List.of("Location"));
+    configuration.setAllowCredentials(false);
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", configuration);
+    return source;
   }
 }
 
