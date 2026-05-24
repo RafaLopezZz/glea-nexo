@@ -14,13 +14,13 @@ services:
       - edge-net
 
   nodered:
-    image: nodered/node-red:3.1
+    image: nodered/node-red:4.1.10-debian
     container_name: glea-nodered
     ports:
       - "1880:1880"
     volumes:
       - ../../edge/nodered/data:/data
-      - ../../edge/sqlite:/data/sqlite 
+      - ../../edge/sqlite:/data/sqlite
     depends_on:
       - mosquitto
     restart: unless-stopped
