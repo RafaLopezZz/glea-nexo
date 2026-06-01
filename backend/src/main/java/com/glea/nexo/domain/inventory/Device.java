@@ -55,7 +55,7 @@ public class Device extends BaseEntityUuid {
 
     private Integer lastRssi;
 
-    @Column(precision = 5, scale = 2)
+    @Column(name = "last_batteryv", precision = 5, scale = 2)
     private BigDecimal lastBatteryV;
 
     public Organization getOrganization() {

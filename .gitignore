@@ -56,3 +56,7 @@ edge/mosquitto/data/*
 edge/mosquitto/log/*
 !edge/mosquitto/data/.gitkeep
 !edge/mosquitto/log/.gitkeep
+
+# AGENTS
+agents.md
+session-2026-05-30.md

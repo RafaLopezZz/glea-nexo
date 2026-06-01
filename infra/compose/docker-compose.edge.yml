@@ -18,8 +18,11 @@ services:
     container_name: glea-nodered
     ports:
       - "1880:1880"
+    environment:
+      BACKEND_URL: "http://192.168.1.10:8080"
     volumes:
       - ../../edge/nodered/data:/data
+      - ../../edge/nodered/flows:/flows
       - ../../edge/sqlite:/data/sqlite
     depends_on:
       - mosquitto
@@ -34,7 +37,8 @@ services:
     volumes:
       - ../../edge/python/services:/app
       - ../../edge/sqlite:/data/sqlite
-    command: ["python", "-c", "import time; time.sleep(10**9)"]
+    command: >
+      sh -c "python -m pip install --no-cache-dir -r /app/requirements.txt && python /app/simulator/main.py"
     depends_on:
       - mosquitto
     restart: unless-stopped

@@ -30,11 +30,17 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/glea_nexo
       SPRING_DATASOURCE_USERNAME: glea
       SPRING_DATASOURCE_PASSWORD: glea_123
+    volumes:
+      - ../../backend/logs:/app/logs
     depends_on:
       postgres:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:8081/actuator/health || exit 1"]
+      test:
+        [
+          "CMD-SHELL",
+          "curl -fsS http://localhost:8081/actuator/health || exit 1",
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
