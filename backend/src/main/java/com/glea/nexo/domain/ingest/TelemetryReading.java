@@ -70,7 +70,7 @@ public class TelemetryReading extends BaseEntityUuid {
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
-    @Column(precision = 5, scale = 2)
+    @Column(name = "batteryv", precision = 5, scale = 2)
     private BigDecimal batteryV;
 
     private Integer rssi;

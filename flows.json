@@ -1,0 +1,19 @@
+[
+    {
+        "id": "json_parse",
+        "type": "json",
+        "z": "tab_bridge",
+        "name": "JSON parse",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "fn_to_batch",
+                "dbg_in"
+            ]
+        ]
+    }
+]

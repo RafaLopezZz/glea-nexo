@@ -1,19 +1,62 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
 
-# Node-RED: no runtime pesado ni secretos
+# Env / secretos
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+infra/env/*.local
+
+# Java / Maven
+**/target/
+**/.mvn/
+*.class
+*.jar
+*.war
+*.ear
+surefire-reports/
+failsafe-reports/
+*.dump
+*.dumpstream
+TEST-*.xml
+
+# Node / Angular
+**/node_modules/
+frontend/dist/
+frontend/.angular/
+coverage/
+.npm/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# SQLite / local db
+*.db
+*.sqlite
+*.sqlite3
+edge/sqlite/*.db
+
+# Node-RED runtime
 edge/nodered/data/node_modules/
 edge/nodered/data/.npm/
 edge/nodered/data/flows_cred.json
 edge/nodered/data/*.backup
 edge/nodered/data/.config.*.json
 
-# SQLite: nunca subir bases de datos
-*.db
-*.sqlite
-*.sqlite3
-edge/sqlite/*.db
-
-# Mosquitto runtime (never commit)
+# Mosquitto runtime
 edge/mosquitto/data/*
 edge/mosquitto/log/*
 !edge/mosquitto/data/.gitkeep
 !edge/mosquitto/log/.gitkeep
+
+# AGENTS
+agents.md
+session-2026-05-30.md

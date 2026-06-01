@@ -1,0 +1,15 @@
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {123, 34, 115, 116…}
+RawContent        : HTTP/1.1 200 OK
+                    X-Correlation-Id: 28fa87e6-f9f4-45d7-bfb7-538d523a3993
+                    Vary: Origin
+                    Vary: Access-Control-Request-Method
+                    Vary: Access-Control-Request-Headers
+                    X-Content-Type-Options: nosniff
+                    X-XSS…
+Headers           : {[X-Correlation-Id, System.String[]], [Vary, System.String[]], [X-Content-Type-Options, System.String[]], [X-XSS-Protection, System.String[]]…}
+RawContentLength  : 49
+RelationLink      : {}
+
