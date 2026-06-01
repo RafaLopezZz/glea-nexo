@@ -1,0 +1,5 @@
+CONTAINER ID   IMAGE                    COMMAND                  CREATED        STATUS                       PORTS                              NAMES
+2593c08ba649   compose-backend          "java -jar /app/app.ÔÇª"   47 hours ago   Up About an hour (healthy)   8080/tcp, 0.0.0.0:8080->8081/tcp   glea-backend
+ef1f966b3e8b   compose-frontend         "docker-entrypoint.sÔÇª"   8 days ago     Up About an hour             0.0.0.0:4200->4200/tcp             glea-frontend
+045b76316ef9   postgis/postgis:16-3.4   "docker-entrypoint.sÔÇª"   2 months ago   Up About an hour (healthy)   0.0.0.0:5432->5432/tcp             laronda-postgres
+ed46da924171   postgres:15              "docker-entrypoint.sÔÇª"   3 months ago   Up About an hour (healthy)   0.0.0.0:3609->5432/tcp             glea-postgres
