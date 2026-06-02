@@ -30,9 +30,9 @@ Este ejercicio no valida todavía la persistencia en PostgreSQL ni el replay off
 
 La infraestructura está dividida en dos nodos físicos/lógicos.
 
-| Nodo | IP | Servicios |
-|---|---|---|
-| Equipo local | `192.168.1.10` | Backend, Frontend, PostgreSQL |
+| Nodo         | IP              | Servicios                        |
+| ------------ | --------------- | -------------------------------- |
+| Equipo local | `192.168.1.10`  | Backend, Frontend, PostgreSQL    |
 | Raspberry Pi | `192.168.1.248` | Mosquitto, Node-RED, edge-python |
 
 ### Plataforma local
@@ -279,7 +279,11 @@ docker inspect glea-edge-python --format '{{json .Config.Cmd}}'
 Resultado:
 
 ```json
-["sh","-c","python -m pip install --no-cache-dir -r /app/requirements.txt && python /app/simulator/main.py"]
+[
+  "sh",
+  "-c",
+  "python -m pip install --no-cache-dir -r /app/requirements.txt && python /app/simulator/main.py"
+]
 ```
 
 ### Validación de dependencia `paho-mqtt`
@@ -386,6 +390,20 @@ Resultado esperado:
 paho ok
 ```
 
+- Parar simulador:
+
+```bash
+cd ~/glea-nexo
+
+docker compose -f infra/compose/docker-compose.edge.yml stop edge-python
+```
+
+- Arrancar simulador:
+
+```bash
+docker compose -f infra/compose/docker-compose.edge.yml start edge-python
+```
+
 ### Telemetría MQTT
 
 ```bash
@@ -442,18 +460,18 @@ agro/finca1/zona1/pi-gw-001/sensor/.../.../telemetry {...}
 
 ## 12. Criterio de cierre
 
-| Criterio | Estado |
-|---|---:|
-| Platform local levantada | OK |
-| Backend responde en local | OK |
-| Raspberry Pi alcanza backend | OK |
-| Node-RED alcanza backend desde contenedor | OK |
-| Mosquitto responde | OK |
-| Node-RED responde | OK |
-| `BACKEND_URL` definido en Node-RED | OK |
-| `edge-python` ejecuta simulador real | OK |
-| `paho-mqtt` disponible | OK |
-| Telemetría viva en `agro/#` | OK |
+| Criterio                                  | Estado |
+| ----------------------------------------- | -----: |
+| Platform local levantada                  |     OK |
+| Backend responde en local                 |     OK |
+| Raspberry Pi alcanza backend              |     OK |
+| Node-RED alcanza backend desde contenedor |     OK |
+| Mosquitto responde                        |     OK |
+| Node-RED responde                         |     OK |
+| `BACKEND_URL` definido en Node-RED        |     OK |
+| `edge-python` ejecuta simulador real      |     OK |
+| `paho-mqtt` disponible                    |     OK |
+| Telemetría viva en `agro/#`               |     OK |
 
 **Veredicto final:** REAL.
 
