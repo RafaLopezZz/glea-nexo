@@ -1,13 +1,5 @@
 [
     {
-        "id": "ea264a2e957706b2",
-        "type": "tab",
-        "label": "Flujo 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "be15e65355010343",
         "type": "tab",
         "label": "Flujo 2",
@@ -82,182 +74,6 @@
         "cleansession": true
     },
     {
-        "id": "76ddf6df47f481f2",
-        "type": "mqtt in",
-        "z": "ea264a2e957706b2",
-        "name": "",
-        "topic": "agro/#",
-        "qos": "1",
-        "datatype": "auto-detect",
-        "broker": "b09c12a70ad626e3",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 140,
-        "wires": [
-            [
-                "4a4ae0ef4252de4c"
-            ]
-        ]
-    },
-    {
-        "id": "4a4ae0ef4252de4c",
-        "type": "debug",
-        "z": "ea264a2e957706b2",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 370,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "35543d72dbfde842",
-        "type": "sqlite",
-        "z": "ea264a2e957706b2",
-        "mydb": "1fab4871eee1b9df",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "",
-        "x": 490,
-        "y": 280,
-        "wires": [
-            [
-                "2a4a48c4efdab42b",
-                "c528d6f75d3fc80a"
-            ]
-        ]
-    },
-    {
-        "id": "e0c9d2ecbbfd1940",
-        "type": "inject",
-        "z": "ea264a2e957706b2",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "CREATE TABLE IF NOT EXISTS outbox (   id INTEGER PRIMARY KEY AUTOINCREMENT,   message_id TEXT NOT NULL UNIQUE,   ts TEXT NOT NULL,   topic TEXT NOT NULL,   payload TEXT NOT NULL,   sent_at TEXT,   tries INTEGER NOT NULL DEFAULT 0,   last_error TEXT );",
-        "payload": "",
-        "payloadType": "date",
-        "x": 170,
-        "y": 280,
-        "wires": [
-            [
-                "35543d72dbfde842"
-            ]
-        ]
-    },
-    {
-        "id": "2a4a48c4efdab42b",
-        "type": "debug",
-        "z": "ea264a2e957706b2",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 850,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "b3f65b269e109b23",
-        "type": "inject",
-        "z": "ea264a2e957706b2",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;",
-        "payload": "",
-        "payloadType": "date",
-        "x": 170,
-        "y": 380,
-        "wires": [
-            [
-                "35543d72dbfde842"
-            ]
-        ]
-    },
-    {
-        "id": "c528d6f75d3fc80a",
-        "type": "debug",
-        "z": "ea264a2e957706b2",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 850,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "058008d4716c422f",
-        "type": "inject",
-        "z": "ea264a2e957706b2",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "PRAGMA table_info(outbox);",
-        "payload": "",
-        "payloadType": "date",
-        "x": 170,
-        "y": 480,
-        "wires": [
-            [
-                "35543d72dbfde842"
-            ]
-        ]
-    },
-    {
         "id": "fa20e8b53e340698",
         "type": "function",
         "z": "be15e65355010343",
@@ -269,7 +85,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
+        "x": 620,
         "y": 180,
         "wires": [
             [
@@ -291,7 +107,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1130,
+        "x": 1250,
         "y": 180,
         "wires": []
     },
@@ -341,7 +157,7 @@
         "y": 180,
         "wires": [
             [
-                "e1f7d688c5ef72f0"
+                "sw_topic_outbox"
             ]
         ]
     },
@@ -353,7 +169,7 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 310,
+        "x": 430,
         "y": 180,
         "wires": [
             [
@@ -369,7 +185,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "",
-        "x": 450,
+        "x": 570,
         "y": 260,
         "wires": [
             [
@@ -385,7 +201,7 @@
         "sqlquery": "prepared",
         "sql": "INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload)\nVALUES ($message_id, $ts, $topic, $payload);\n",
         "name": "",
-        "x": 830,
+        "x": 950,
         "y": 180,
         "wires": [
             [
@@ -406,7 +222,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
+        "x": 1070,
         "y": 260,
         "wires": []
     },
@@ -418,7 +234,7 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "",
-        "x": 730,
+        "x": 850,
         "y": 340,
         "wires": [
             [
@@ -447,7 +263,7 @@
         "topic": "const testMessageId = \"test-\" + Date.now();  msg.topic = ` INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload) VALUES (?, ?, ?, ?); `.trim();  msg.payload = [   testMessageId,   new Date().toISOString(),   \"agro/test/topic\",   JSON.stringify({ hello: \"world\", testMessageId }) ];  return msg;",
         "payload": "",
         "payloadType": "date",
-        "x": 470,
+        "x": 590,
         "y": 340,
         "wires": [
             [
@@ -468,7 +284,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
+        "x": 1070,
         "y": 340,
         "wires": []
     },
@@ -485,7 +301,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
+        "x": 830,
         "y": 100,
         "wires": []
     },
@@ -494,20 +310,91 @@
         "type": "function",
         "z": "be15e65355010343",
         "name": "function 3",
-        "func": "const row = (msg.payload && msg.payload[0]) ? msg.payload[0] : {\n    total: 0, pending: 0, sent: 0, last_ts: \"\"\n};\n\nconst text = `Outbox | total=${row.total} | pending=${row.pending} | sent=${row.sent} | last_ts=${row.last_ts}`;\n\nnode.status({ fill: row.pending > 0 ? \"yellow\" : \"green\", shape: \"dot\", text });\n\nmsg.payload = row;   // deja el objeto limpio para debug\nmsg.summary = text;  // por si quieres verlo como texto tambi\u00e9n\nreturn msg;\n",
+        "func": "const row = (msg.payload && msg.payload[0]) ? msg.payload[0] : {\n    total: 0, pending: 0, sent: 0, last_ts: \"\"\n};\n\nconst text = `Outbox | total=${row.total} | pending=${row.pending} | sent=${row.sent} | last_ts=${row.last_ts}`;\n\nnode.status({ fill: row.pending > 0 ? \"yellow\" : \"green\", shape: \"dot\", text });\n\nmsg.payload = row;   // deja el objeto limpio para debug\nmsg.summary = text;  // por si quieres verlo como texto también\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
+        "x": 820,
         "y": 260,
         "wires": [
             [
                 "934177108abb3431"
             ]
         ]
+    },
+    {
+        "id": "sw_topic_outbox",
+        "type": "switch",
+        "z": "be15e65355010343",
+        "name": "Route by topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "/telemetry",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "/status",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "agro/test/ping",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "e1f7d688c5ef72f0"
+            ],
+            [
+                "dbg_status_outbox"
+            ],
+            [
+                "dbg_ping_outbox"
+            ]
+        ]
+    },
+    {
+        "id": "dbg_status_outbox",
+        "type": "debug",
+        "z": "be15e65355010343",
+        "name": "DROP status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 520,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "dbg_ping_outbox",
+        "type": "debug",
+        "z": "be15e65355010343",
+        "name": "DROP ping",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 510,
+        "y": 120,
+        "wires": []
     },
     {
         "id": "91bae263de1b6a01",
@@ -615,17 +502,17 @@
         "name": "MQTT IN agro/#",
         "topic": "agro/#",
         "qos": "1",
-        "datatype": "auto",
+        "datatype": "auto-detect",
         "broker": "mqtt_broker",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 160,
+        "x": 100,
         "y": 120,
         "wires": [
             [
-                "json_parse"
+                "sw_topic_bridge"
             ]
         ]
     },
@@ -637,7 +524,7 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 330,
+        "x": 490,
         "y": 120,
         "wires": [
             [
@@ -651,14 +538,14 @@
         "type": "function",
         "z": "tab_bridge",
         "name": "Filter + map + wrap batch",
-        "func": "// 1) Solo telemetry\nconst topic = String(msg.topic || '');\nif (!topic.endsWith('/telemetry')) return null;\n\nconst p = msg.payload || {};\n\n// 2) Parse del topic MQTT v2 real:\n// agro/{finca}/{zona}/{gw}/sensor/{sensorUid}/{sensorType}/telemetry\nconst parts = topic.split('/');\nconst sensorIdx = parts.indexOf('sensor');\n\nif (\n  parts.length < 8 ||\n  parts[0] !== 'agro' ||\n  sensorIdx < 0 ||\n  sensorIdx + 2 >= parts.length ||\n  parts[parts.length - 1] !== 'telemetry'\n) {\n  node.warn(`Topic unexpected (need v2): ${topic}`);\n  return null;\n}\n\nconst finca = parts[1];\nconst zona = parts[2];\nconst gw = parts[3];\nconst sensorUid = parts[sensorIdx + 1]; // e.g. wind-08, ph-05\nconst sensorType = parts[sensorIdx + 2]; // e.g. WIND, PH, SOIL_MOISTURE (ya can\u00f3nico)\n\n// 3) Verificaci\u00f3n ligera (opcional)\nif (!gw || !sensorUid || !sensorType) {\n  node.warn(`Missing gw/sensorUid/sensorType in topic: ${topic}`);\n  return null;\n}\n\n// 4) Normaliza unidades del simulador a c\u00f3digos de tu tabla unit (ajusta a los codes reales)\nconst u = (p.unit == null) ? null : String(p.unit);\nconst unitMap = {\n  'C': 'C',\n  '%RH': 'PERCENT',\n  '%VWC': 'PERCENT',\n  'mS/cm': 'MS_CM',\n  'pH': 'PH_SCALE',\n  'lux': 'LUX',\n  'hPa': 'HPA',\n  'V': 'VOLT',\n  'm/s': 'M_PER_S',\n  'mm': 'MM'\n};\nconst unitCode = u ? (unitMap[u] || u.toUpperCase()) : null;\n\n// 5) Body del backend (clave: topic por reading + deviceId = gateway)\nmsg.method = 'POST';\nmsg.headers = { 'Content-Type': 'application/json' };\nmsg.payload = {\n  source: 'edge-nodered',\n  topic: null, // no lo uses en multisensor; puede ir null\n  readings: [{\n    messageId: String(p.messageId),\n    deviceId: String(p.deviceId || gw), // gatewayUid (NO gw:sensor)\n    topic: topic,                       // <-- el topic v2 REAL\n    ts: String(p.ts || new Date().toISOString()),\n    value: Number(p.value),\n    unit: unitCode,\n    battery: (p.battery != null) ? Number(p.battery) : null,\n    rssi: (p.rssi != null) ? Number(p.rssi) : null,\n    rawPayload: p\n  }]\n};\n\n// 6) URL del backend desde env var (configurable en docker-compose)\nconst baseUrl = env.get(\"BACKEND_URL\") || \"http://192.168.1.10:8080\";\nmsg.url = baseUrl + \"/api/ingest/readings/batch\";\n\nreturn msg;\n",
+        "func": "// 1) Solo telemetry\nconst topic = String(msg.topic || '');\nif (!topic.endsWith('/telemetry')) return null;\n\n// 2) Parse robusto del payload MQTT\nlet p = msg.payload;\n\nif (Buffer.isBuffer(p)) {\n  p = p.toString('utf8');\n}\n\nif (typeof p === 'string') {\n  try {\n    p = JSON.parse(p);\n  } catch (err) {\n    node.error(`Invalid JSON payload: ${err.message}`, msg);\n    return null;\n  }\n}\n\nif (!p || typeof p !== 'object') {\n  node.error('Payload is not an object after JSON parsing', msg);\n  return null;\n}\n\n// 3) Parse del topic MQTT v2 real:\n// agro/{finca}/{zona}/{gw}/sensor/{sensorUid}/{sensorType}/telemetry\nconst parts = topic.split('/');\nconst sensorIdx = parts.indexOf('sensor');\n\nif (\n  parts.length < 8 ||\n  parts[0] !== 'agro' ||\n  sensorIdx < 0 ||\n  sensorIdx + 2 >= parts.length ||\n  parts[parts.length - 1] !== 'telemetry'\n) {\n  node.warn(`Topic unexpected (need v2): ${topic}`);\n  return null;\n}\n\nconst finca = parts[1];\nconst zona = parts[2];\nconst gw = parts[3];\nconst sensorUid = parts[sensorIdx + 1];\nconst sensorType = parts[sensorIdx + 2];\n\nif (!gw || !sensorUid || !sensorType) {\n  node.warn(`Missing gw/sensorUid/sensorType in topic: ${topic}`);\n  return null;\n}\n\n// 4) Validaciones mínimas de contrato\nif (!p.messageId) {\n  node.error(`Missing messageId in payload. topic=${topic} payload=${JSON.stringify(p)}`, msg);\n  return null;\n}\n\nif (!p.ts) {\n  node.error(`Missing ts in payload. messageId=${p.messageId}`, msg);\n  return null;\n}\n\nif (p.value === undefined || p.value === null) {\n  node.error(`Missing value in payload. messageId=${p.messageId}`, msg);\n  return null;\n}\n\n// 5) Normaliza unidades del simulador a códigos backend\nconst u = (p.unit == null) ? null : String(p.unit);\nconst unitMap = {\n  'C': 'C',\n  '%RH': 'PERCENT',\n  '%VWC': 'PERCENT',\n  'mS/cm': 'MS_CM',\n  'pH': 'PH_SCALE',\n  'lux': 'LUX',\n  'hPa': 'HPA',\n  'V': 'VOLT',\n  'm/s': 'M_PER_S',\n  'mm': 'MM'\n};\nconst unitCode = u ? (unitMap[u] || u.toUpperCase()) : null;\n\n// 6) URL dinámica desde variable de entorno\nconst baseUrl = env.get('BACKEND_URL') || 'http://192.168.1.10:8080';\n\nmsg.method = 'POST';\nmsg.url = baseUrl + '/api/ingest/readings/batch';\nmsg.headers = { 'Content-Type': 'application/json' };\n\n// 7) Body compatible con IngestReadingDto\nmsg.payload = {\n  source: 'edge-nodered',\n  topic: null,\n  readings: [\n    {\n      messageId: String(p.messageId),\n      deviceId: String(p.deviceId || gw),\n      topic: topic,\n      ts: String(p.ts),\n      value: Number(p.value),\n      unit: unitCode,\n      battery: (p.battery != null) ? Number(p.battery) : null,\n      rssi: (p.rssi != null) ? Number(p.rssi) : null,\n      rawPayload: p\n    }\n  ]\n};\n\nnode.warn(`Prepared ingest batch messageId=${p.messageId} topic=${topic}`);\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 730,
         "y": 120,
         "wires": [
             [
@@ -683,7 +570,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 880,
+        "x": 1010,
         "y": 120,
         "wires": [
             [
@@ -699,8 +586,8 @@
         "active": true,
         "tosidebar": true,
         "complete": "true",
-        "x": 520,
-        "y": 200,
+        "x": 800,
+        "y": 280,
         "wires": []
     },
     {
@@ -716,7 +603,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1000,
         "y": 200,
         "wires": []
     },
@@ -727,10 +614,85 @@
         "name": "Backend response",
         "active": true,
         "tosidebar": true,
+        "console": false,
         "tostatus": true,
         "complete": "payload",
-        "x": 1090,
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1220,
         "y": 120,
+        "wires": []
+    },
+    {
+        "id": "sw_topic_bridge",
+        "type": "switch",
+        "z": "tab_bridge",
+        "name": "Route by topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "/telemetry",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "/status",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "agro/test/ping",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "json_parse"
+            ],
+            [
+                "dbg_status_bridge"
+            ],
+            [
+                "dbg_ping_bridge"
+            ]
+        ]
+    },
+    {
+        "id": "dbg_status_bridge",
+        "type": "debug",
+        "z": "tab_bridge",
+        "name": "DROP status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 210,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "dbg_ping_bridge",
+        "type": "debug",
+        "z": "tab_bridge",
+        "name": "DROP ping",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 210,
+        "y": 240,
         "wires": []
     }
 ]

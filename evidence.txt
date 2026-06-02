@@ -1,0 +1,1409 @@
+              message_id              |                                    topic                                    |    source    |  status   |          received_at          |         processed_at          
+--------------------------------------+-----------------------------------------------------------------------------+--------------+-----------+-------------------------------+-------------------------------
+ test-e2e-002                         | agro/finca1/zona1/pi-gw-001/sensor/soil-01/SOIL_MOISTURE/telemetry          |              | PROCESSED | 2026-05-30 18:09:55.980922+00 | 2026-05-30 18:09:56.062955+00
+ manual-debug-1                       | agro/finca1/zona1/pi-gw-001/sensor/debug-99/TEMPERATURE/telemetry           | manual-debug | PROCESSED | 2026-05-25 20:57:55.497487+00 | 2026-05-25 20:57:55.512842+00
+ undefined                            | agro/finca1/zona1/pi-gw-001/sensor/debug-99/TEMPERATURE/telemetry           | edge-nodered | PROCESSED | 2026-05-25 20:57:33.441719+00 | 2026-05-25 20:57:33.514355+00
+ 1925c8ae-2f6d-4057-a31b-683dc63d215d | agro/finca1/zona1/pi-gw-001/sensor/pressure-07/PRESSURE/telemetry           | edge-nodered | PROCESSED | 2026-02-19 06:40:42.113776+00 | 2026-02-19 06:40:42.12135+00
+ 2dab5642-9d5a-4ac7-9191-ad2ed6e1714f | agro/finca1/zona1/pi-gw-001/sensor/rain-09/RAIN/telemetry                   | edge-nodered | PROCESSED | 2026-02-19 06:40:42.11349+00  | 2026-02-19 06:40:42.120877+00
+ 8fd7c590-8f86-41a7-b369-286c8448d896 | agro/finca1/zona1/pi-gw-001/sensor/wind-08/WIND/telemetry                   | edge-nodered | PROCESSED | 2026-02-19 06:40:42.11329+00  | 2026-02-19 06:40:42.120882+00
+ bc5cbaed-dd31-45d1-8925-c2f6bade4e1c | agro/finca1/zona1/pi-gw-001/sensor/battery-10/BATTERY/telemetry             | edge-nodered | PROCESSED | 2026-02-19 06:40:42.112982+00 | 2026-02-19 06:40:42.120907+00
+ a06539f0-60b8-4199-aa2f-ccc0af1f58a4 | agro/finca1/zona1/pi-gw-001/sensor/ec-04/EC/telemetry                       | edge-nodered | PROCESSED | 2026-02-19 06:40:42.046118+00 | 2026-02-19 06:40:42.056784+00
+ 81636aa4-ca50-4385-ac5a-01bb14486374 | agro/finca1/zona1/pi-gw-001/sensor/light-06/LIGHT/telemetry                 | edge-nodered | PROCESSED | 2026-02-19 06:40:42.045991+00 | 2026-02-19 06:40:42.056392+00
+ d0f17a3e-75b2-4ddf-aed9-d61e8eeb109b | agro/finca1/zona1/pi-gw-001/sensor/humidity-03/HUMIDITY/telemetry           | edge-nodered | PROCESSED | 2026-02-19 06:40:42.045901+00 | 2026-02-19 06:40:42.056389+00
+ 650aefa7-e1fe-4072-908a-f1749c05ba15 | agro/finca1/zona1/pi-gw-001/sensor/ph-05/PH/telemetry                       | edge-nodered | PROCESSED | 2026-02-19 06:40:42.045859+00 | 2026-02-19 06:40:42.056608+00
+ c7f6759b-55a0-4574-bcc0-6a60454c33dc | agro/finca1/zona1/pi-gw-001/sensor/soil_moisture-01/SOIL_MOISTURE/telemetry | edge-nodered | PROCESSED | 2026-02-19 06:40:42.045764+00 | 2026-02-19 06:40:42.056393+00
+ 52eef25d-898a-4c91-8d2a-e5a96829005b | agro/finca1/zona1/pi-gw-001/sensor/temperature-02/TEMPERATURE/telemetry     | edge-nodered | PROCESSED | 2026-02-19 06:40:42.045764+00 | 2026-02-19 06:40:42.056393+00
+ 41b841d5-88b7-4e81-80f7-4811b5ebe807 | agro/finca1/zona1/pi-gw-001/sensor/rain-09/RAIN/telemetry                   | edge-nodered | PROCESSED | 2026-02-19 06:39:42.02927+00  | 2026-02-19 06:39:42.040769+00
+ fdd5828e-442a-4c4a-9c2e-1965e7874ac0 | agro/finca1/zona1/pi-gw-001/sensor/pressure-07/PRESSURE/telemetry           | edge-nodered | PROCESSED | 2026-02-19 06:39:42.029258+00 | 2026-02-19 06:39:42.040636+00
+ 3308d2a3-09f7-4e08-8d6b-c55423d9603a | agro/finca1/zona1/pi-gw-001/sensor/battery-10/BATTERY/telemetry             | edge-nodered | PROCESSED | 2026-02-19 06:39:42.028953+00 | 2026-02-19 06:39:42.040593+00
+ a942bbd2-d058-4385-83ca-7a024734bee3 | agro/finca1/zona1/pi-gw-001/sensor/wind-08/WIND/telemetry                   | edge-nodered | PROCESSED | 2026-02-19 06:39:42.028419+00 | 2026-02-19 06:39:42.040593+00
+ fe26bbe9-8b18-400f-a0bb-0e436166c47c | agro/finca1/zona1/pi-gw-001/sensor/humidity-03/HUMIDITY/telemetry           | edge-nodered | PROCESSED | 2026-02-19 06:39:41.84369+00  | 2026-02-19 06:39:41.8573+00
+ f3540456-963e-416c-999f-f4af679d3008 | agro/finca1/zona1/pi-gw-001/sensor/light-06/LIGHT/telemetry                 | edge-nodered | PROCESSED | 2026-02-19 06:39:41.843665+00 | 2026-02-19 06:39:41.8573+00
+ ac0149ec-841e-4ef4-9060-98fd985d3d7e | agro/finca1/zona1/pi-gw-001/sensor/soil_moisture-01/SOIL_MOISTURE/telemetry | edge-nodered | PROCESSED | 2026-02-19 06:39:41.84361+00  | 2026-02-19 06:39:41.857502+00
+(20 rows)
+
+
+2026-05-30 18:08:59.672 WARN  [main] [N/A] org.hibernate.orm.deprecation -
+2026-05-30 18:09:02.632 WARN  [main] [N/A] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration -
+2026-05-30 18:09:56.063 INFO  [http-nio-8081-exec-10] [e9b9f113-f129-4905-96b0-5fc5748f9b2b] c.g.n.a.ingest.IngestItemProcessor -
+2026-06-01 15:28:38.006 WARN  [main] [N/A] org.hibernate.orm.deprecation -
+2026-06-01 15:28:41.675 WARN  [main] [N/A] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration -
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-1] [8ad21d6e-b936-4a94-875e-c72f29a9dd4b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-7] [52ac322d-83d6-4331-91b1-08569114aebb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-9] [c3846f44-2d1e-4ab1-9151-79e4538b3c1f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-10] [41dc05d0-439d-4680-a61f-b91980ae839c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-4] [e6943875-88ab-4be9-b300-4b3b30a3ed7b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-3] [199d99d6-fa92-4466-8455-940b12ae6f7b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-8] [4c130f3a-f940-4458-bbbd-b5cc196b3525] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-5] [02b26ef5-e66a-4dbb-9f7f-355cc01a3337] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-2] [c2b0ba8b-0be1-4f35-bca2-645a0c9e398a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:10:21.334 INFO  [http-nio-8081-exec-6] [ef290639-4716-4280-8830-8ae3b3793634] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.592 INFO  [http-nio-8081-exec-7] [64d5c4c2-343d-49b6-8cad-9b7b16846213] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.634 INFO  [http-nio-8081-exec-6] [b5fe406a-8874-44ab-a6a0-edde42ac4cd3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.643 INFO  [http-nio-8081-exec-5] [3225a635-b0ad-465d-8d72-8ff01fd7db58] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.676 INFO  [http-nio-8081-exec-2] [6ebc2789-6518-42a6-91a7-94907bb1674d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.704 INFO  [http-nio-8081-exec-3] [80442f41-0022-44ee-aa3e-5f69851c566b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.749 INFO  [http-nio-8081-exec-4] [62d9ac82-cddc-45ba-b75e-c125fae48ee6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.777 INFO  [http-nio-8081-exec-9] [c046822f-8c1e-494a-b147-1ec75a38560e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.817 INFO  [http-nio-8081-exec-1] [dff0faaa-94b3-49ad-92d2-4e48876fca2a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.841 INFO  [http-nio-8081-exec-8] [adfc14e2-dba5-4a56-b973-344090ac9419] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:11:20.875 INFO  [http-nio-8081-exec-10] [d27a8679-54d7-4ba7-ac00-5a631257e157] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.603 INFO  [http-nio-8081-exec-3] [d8e4ee45-b95f-4ec4-a539-7ceec1ff890e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.631 INFO  [http-nio-8081-exec-4] [bcee5527-c4fa-4837-92c4-0a4d71c17355] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.638 INFO  [http-nio-8081-exec-9] [99f843b2-8828-4d67-bd9f-55330f7e0ba2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.672 INFO  [http-nio-8081-exec-1] [46e04516-af64-46cb-8ee5-929dbee047bb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.718 INFO  [http-nio-8081-exec-8] [28e0e6c0-723e-4e2c-9024-8646917b1570] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.740 INFO  [http-nio-8081-exec-10] [de7b4aef-0db3-400e-ab72-927145c860a2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.764 INFO  [http-nio-8081-exec-7] [555165a4-fab9-49b0-9aa2-62b70dcb07b1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.814 INFO  [http-nio-8081-exec-6] [ab35753d-2652-41d3-9525-75b078dd51e2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.836 INFO  [http-nio-8081-exec-5] [d6e22726-19c7-45e5-a1f7-3f576d7f4ffc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:12:20.851 INFO  [http-nio-8081-exec-2] [7b490ca5-2fb0-4bca-be97-d74732424c14] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.613 INFO  [http-nio-8081-exec-1] [b4252163-65f1-44a5-aede-003e99466018] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.661 INFO  [http-nio-8081-exec-8] [de3305c6-60b1-4257-ac27-0020df1a2cf6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.676 INFO  [http-nio-8081-exec-10] [4251ce0c-f607-4a24-8abe-5891ece14acf] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.699 INFO  [http-nio-8081-exec-7] [7f00d5b5-8b39-4ed8-98d1-39ea5e435410] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.720 INFO  [http-nio-8081-exec-6] [2761f737-0cc6-44a5-8cb7-0cc7eab25fde] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.747 INFO  [http-nio-8081-exec-5] [8bc3c8b1-3b91-4864-a7ed-2cedfa6a32a8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.794 INFO  [http-nio-8081-exec-2] [3c200c46-1af9-44e5-9662-ccba355d00c4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.814 INFO  [http-nio-8081-exec-3] [fba66a40-8c54-4538-99b1-e8d4657a8744] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.839 INFO  [http-nio-8081-exec-4] [b5e83012-692b-4b22-8fd4-b8c2d3c4931b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:13:20.877 INFO  [http-nio-8081-exec-9] [63b5d389-8291-4793-b31f-4b115387e4bc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.636 INFO  [http-nio-8081-exec-7] [00116fad-45ac-4be3-8420-e177dc6ecb53] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.656 INFO  [http-nio-8081-exec-6] [90b4bcca-596e-434b-86f4-80f2dee1a856] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.670 INFO  [http-nio-8081-exec-5] [7f8bb350-5644-426c-b8b5-b998ce06914e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.694 INFO  [http-nio-8081-exec-2] [8f28199b-09a3-451a-abdc-a69c64b30cc5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.718 INFO  [http-nio-8081-exec-3] [788f488b-c3ef-4f73-a1ce-3e258e82ae81] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.735 INFO  [http-nio-8081-exec-4] [1a9ef7e5-0d4c-4565-9eca-cd9240e4738a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.754 INFO  [http-nio-8081-exec-9] [33b0083b-509b-4998-af39-f85edd47c769] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.777 INFO  [http-nio-8081-exec-1] [a74a4d6d-53cb-4557-9c50-0e4db40ffab5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.840 INFO  [http-nio-8081-exec-8] [b8b8b398-12cf-4313-ba66-ce0e4944115a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:14:20.858 INFO  [http-nio-8081-exec-10] [f2ebe16b-addf-42b4-b6a8-e910f627e12e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.631 INFO  [http-nio-8081-exec-2] [1f422827-fcff-450c-b25e-838e500a5d14] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.644 INFO  [http-nio-8081-exec-3] [4b79c7cf-07f7-4187-b1d9-3ce91e6365bb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.671 INFO  [http-nio-8081-exec-4] [6a6b9329-c21f-4b55-a5e7-e456307bb231] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.679 INFO  [http-nio-8081-exec-9] [4333fe1b-7367-4f81-9228-9b0a5aa6bdb8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.701 INFO  [http-nio-8081-exec-1] [0756876e-109d-41cc-b45c-1ca54fbe04c2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.723 INFO  [http-nio-8081-exec-8] [d4476961-81a0-4bda-bdb0-ef99832264d8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.742 INFO  [http-nio-8081-exec-10] [d9ccde82-8fef-4b63-81ac-5a270d4fc95c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.769 INFO  [http-nio-8081-exec-7] [554bec46-b734-44fd-b5e7-898f5ed0c71a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.835 INFO  [http-nio-8081-exec-6] [b1088de2-3a74-4f91-bfb6-ed52f016f0fb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:15:20.849 INFO  [http-nio-8081-exec-5] [ed610c7e-e8e3-4143-9f17-8dc9924648a7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.637 INFO  [http-nio-8081-exec-8] [26bc4000-02ba-4069-bf8d-674d43f0cd69] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.657 INFO  [http-nio-8081-exec-10] [6106319b-d8f7-459a-96b1-7df452d2cb85] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.661 INFO  [http-nio-8081-exec-7] [07870968-9d44-4ae2-b577-b222507c3bce] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.687 INFO  [http-nio-8081-exec-6] [d4ce3071-eeb0-45c1-97ea-963a180dc63b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.719 INFO  [http-nio-8081-exec-5] [8233be80-4498-4286-9691-4cfd21b0db18] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.792 INFO  [http-nio-8081-exec-2] [56790331-11e5-4fd4-9d94-54a60811effc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.807 INFO  [http-nio-8081-exec-3] [1ab502f0-21bd-4f65-91ed-0d13f9409b35] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.842 INFO  [http-nio-8081-exec-4] [2a296dff-09a5-40ac-a42f-e39ed6bc05c3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.868 INFO  [http-nio-8081-exec-9] [2fb957d5-68a3-4ef2-9ddd-24f325254fd5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:16:20.885 INFO  [http-nio-8081-exec-1] [496d2725-3e3f-4004-9dcc-38b840bf6689] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.640 INFO  [http-nio-8081-exec-5] [13199f30-a721-439a-bb65-80a846184990] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.660 INFO  [http-nio-8081-exec-2] [064d8ed1-b923-4cf8-8d8c-8ae128f87ce2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.667 INFO  [http-nio-8081-exec-3] [9e4fe38c-b2a9-4310-a549-6e0a25d8cce3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.683 INFO  [http-nio-8081-exec-4] [790c557f-2739-482b-ae8a-ce563dc9a2db] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.703 INFO  [http-nio-8081-exec-9] [a85fbced-9d86-40c2-9744-40fdc701d9db] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.738 INFO  [http-nio-8081-exec-1] [738c6ae2-ddf2-4a02-9c73-e4e253c6262c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.785 INFO  [http-nio-8081-exec-8] [7ab3b707-27e6-4d45-bd41-67c548c46faa] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.805 INFO  [http-nio-8081-exec-10] [565ef55f-a808-4d43-ab6b-766fcca19721] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.825 INFO  [http-nio-8081-exec-7] [2fe868d0-4cfc-486c-89cb-72d321b16b1e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:17:20.868 INFO  [http-nio-8081-exec-6] [36a73c2e-5152-4aec-9903-913ef86d5ff4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.653 INFO  [http-nio-8081-exec-9] [cd399a38-1e8e-4495-a843-d928575c7a41] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.677 INFO  [http-nio-8081-exec-1] [e65ef715-eeda-4ad2-9002-81fc8586ea0e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.680 INFO  [http-nio-8081-exec-8] [1bacf6ae-62d1-4232-b6f5-51565d512709] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.704 INFO  [http-nio-8081-exec-10] [cfe1c1ff-8b32-4006-b76b-09deb95540f5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.732 INFO  [http-nio-8081-exec-7] [4c2da5ee-2fb7-478d-898e-166264054416] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.752 INFO  [http-nio-8081-exec-6] [a6acd22e-20cc-47b0-81d2-12cc3fda63fa] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.809 INFO  [http-nio-8081-exec-5] [90fdf6e3-9adb-4d91-8e46-97e553f3fff4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.829 INFO  [http-nio-8081-exec-2] [b7e7b5ea-4e37-432c-878b-8ba4896267bf] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.845 INFO  [http-nio-8081-exec-3] [988450e0-4fdc-4874-b8e1-34c27c03f314] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:18:20.859 INFO  [http-nio-8081-exec-4] [a0b4504e-5a8c-4073-9ad4-2480459a200c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.663 INFO  [http-nio-8081-exec-7] [dcc5f270-5f0e-4f4e-9a06-3119a63258c7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.682 INFO  [http-nio-8081-exec-6] [b36ba15d-8598-4644-bdf5-c4afda71e988] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.686 INFO  [http-nio-8081-exec-5] [87fae899-2826-4bab-867f-3d8831e522ac] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.709 INFO  [http-nio-8081-exec-2] [d431d0d9-ba9f-4c44-b3ca-386b1a430eed] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.742 INFO  [http-nio-8081-exec-3] [38fb8235-5a0d-4501-8eb6-fc6dc8fcd719] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.765 INFO  [http-nio-8081-exec-4] [b4996a01-d0ab-4944-9e76-595024d1bc0c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.796 INFO  [http-nio-8081-exec-9] [95c59efc-31fa-46f4-85d5-58870e1a8916] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.827 INFO  [http-nio-8081-exec-1] [c2743995-983d-4489-bbef-63722527fbef] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.853 INFO  [http-nio-8081-exec-8] [00e728b9-4961-4f5e-89d4-8536d9316f3f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:19:20.867 INFO  [http-nio-8081-exec-10] [2cd8fba8-0235-4ba6-8523-e30858490fbb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.694 INFO  [http-nio-8081-exec-3] [acee231e-b862-449f-9d14-193665ef6092] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.719 INFO  [http-nio-8081-exec-4] [4a5b9894-fcdc-4d81-8dcc-439f6990122f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.733 INFO  [http-nio-8081-exec-9] [89ce1b01-4cbb-4c34-a2ee-ef85b8be1e48] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.752 INFO  [http-nio-8081-exec-1] [cf15faf9-1ae8-4ef3-9f55-fe2b42e2d935] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.781 INFO  [http-nio-8081-exec-8] [2e865d43-085b-4dcd-a244-2eb9da465b46] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.839 INFO  [http-nio-8081-exec-10] [52d2fd19-0231-48fa-8d6d-74fdc42a63b7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.858 INFO  [http-nio-8081-exec-7] [6c14d30f-8169-4dba-8089-dd2233a9be9c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.881 INFO  [http-nio-8081-exec-6] [1ec01e4e-dc50-44b7-8850-a317fbd8a9ae] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.935 INFO  [http-nio-8081-exec-5] [00ccf3ae-d0f8-4bf1-be96-d49b6954fb1e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:20:20.957 INFO  [http-nio-8081-exec-2] [acaaeaef-31a8-4e39-8b3c-1ec98ccbb6de] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.705 INFO  [http-nio-8081-exec-9] [dac89875-8ceb-433e-9280-5bcada070263] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.729 INFO  [http-nio-8081-exec-1] [f319f26b-968e-4785-b18d-93da51de5534] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.737 INFO  [http-nio-8081-exec-8] [482073b9-9b98-4871-9ef0-8f382a2c3017] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.763 INFO  [http-nio-8081-exec-10] [b34e7704-db58-4073-902c-bb3cb88df735] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.789 INFO  [http-nio-8081-exec-7] [f2e33ffb-23a0-42a6-ac56-2a5ee723bc90] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.813 INFO  [http-nio-8081-exec-6] [29d237dd-f1b8-455b-88cc-72efa2beb425] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.830 INFO  [http-nio-8081-exec-5] [5982b53c-f8f3-45fc-b7a0-c2df3d75c99e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.863 INFO  [http-nio-8081-exec-2] [0ab72925-7f34-40a0-9b9c-9f9d55862ea1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.911 INFO  [http-nio-8081-exec-3] [9eb68779-bba3-4f59-8db2-62597b8c09af] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:21:20.930 INFO  [http-nio-8081-exec-4] [71e3df87-1807-4116-a195-0efc08ad5f51] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.708 INFO  [http-nio-8081-exec-7] [460a6e27-d077-47a6-bcb8-4b0b9af391b4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.732 INFO  [http-nio-8081-exec-6] [04e49df2-7a81-4b63-9497-24d8957faf04] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.737 INFO  [http-nio-8081-exec-5] [ae00ee60-66e3-4303-b659-981a82121879] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.780 INFO  [http-nio-8081-exec-2] [26780308-6597-4d57-9cd8-7b4e09b8ce33] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.876 INFO  [http-nio-8081-exec-3] [9edd9f75-0147-4339-92fc-65befb2c1e14] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.889 INFO  [http-nio-8081-exec-4] [8af49fe6-7685-409a-973f-00a8f1c70d76] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.913 INFO  [http-nio-8081-exec-9] [713e95f0-3d7d-45c6-bb86-bb4db6067f4f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.932 INFO  [http-nio-8081-exec-1] [1195b01f-e6b5-498f-999e-a0c6a53896cd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.947 INFO  [http-nio-8081-exec-8] [68086d59-6cf5-4c5d-8d4f-38c97714780f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:22:20.975 INFO  [http-nio-8081-exec-10] [d9618a44-494c-4bf5-8f65-7eaebd547d55] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.734 INFO  [http-nio-8081-exec-3] [bc55f32a-46a2-4572-9b1c-2c5b82b73d28] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.756 INFO  [http-nio-8081-exec-4] [babc75a9-f59f-4af9-b7c6-941e71e7a005] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.766 INFO  [http-nio-8081-exec-9] [fa5e41d9-ae71-4649-9694-31ac349b9090] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.789 INFO  [http-nio-8081-exec-1] [6e64cb37-f2b2-4c99-a644-d0472037cd97] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.817 INFO  [http-nio-8081-exec-8] [b2522fa1-8646-4134-865d-308835a50f24] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.854 INFO  [http-nio-8081-exec-10] [056c3d09-8ca7-4852-ae04-05f5508e130e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.872 INFO  [http-nio-8081-exec-7] [1808beaf-c195-40a6-adc4-d25f102525f7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.931 INFO  [http-nio-8081-exec-6] [c469cbb6-a99c-4ece-a93d-f54329480d21] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.946 INFO  [http-nio-8081-exec-5] [c2e87527-d6ab-49b0-bd38-958fa3ffa11a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:23:20.966 INFO  [http-nio-8081-exec-2] [93809652-5d6e-4cf8-8694-1b7dfd2675bb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.748 INFO  [http-nio-8081-exec-8] [41610911-3150-4df0-81f8-8bb5c63f82a7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.776 INFO  [http-nio-8081-exec-10] [d4903f9e-c4fe-48ef-8f0f-6824d8506c2d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.783 INFO  [http-nio-8081-exec-7] [08505465-0aa8-47ab-b28b-58b0004830c4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.822 INFO  [http-nio-8081-exec-6] [732ee978-c171-4aad-acb3-3ea601efbe56] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.848 INFO  [http-nio-8081-exec-5] [b259fb94-5a3f-4aca-9280-c6b7f47f37fa] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.867 INFO  [http-nio-8081-exec-2] [afa37ccc-a845-4bf9-a5c7-89905d00679d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.904 INFO  [http-nio-8081-exec-3] [91e08683-cd94-43d2-8e53-07ccfff7f69e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.922 INFO  [http-nio-8081-exec-4] [9dc7cd16-64c4-49c9-9cfb-269eeca04780] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.948 INFO  [http-nio-8081-exec-9] [691ff4f0-30ec-4c89-9152-e15862db79cc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:24:20.989 INFO  [http-nio-8081-exec-1] [43e37327-6ef0-4e39-9248-e75fcf026d2d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.770 INFO  [http-nio-8081-exec-5] [9808c340-59c7-4eff-93c8-5472f5c1901e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.801 INFO  [http-nio-8081-exec-2] [2782d78a-56aa-4bfb-a22d-bab0b364528b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.806 INFO  [http-nio-8081-exec-3] [639620b7-c78c-4763-9d2e-ac578bcf9a2e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.849 INFO  [http-nio-8081-exec-4] [bfd6e24f-c68d-4983-a607-c3fc62f5a791] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.872 INFO  [http-nio-8081-exec-9] [8dffb950-d2fd-4938-b28d-9cf6f0895b4f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.886 INFO  [http-nio-8081-exec-1] [da9762d3-215c-465e-98ff-02c58c1827a8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.913 INFO  [http-nio-8081-exec-8] [1df6bd3e-8ef0-4c6b-8c12-475ca1faccce] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.928 INFO  [http-nio-8081-exec-10] [c95e1586-aa3e-436a-9040-d184136c0fdf] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.945 INFO  [http-nio-8081-exec-7] [07b9e1f3-01b6-440d-88fa-5130b84a149c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:25:20.991 INFO  [http-nio-8081-exec-6] [334bd373-252b-48fd-9802-65698a4b15e5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.792 INFO  [http-nio-8081-exec-3] [576cec2b-68cc-4580-acdb-19aaea97d854] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.816 INFO  [http-nio-8081-exec-4] [b37a8365-9047-42d1-934e-0a03625c28e1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.830 INFO  [http-nio-8081-exec-9] [c160aaaf-e61b-467d-8300-a07220305e05] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.855 INFO  [http-nio-8081-exec-1] [8d97b9ef-df98-49cb-9a88-af738ef73493] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.875 INFO  [http-nio-8081-exec-8] [c7310db3-bb45-4efd-bbff-85bf2bcce6d4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.897 INFO  [http-nio-8081-exec-10] [9d2a73c8-10d7-4441-a848-590be2d90ada] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.919 INFO  [http-nio-8081-exec-6] [87d10db6-cfd7-4b2b-bd0b-cc7ce5f00134] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.943 INFO  [http-nio-8081-exec-2] [6f580ed9-9fff-4f8f-a814-05852d667244] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:20.997 INFO  [http-nio-8081-exec-3] [429b4b7e-9ab1-4ba1-b6c9-f02813a6a1ca] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:26:21.012 INFO  [http-nio-8081-exec-4] [5250a090-18ff-4418-8d44-495b569f961f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.802 INFO  [http-nio-8081-exec-8] [fe80dc00-dbf4-48d5-b058-29f8679bb16d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.829 INFO  [http-nio-8081-exec-10] [0820f4d3-174c-40b9-b44b-97fa617b1544] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.836 INFO  [http-nio-8081-exec-7] [26cf9bf8-9897-4b06-81fd-d56ea5a2fdfd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.864 INFO  [http-nio-8081-exec-5] [2ae3f802-9c15-43ca-98a3-d3e5ac686dc8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.885 INFO  [http-nio-8081-exec-6] [708de0b2-36b7-47e1-86b7-2eb20b39e472] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.908 INFO  [http-nio-8081-exec-2] [e8a33788-3244-4a5f-9d0b-4f496cf11156] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.938 INFO  [http-nio-8081-exec-3] [11bccfa9-cbb6-4b92-bac8-bc230a24e1ba] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.948 INFO  [http-nio-8081-exec-4] [61c28bac-ae8e-4d55-871b-a7fd7a6e90f2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:20.967 INFO  [http-nio-8081-exec-9] [930ace6e-1c19-47be-9ad2-90d0aa964c7f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:27:21.028 INFO  [http-nio-8081-exec-1] [ba04ee5b-940a-418a-a93b-afdb8ad9a76e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.825 INFO  [http-nio-8081-exec-6] [eda29ce0-fe68-48a8-8f41-13d03f265f9d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.847 INFO  [http-nio-8081-exec-2] [089dd05b-71f2-4b35-b5bf-08c35e4e2b18] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.856 INFO  [http-nio-8081-exec-3] [8340eb81-5bc5-4d49-ab79-d79696dcf120] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.883 INFO  [http-nio-8081-exec-4] [e55502a5-3152-461d-85a1-74dce1b830b7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.908 INFO  [http-nio-8081-exec-9] [ca9d052f-b9b4-48ea-b00d-fa55145d71b7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.929 INFO  [http-nio-8081-exec-1] [d699ae66-a83b-4093-ac49-4bd81fa31575] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.963 INFO  [http-nio-8081-exec-8] [aa142e60-6158-476b-b8ca-1a70d7356de0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:20.984 INFO  [http-nio-8081-exec-10] [d1d6f538-df1b-4a8e-8b69-c75ab3cda3c8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:21.038 INFO  [http-nio-8081-exec-7] [407dfe5e-5a8e-486f-8173-b5392dde8397] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:28:21.053 INFO  [http-nio-8081-exec-5] [96e5bbd4-a5a7-420a-8329-11d8f6ac9d98] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:20.839 INFO  [http-nio-8081-exec-4] [a1ae6df0-e91f-40ba-93ca-53b572844a85] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:20.864 INFO  [http-nio-8081-exec-9] [6d05471b-6aa7-4570-a5b3-52a29c8a67a2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:20.869 INFO  [http-nio-8081-exec-1] [444f7b1c-c98d-489f-8d2d-f03aa23b5830] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:20.900 INFO  [http-nio-8081-exec-8] [bf20b4a2-3f8a-44d4-b06a-a95c64142c02] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:20.940 INFO  [http-nio-8081-exec-10] [630b6d9d-99a6-40d8-bda3-23518c2b1c37] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:20.952 INFO  [http-nio-8081-exec-7] [77a0994d-df83-4d4a-9778-9730d1201cde] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:20.978 INFO  [http-nio-8081-exec-5] [2d71a24d-9583-4194-86b6-00a984355c95] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:21.004 INFO  [http-nio-8081-exec-6] [82309e84-01cb-48d2-b818-57690a858cdd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:21.020 INFO  [http-nio-8081-exec-2] [f04ef384-da5c-4677-b641-aec97025d26b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:29:21.040 INFO  [http-nio-8081-exec-3] [d3e7e486-0c4f-4f1d-a666-4f2a684dfffa] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.860 INFO  [http-nio-8081-exec-8] [984e9744-5662-4953-976d-89382debf051] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.886 INFO  [http-nio-8081-exec-10] [f3283bde-43c6-4265-942e-789d6f248e5a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.895 INFO  [http-nio-8081-exec-7] [445b5ba0-ef88-4fb9-9081-888cae0a093d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.915 INFO  [http-nio-8081-exec-5] [66b04620-a3fa-4e77-80ca-8ca0b2c8d42e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.944 INFO  [http-nio-8081-exec-6] [5a2192e2-1770-42a9-bc7b-0bb823727dc0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.967 INFO  [http-nio-8081-exec-2] [d5261db4-a932-4a09-8f04-70f3d1e97b08] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.984 INFO  [http-nio-8081-exec-3] [50c1349a-0472-4da1-a5f4-7d8b964a63b6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:20.998 INFO  [http-nio-8081-exec-4] [3ad0b0d3-cec2-4901-bf96-18510fef9f26] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:21.044 INFO  [http-nio-8081-exec-9] [acf3e16f-b824-41d0-ac1e-f0b8589ac852] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:30:21.061 INFO  [http-nio-8081-exec-1] [1bedca02-c8d1-4575-8ad1-e539fdd1c21f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:20.876 INFO  [http-nio-8081-exec-6] [5e4e18c6-0c81-477c-b9df-08f19e3b129f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:20.902 INFO  [http-nio-8081-exec-2] [7aff6381-3157-4cb6-8d85-7197a350d294] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:20.908 INFO  [http-nio-8081-exec-3] [07013c2c-38a1-4f52-99f3-d26701dba8c6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:20.940 INFO  [http-nio-8081-exec-4] [a1460530-75ba-4bfb-a856-d8198a054246] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:20.957 INFO  [http-nio-8081-exec-9] [cd7563ee-a1f3-4fc0-923c-698ada2de888] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:20.991 INFO  [http-nio-8081-exec-1] [7e775d64-fb43-4986-9e70-24c74268dd32] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:21.011 INFO  [http-nio-8081-exec-8] [ceb92658-8a04-497b-ace4-b3ed797e9fc3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:21.029 INFO  [http-nio-8081-exec-10] [1adede90-c92a-4cca-aea6-e5d85d0a4db6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:21.074 INFO  [http-nio-8081-exec-7] [2addd5a3-cb0c-4291-90a2-c435ce57267e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:31:21.086 INFO  [http-nio-8081-exec-5] [cf67fd33-ebf0-4252-aaae-34d8cc2c9dc3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:20.897 INFO  [http-nio-8081-exec-9] [c2e0711e-b772-47a6-8ec6-390572b036f6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:20.934 INFO  [http-nio-8081-exec-1] [6cca1113-5c88-4754-b1fb-22195cd87baa] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:20.947 INFO  [http-nio-8081-exec-8] [624e8752-caf4-4fe6-b2a7-8ea2043b4df7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:20.968 INFO  [http-nio-8081-exec-10] [68911a76-90f3-4523-bbac-59dcdc2d5d6d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:20.989 INFO  [http-nio-8081-exec-7] [9738e883-df98-4793-84ef-5d7bb4a31955] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:21.020 INFO  [http-nio-8081-exec-5] [188a0fd2-cbbc-4d97-8d89-8f70ca92a5a9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:21.029 INFO  [http-nio-8081-exec-6] [515fcb23-fad4-4381-ab66-ee0719321e18] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:21.047 INFO  [http-nio-8081-exec-2] [8c09f8c9-94ac-47ab-b630-ddd366a861b4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:21.065 INFO  [http-nio-8081-exec-3] [37572a4e-5bd0-4faf-8ba2-c035adcd0c42] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:32:21.133 INFO  [http-nio-8081-exec-4] [f948b997-f575-43ba-9365-f5d9530da90e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:20.918 INFO  [http-nio-8081-exec-7] [9003a085-2cd3-447e-98f0-0926f3483041] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:20.942 INFO  [http-nio-8081-exec-5] [d1fad0d5-a6ae-47f7-b0e3-867e4b1e86bb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:20.950 INFO  [http-nio-8081-exec-6] [d167d7da-9dc2-450b-b2c7-f63b0780ee57] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:20.973 INFO  [http-nio-8081-exec-2] [995186a9-7814-4d20-a04e-913530630973] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:20.995 INFO  [http-nio-8081-exec-3] [11d9b9bb-badd-49d9-b09e-184c16a9f325] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:21.019 INFO  [http-nio-8081-exec-4] [f9812600-0004-406e-9efc-8719f98f4184] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:21.034 INFO  [http-nio-8081-exec-9] [bbc9dc79-5931-4bc1-8cad-6e984b9f7c79] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:21.054 INFO  [http-nio-8081-exec-1] [d819ca10-6d1d-4b6b-a396-b3397ad54090] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:21.103 INFO  [http-nio-8081-exec-8] [d3777a3b-7a0f-4cc0-9b3e-1c382ff025f6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:33:21.145 INFO  [http-nio-8081-exec-10] [ce74d5df-a142-482d-9be3-f162026703d9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:20.937 INFO  [http-nio-8081-exec-3] [0131881a-beca-4a67-bf02-07c12527efe1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:20.958 INFO  [http-nio-8081-exec-4] [fe48ea04-983f-46c7-986e-49d89e8f52ba] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:20.972 INFO  [http-nio-8081-exec-9] [d71445e4-0bd6-42d0-8fb1-15bd0df558c0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:20.996 INFO  [http-nio-8081-exec-1] [b9875751-4783-47cb-8f89-d5e9dff0d9ee] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:21.014 INFO  [http-nio-8081-exec-8] [b48352b5-445b-42f1-a889-d2d8bb7f50b2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:21.034 INFO  [http-nio-8081-exec-10] [a5ee4183-2c1f-4f66-af37-2541db427c9d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:21.091 INFO  [http-nio-8081-exec-7] [8d7d8d0a-ace1-43dc-835c-1fe37e87aaff] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:21.106 INFO  [http-nio-8081-exec-5] [13061b9a-938b-4f11-9d56-26d766e389ec] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:21.127 INFO  [http-nio-8081-exec-6] [25940aa5-f328-4911-bb8a-5b248a053364] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:34:21.156 INFO  [http-nio-8081-exec-2] [9f12b6e5-3b28-4261-bbfe-b1cc01437446] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:20.952 INFO  [http-nio-8081-exec-8] [b03c25d0-9a9e-4955-bac8-418733779ea5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:20.981 INFO  [http-nio-8081-exec-10] [29b17de8-ebab-499a-a8e0-1e566c6c870e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:20.984 INFO  [http-nio-8081-exec-7] [56b41f01-a369-424e-a6f4-d866b650d2ed] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:21.014 INFO  [http-nio-8081-exec-5] [0be4fb27-83b4-4c85-bcb7-c18f2118d7b1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:21.034 INFO  [http-nio-8081-exec-6] [8776729f-a13c-4a4a-8cd8-81b292babd08] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:21.064 INFO  [http-nio-8081-exec-2] [3755ef08-6b7c-4158-9f12-898b2bf79a77] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:21.077 INFO  [http-nio-8081-exec-3] [bf062c71-fc94-4c2b-bea8-d0672ea2995e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:21.097 INFO  [http-nio-8081-exec-4] [90488529-4080-4f44-88cd-1f661ecd1828] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:21.143 INFO  [http-nio-8081-exec-9] [f27d5171-a59e-4352-b92a-cd97fc79fb24] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:35:21.156 INFO  [http-nio-8081-exec-1] [8f580a57-ba53-4f45-9295-b1709a818f0b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:01.894 WARN  [http-nio-8081-exec-7] [4194c908-1bb7-4759-9672-5a498f24f304] o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier -
+2026-06-01 16:36:02.114 WARN  [http-nio-8081-exec-9] [966b8a2e-2c30-46ca-8447-b602cd4c4270] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:02.114 ERROR [http-nio-8081-exec-9] [966b8a2e-2c30-46ca-8447-b602cd4c4270] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:07.782 WARN  [http-nio-8081-exec-3] [73ea83ef-51e4-40ca-a849-f13ca220b999] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:07.782 ERROR [http-nio-8081-exec-3] [73ea83ef-51e4-40ca-a849-f13ca220b999] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:10.043 WARN  [http-nio-8081-exec-6] [c60f83b1-7b91-41b0-905c-7163dc0878df] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:10.043 ERROR [http-nio-8081-exec-6] [c60f83b1-7b91-41b0-905c-7163dc0878df] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:12.761 WARN  [http-nio-8081-exec-1] [33a882bd-eb31-4af4-b53c-5e170e0ce152] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:12.761 ERROR [http-nio-8081-exec-1] [33a882bd-eb31-4af4-b53c-5e170e0ce152] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:21.010 INFO  [http-nio-8081-exec-10] [c77e87db-1a3d-421c-a27a-0945164ec666] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.037 INFO  [http-nio-8081-exec-6] [f05946c8-38fd-46ce-9656-02ee90e2d999] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.065 INFO  [http-nio-8081-exec-5] [d9f8d693-687c-4f35-87df-ff44e921d078] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.069 INFO  [http-nio-8081-exec-2] [69432f35-fd7e-4377-852a-3611ab44ceb5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.111 INFO  [http-nio-8081-exec-9] [1af925d5-d0b6-4047-bb3a-724831494a20] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.136 INFO  [http-nio-8081-exec-3] [0c69fb5f-98e4-4719-be5e-f314f1c01784] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.170 INFO  [http-nio-8081-exec-4] [e5606fc6-4eb2-42a0-8f92-a5660c2a1fa9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.199 INFO  [http-nio-8081-exec-1] [5bc0a2ab-af3c-4e1b-980d-13a311315cec] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.227 INFO  [http-nio-8081-exec-8] [821c52ba-cd25-4879-997c-6afbfd7328e7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:21.265 INFO  [http-nio-8081-exec-7] [6aa0b2f0-cd5b-48d6-99a0-761083e55178] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:36:39.979 WARN  [http-nio-8081-exec-5] [d3792f29-4b99-4b0d-8606-6e39f1ef3db8] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:39.979 ERROR [http-nio-8081-exec-5] [d3792f29-4b99-4b0d-8606-6e39f1ef3db8] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:42.348 WARN  [http-nio-8081-exec-1] [7ce996b4-f911-4991-b721-ccdfd6d8ea5f] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:42.348 ERROR [http-nio-8081-exec-1] [7ce996b4-f911-4991-b721-ccdfd6d8ea5f] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:45.034 WARN  [http-nio-8081-exec-8] [8471e405-cd37-498b-8877-de9b813de357] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:45.034 ERROR [http-nio-8081-exec-8] [8471e405-cd37-498b-8877-de9b813de357] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:47.800 WARN  [http-nio-8081-exec-5] [bf016de7-263c-4537-8984-7b8323efe2a1] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:47.800 ERROR [http-nio-8081-exec-5] [bf016de7-263c-4537-8984-7b8323efe2a1] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:36:51.847 WARN  [http-nio-8081-exec-4] [82e2ce6e-f88c-4b75-ae5e-191ec9a8ef5b] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:36:51.847 ERROR [http-nio-8081-exec-4] [82e2ce6e-f88c-4b75-ae5e-191ec9a8ef5b] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:37:20.997 INFO  [http-nio-8081-exec-1] [a66dd39b-1d4e-4b45-9cc5-d207e4da3d74] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.032 INFO  [http-nio-8081-exec-9] [275f4472-9f76-408a-add3-5dc97cbb1210] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.038 INFO  [http-nio-8081-exec-8] [a8776714-072f-48e3-be70-f918182387a0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.068 INFO  [http-nio-8081-exec-4] [1956faa6-cf7b-46f0-93e5-879a104970d3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.080 INFO  [http-nio-8081-exec-7] [ffe52aee-a29b-420e-bb46-4229db37ccf3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.109 INFO  [http-nio-8081-exec-6] [b64c5bfd-5c5f-44b4-8b94-2d9d4a560039] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.127 INFO  [http-nio-8081-exec-10] [045a7bc1-a983-400c-9fa9-3fc97e976cf8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.179 INFO  [http-nio-8081-exec-5] [8e1adb35-f715-4837-9c01-e0bdb2d35931] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.200 INFO  [http-nio-8081-exec-3] [bdb4e58b-904e-4ec8-b098-858b8ddc19be] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:21.265 INFO  [http-nio-8081-exec-2] [86bfd86e-ead5-458f-aa4f-440ca7b0dea9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:37:44.092 WARN  [http-nio-8081-exec-9] [b6e480ef-8c01-47c7-b178-8bb33dc0d458] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:37:44.093 ERROR [http-nio-8081-exec-9] [b6e480ef-8c01-47c7-b178-8bb33dc0d458] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:37:46.644 WARN  [http-nio-8081-exec-9] [d4dae20e-035d-4c14-936b-aa6bef291793] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:37:46.644 ERROR [http-nio-8081-exec-9] [d4dae20e-035d-4c14-936b-aa6bef291793] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:37:48.222 WARN  [http-nio-8081-exec-6] [fc255d72-1361-48e3-a6c8-c10a3ad78607] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:37:48.222 ERROR [http-nio-8081-exec-6] [fc255d72-1361-48e3-a6c8-c10a3ad78607] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:37:49.989 WARN  [http-nio-8081-exec-1] [1f416ddc-d600-40a4-9786-e680c2c221f7] o.h.e.jdbc.spi.SqlExceptionHelper -
+        SQL Error: 0, SQLState: 42P18
+2026-06-01 16:37:49.989 ERROR [http-nio-8081-exec-1] [1f416ddc-d600-40a4-9786-e680c2c221f7] o.h.e.jdbc.spi.SqlExceptionHelper -
+        ERROR: could not determine data type of parameter $7
+2026-06-01 16:38:21.010 INFO  [http-nio-8081-exec-5] [db3a4c9b-ccb0-49a7-9448-d506ae6760d7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.034 INFO  [http-nio-8081-exec-2] [16670b4d-fb4e-4f34-aadc-6bf113631c3a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.042 INFO  [http-nio-8081-exec-9] [d72f4055-98ff-4e0c-bc6b-fa58f351841a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.094 INFO  [http-nio-8081-exec-1] [ee07652a-1dde-4c41-9dc8-95290ac9816b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.119 INFO  [http-nio-8081-exec-8] [7d653fe7-721e-44fd-9b9c-59ce60934376] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.127 INFO  [http-nio-8081-exec-7] [0dc84a98-f8a7-44e4-b11d-fe492f33db87] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.144 INFO  [http-nio-8081-exec-4] [f6be78b2-337b-4037-9ef8-dbbefeb7a044] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.176 INFO  [http-nio-8081-exec-6] [5bf8cd6d-1d47-4d5b-ad7c-e5f007897adc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.191 INFO  [http-nio-8081-exec-3] [d7e233f4-f177-40a0-9b03-5f451a8d9654] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:38:21.235 INFO  [http-nio-8081-exec-10] [f78e278c-c598-4afb-820a-e4559f4c7226] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.029 INFO  [http-nio-8081-exec-4] [afc64361-0a77-4676-ace6-1df872e5cdca] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.064 INFO  [http-nio-8081-exec-6] [f77c3cf2-a094-4eff-9d79-ccf1572754a3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.071 INFO  [http-nio-8081-exec-3] [32892280-bb37-4c8e-bf6a-6ae7e7b116fc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.098 INFO  [http-nio-8081-exec-10] [44987758-7d35-4e9d-a88f-ea874ba0f754] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.111 INFO  [http-nio-8081-exec-5] [78f34f54-0bbb-4f58-a759-6f06de0db848] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.138 INFO  [http-nio-8081-exec-2] [1e6e4b8d-6916-4996-91a0-64acd5b49d17] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.157 INFO  [http-nio-8081-exec-9] [39de766f-cbf5-42b6-8de4-4607ef57ca1f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.189 INFO  [http-nio-8081-exec-1] [52c149aa-2a25-4342-afe8-024532cae44e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.216 INFO  [http-nio-8081-exec-8] [076bb0f9-d170-484a-9238-667a1d40d44d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:39:21.269 INFO  [http-nio-8081-exec-7] [991a31bd-a7b6-4e84-8aa2-2f6e8064777c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.051 INFO  [http-nio-8081-exec-5] [16faf1f9-3f7a-475d-a5b4-e0905989b9e9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.078 INFO  [http-nio-8081-exec-2] [cce73213-2869-4247-962e-e6976ebdf6e2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.084 INFO  [http-nio-8081-exec-9] [965b99ea-a2e4-492e-aaeb-1012d5867c46] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.136 INFO  [http-nio-8081-exec-1] [590d0769-bb22-4c38-8239-1e49185a17b1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.156 INFO  [http-nio-8081-exec-8] [c2ff5dc7-0d22-4947-9840-ecc829f5d63d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.182 INFO  [http-nio-8081-exec-7] [5f193eba-2700-45d5-b18a-571c95ce5ab3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.218 INFO  [http-nio-8081-exec-4] [978b324a-8670-46b9-9ae8-19247cd7acab] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.231 INFO  [http-nio-8081-exec-6] [747d9813-27e1-47b9-99d3-ac8406eeb54b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.258 INFO  [http-nio-8081-exec-3] [dd6b5ca0-1476-4366-a6b9-2be6200ba2e3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:40:21.306 INFO  [http-nio-8081-exec-10] [ad04624a-9a43-4820-93a4-26a2486e6173] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.082 INFO  [http-nio-8081-exec-8] [f9aead1e-cd03-498c-9238-1905d4b086b5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.111 INFO  [http-nio-8081-exec-7] [14655da0-5d7d-4a83-8018-6cf6ecd9c499] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.123 INFO  [http-nio-8081-exec-4] [496d9ffb-9ec5-4622-bf9f-a87124562c1f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.155 INFO  [http-nio-8081-exec-6] [9f320a7c-a129-41b9-a5ee-9eed9ed7705e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.172 INFO  [http-nio-8081-exec-3] [b42a8fbf-f3e0-4c7e-82bf-45b119d73e27] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.196 INFO  [http-nio-8081-exec-10] [4f07b2eb-8e8b-4f2b-96dc-1d635f4a6b61] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.216 INFO  [http-nio-8081-exec-5] [e9250902-5d9a-4268-ba44-c6e45da2106e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.258 INFO  [http-nio-8081-exec-2] [0be71c66-2332-4e4c-80f3-f3e1b89f4951] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.304 INFO  [http-nio-8081-exec-9] [b3d22608-b123-4e46-8d90-d1ea5292f0f3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:41:21.338 INFO  [http-nio-8081-exec-1] [b3d4a5cf-9bca-4967-96e2-a55a23ccf9a2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.109 INFO  [http-nio-8081-exec-3] [f827a65d-b265-4627-b19f-3607605352a5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.128 INFO  [http-nio-8081-exec-10] [cd4849c6-d42d-4d27-879a-6d9941c9fd90] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.132 INFO  [http-nio-8081-exec-5] [b77794ae-aa15-4258-bce5-20003031cd11] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.158 INFO  [http-nio-8081-exec-2] [20c96b93-0fb1-4e17-8e4d-5e943aedab2c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.174 INFO  [http-nio-8081-exec-9] [26be5634-3dd1-4f77-9465-de6c4182eba4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.186 INFO  [http-nio-8081-exec-1] [7c4c2154-ce14-435e-a15c-9358f2dcc053] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.231 INFO  [http-nio-8081-exec-8] [2aed4636-84c4-4b2f-9886-9164fbdce9bc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.285 INFO  [http-nio-8081-exec-7] [4391d736-df1f-455f-9f10-8dd665c6328f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.337 INFO  [http-nio-8081-exec-4] [1a39f6d2-5ac0-4ff2-9602-10e6c8bc0428] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:42:21.303 INFO  [http-nio-8081-exec-6] [f1076fca-0c56-4274-a612-be77541c1991] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.114 INFO  [http-nio-8081-exec-9] [b943663f-b571-40d6-8652-06c66ace5d06] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.144 INFO  [http-nio-8081-exec-1] [988da303-81b5-4c32-9ff8-2924fc9e1cbc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.151 INFO  [http-nio-8081-exec-8] [0be994f1-ac4e-4336-9071-de8edd6377ca] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.180 INFO  [http-nio-8081-exec-7] [facc8992-11e2-408a-9bee-f814edd26ab8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.194 INFO  [http-nio-8081-exec-4] [686520c8-d6ba-45ad-a20a-6282449c9284] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.219 INFO  [http-nio-8081-exec-6] [aac9df68-e2da-4aed-8238-231e2b6753d5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.241 INFO  [http-nio-8081-exec-3] [9a7bc8d8-693b-4ba9-8f0a-d9e11df14f25] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.207 INFO  [http-nio-8081-exec-10] [fe328dae-bff8-4e8b-ad4e-a3383828ecb5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.254 INFO  [http-nio-8081-exec-5] [a3feeb08-36ff-4cc5-94ae-1fa4a0700b11] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:43:21.270 INFO  [http-nio-8081-exec-2] [b6295efb-a029-4479-a5ea-f4987ab8b73e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.132 INFO  [http-nio-8081-exec-4] [2bed3ba5-9f69-4e90-8d82-f59c2910ac32] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.100 INFO  [http-nio-8081-exec-6] [b31f146b-1d93-41a8-be2c-966652eba940] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.107 INFO  [http-nio-8081-exec-3] [dfc5d34f-76d1-4994-b386-45af2f25a61f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.149 INFO  [http-nio-8081-exec-10] [08c1aba8-8127-446a-9bad-9dcb8dba382a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.162 INFO  [http-nio-8081-exec-5] [1c117f28-4720-4bce-814a-576adc06fb5f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.179 INFO  [http-nio-8081-exec-2] [83c69611-a19e-46dc-a9bf-00094af6d7ac] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.209 INFO  [http-nio-8081-exec-9] [a883c582-07fd-4279-9b4e-2ae0833e2e4c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.226 INFO  [http-nio-8081-exec-1] [2551e48e-bbbf-4473-a6c1-18eea8e252eb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.242 INFO  [http-nio-8081-exec-8] [5f0b8272-6142-48be-990c-6d2b9caaba08] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:44:21.255 INFO  [http-nio-8081-exec-7] [3e90d75b-9b9e-4aef-9f35-b2c79747f320] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.091 INFO  [http-nio-8081-exec-5] [3e6708d2-2c2b-435b-8746-62e655bbce66] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.133 INFO  [http-nio-8081-exec-2] [b52c2ae3-05f6-430b-9180-1bf7543dfb5c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.136 INFO  [http-nio-8081-exec-9] [e8c9b7e1-030e-42cc-97ac-c82d2829c78f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.164 INFO  [http-nio-8081-exec-1] [0e24c324-239c-4507-ae78-ba676f51845e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.189 INFO  [http-nio-8081-exec-8] [c4dd50a9-f659-47c4-9dc3-b8704c30ce4b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.206 INFO  [http-nio-8081-exec-7] [1afa6f09-dcec-43b5-a5b8-4d8c1310969b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.228 INFO  [http-nio-8081-exec-4] [966f9d16-2386-434e-b3f9-905a53396fb9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.257 INFO  [http-nio-8081-exec-6] [ef60848a-6dc8-4d13-a8c5-ab2751d92b78] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.295 INFO  [http-nio-8081-exec-3] [f0e80827-6897-4d47-90a3-0683b723bd7f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:45:21.349 INFO  [http-nio-8081-exec-10] [f9797edc-60b0-4cc2-b53e-e801919aade7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.112 INFO  [http-nio-8081-exec-8] [12160eef-9148-42c5-be89-1db287dff02e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.132 INFO  [http-nio-8081-exec-7] [c2a28fb7-b7f1-43d5-ad6d-3112bfb95a0f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.143 INFO  [http-nio-8081-exec-4] [aa5dd7ff-2994-4ed8-9e6f-01e147376e8a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.173 INFO  [http-nio-8081-exec-6] [91f5cc74-d116-42f4-a015-7003825d785b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.187 INFO  [http-nio-8081-exec-3] [9ab6c395-8701-40b4-b3f9-7d1d56fb2392] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.202 INFO  [http-nio-8081-exec-10] [e75cdc5f-2159-4bcc-98a2-b9ea968357da] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.228 INFO  [http-nio-8081-exec-5] [6fa086c8-51aa-434c-99a0-a12f2ba635ff] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.261 INFO  [http-nio-8081-exec-2] [d869bc1c-a999-4eba-89ab-253d375fbfae] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.284 INFO  [http-nio-8081-exec-9] [1eee1712-30ad-49bc-b5ba-06eceb5ff53e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:46:21.423 INFO  [http-nio-8081-exec-1] [c60c246b-95f7-42bf-91e3-4e58bb188e83] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.153 INFO  [http-nio-8081-exec-3] [5f63b8d9-72bf-4f1a-876b-dc5956831abc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.197 INFO  [http-nio-8081-exec-10] [297a49c5-06ad-4c07-bd33-466e2c8ca665] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.202 INFO  [http-nio-8081-exec-5] [79734238-831c-4a7c-8f9b-9d20ba8b898d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.227 INFO  [http-nio-8081-exec-2] [6a25f3c5-be17-4f0b-b34c-ca6a833576fe] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.262 INFO  [http-nio-8081-exec-9] [a9429585-6b43-476d-9a6a-716e12ff6f47] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.288 INFO  [http-nio-8081-exec-1] [3415fb19-d177-4c8e-ad58-f395fb44f2b0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.308 INFO  [http-nio-8081-exec-8] [5b0f57f0-d6d3-483a-a7ef-aeb39e2602f9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.327 INFO  [http-nio-8081-exec-7] [22232c04-032f-42da-8d8e-d76e2ddd3f42] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.355 INFO  [http-nio-8081-exec-4] [d6ad9072-0cda-4812-868c-e9d1c29db32d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:47:21.389 INFO  [http-nio-8081-exec-6] [3979ee97-3f29-4160-9e80-1500592508c9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.170 INFO  [http-nio-8081-exec-9] [d5f53133-7d86-4bdd-bcf0-77241add5ce6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.236 INFO  [http-nio-8081-exec-1] [9bdb0123-7cc7-4795-8e5e-24808f4e5eb3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.239 INFO  [http-nio-8081-exec-7] [5db23a86-c0eb-4619-bb8c-dc7332d46a6f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.239 INFO  [http-nio-8081-exec-8] [0bd1c257-8869-465e-a4c4-b6641b250f94] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.331 INFO  [http-nio-8081-exec-6] [af2700a6-4c3e-41dd-a840-f4c0d2ef16db] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.331 INFO  [http-nio-8081-exec-3] [10bd4f20-b20e-4dc2-a54e-e6015293f0cd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.331 INFO  [http-nio-8081-exec-4] [6b3c0e7c-0b54-40d1-87c8-6504906cdf09] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.337 INFO  [http-nio-8081-exec-10] [29abb004-ba99-4237-beaf-25a02c741f26] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.400 INFO  [http-nio-8081-exec-5] [2beb0a35-2a0c-4368-bf50-0201129822a2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:48:21.420 INFO  [http-nio-8081-exec-2] [f27bab6f-0cef-49e6-9671-d62a6007b14b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.188 INFO  [http-nio-8081-exec-4] [f3b8727e-b2b2-4707-879a-cc9ef18c3935] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.219 INFO  [http-nio-8081-exec-10] [f9c38a28-5273-4c4a-96df-8d972bcef9aa] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.227 INFO  [http-nio-8081-exec-5] [cab688de-05dd-4a40-9cb1-8a1805dac77c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.255 INFO  [http-nio-8081-exec-2] [029113fd-a4bb-48db-8ff0-5534a0826418] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.276 INFO  [http-nio-8081-exec-9] [ccb42576-d849-45f0-97a8-d4e6e958c8c1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.300 INFO  [http-nio-8081-exec-7] [1a7e21e2-b9d9-44ea-8036-573b90191210] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.317 INFO  [http-nio-8081-exec-1] [60e7df42-430f-42fd-ac16-8b93621dee12] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.335 INFO  [http-nio-8081-exec-8] [259388c5-b244-48b8-94d6-0bacffafa9fc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.368 INFO  [http-nio-8081-exec-6] [f008e3b4-21f4-47ca-89b3-05437683d23f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:49:21.384 INFO  [http-nio-8081-exec-3] [9629de3b-050f-444f-b741-46cd674fd56d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.174 INFO  [http-nio-8081-exec-9] [cae83571-7911-49f3-87e4-21749641fca4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.210 INFO  [http-nio-8081-exec-7] [13571f1e-62ab-46e3-b3cb-c5a9bb4bbfef] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.226 INFO  [http-nio-8081-exec-1] [787ca496-9108-47a1-bf68-28d235543b49] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.274 INFO  [http-nio-8081-exec-8] [3526f0e3-37b1-4dce-abc8-bf26b42c729e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.286 INFO  [http-nio-8081-exec-6] [11fccae1-a63a-4116-bfe9-0bc9362b453b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.306 INFO  [http-nio-8081-exec-3] [f25314c4-1998-436b-a4fe-f322c445210d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.340 INFO  [http-nio-8081-exec-4] [3035c188-e80f-4d5d-92a0-b8fd43fb0e14] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.361 INFO  [http-nio-8081-exec-10] [6463a4d5-3b0e-4e6e-8ee8-913660be14e5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.379 INFO  [http-nio-8081-exec-5] [dd77eea9-425c-4976-bace-31a6993d8ee2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:50:21.422 INFO  [http-nio-8081-exec-2] [b9d01bb3-fdcc-4141-8c01-697554c38ab9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.193 INFO  [http-nio-8081-exec-6] [5028f7d7-fab9-487d-9908-62bf12d8ea63] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.213 INFO  [http-nio-8081-exec-3] [935a0a88-9c52-4890-85d4-5b4a9e55c7fc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.219 INFO  [http-nio-8081-exec-4] [f6f07b37-9e18-4928-99b3-3407dbeb9da0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.245 INFO  [http-nio-8081-exec-10] [bcd4b8f3-3b46-428f-bed4-49f63960f773] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.266 INFO  [http-nio-8081-exec-5] [02861dd9-210a-4e05-8249-9195b660c541] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.284 INFO  [http-nio-8081-exec-2] [02a6f6e1-86ba-4832-9aed-e9dde3ca247f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.302 INFO  [http-nio-8081-exec-9] [3acde3f7-873d-4fb4-b311-bd09f782fe66] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.325 INFO  [http-nio-8081-exec-7] [19d0f906-ab36-4cef-9ed3-9cc3f22e6bd9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.344 INFO  [http-nio-8081-exec-1] [74b22b61-777d-4851-aca3-e8188aea6dd0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:51:21.364 INFO  [http-nio-8081-exec-8] [ce7d868d-e5a1-437c-af4c-6e7bf03c9d5d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.187 INFO  [http-nio-8081-exec-5] [113f1e05-6912-4a3e-9102-76947f21c136] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.210 INFO  [http-nio-8081-exec-2] [310c34c7-54e3-4305-a36a-bff6b4b7b67a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.214 INFO  [http-nio-8081-exec-9] [4a5e6b74-82c0-4c10-bdd3-fe4f3e91b1ac] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.237 INFO  [http-nio-8081-exec-7] [87fc5c43-7bb5-477a-b605-1b4d50672794] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.271 INFO  [http-nio-8081-exec-1] [da416a51-3639-4014-82c0-391881640c26] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.293 INFO  [http-nio-8081-exec-8] [c183453d-4250-4b02-b390-82dd880a7ff9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.311 INFO  [http-nio-8081-exec-6] [ce8f32a4-eaa0-4c57-ae46-574e55ea641d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.335 INFO  [http-nio-8081-exec-3] [aa238082-e96e-4257-a549-f3195ec1c5fb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.354 INFO  [http-nio-8081-exec-4] [c3cb60c7-4112-4de1-81db-baf1bf7d5a8d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:52:21.407 INFO  [http-nio-8081-exec-10] [2e201d8d-5a61-461e-af80-83061db33530] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.212 INFO  [http-nio-8081-exec-1] [c0f19ae7-38ad-43c6-931d-288d367000ef] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.232 INFO  [http-nio-8081-exec-8] [7048d4e1-5aa3-4cd5-860b-c20a677611e8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.239 INFO  [http-nio-8081-exec-6] [24053070-edcc-4e67-9254-531d857f6b42] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.260 INFO  [http-nio-8081-exec-3] [84940481-dabe-4382-a878-e36ab4b59299] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.285 INFO  [http-nio-8081-exec-4] [761ca79d-a26d-495d-afd5-2151b08b17a0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.325 INFO  [http-nio-8081-exec-10] [037d96e8-2ba1-4dac-9da5-c97a44597e30] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.347 INFO  [http-nio-8081-exec-5] [281554ac-217a-4e22-80e5-ad631be25c39] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.364 INFO  [http-nio-8081-exec-2] [01fd13b2-6cbd-4d52-b5a8-75eb2c27267e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.404 INFO  [http-nio-8081-exec-9] [80d16ca7-fb35-48e7-adb4-580b58a2ed56] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:53:21.446 INFO  [http-nio-8081-exec-7] [23a6ea46-54a2-4ebe-ae3e-e00620ee304b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.215 INFO  [http-nio-8081-exec-4] [05778427-8afd-4463-a62e-b6f62ba2e139] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.240 INFO  [http-nio-8081-exec-10] [4a607cdc-f9a3-433c-8df2-7bfde15ba103] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.246 INFO  [http-nio-8081-exec-5] [cda125fd-b7d9-4602-818b-7d23dda11aa7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.267 INFO  [http-nio-8081-exec-2] [fcd70dd0-7272-4208-897e-d97e50aef7cd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.288 INFO  [http-nio-8081-exec-9] [35f00d5c-8510-4747-9272-9bed12fcc5a8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.318 INFO  [http-nio-8081-exec-7] [b49d3e06-62f7-4449-8413-8839f3a400e7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.337 INFO  [http-nio-8081-exec-1] [0bb71cb0-ac6e-4d43-b9af-bd25d896da5d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.359 INFO  [http-nio-8081-exec-8] [f5196f8b-732a-41f1-bc2b-e27afefddf58] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.414 INFO  [http-nio-8081-exec-6] [6f3c1939-8399-4a94-818b-03e432b3bfca] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:54:21.424 INFO  [http-nio-8081-exec-3] [a5e7d295-b132-4cd8-9c64-2e7bba1ce49c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.229 INFO  [http-nio-8081-exec-9] [fa46110e-af5a-479d-bced-05f3ee2e358d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.251 INFO  [http-nio-8081-exec-7] [e35a2dc7-7493-49c1-b8dd-37e4ae0cc54a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.260 INFO  [http-nio-8081-exec-1] [4b2fbd26-73af-46b1-84fe-26717db10475] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.283 INFO  [http-nio-8081-exec-8] [86033811-00d2-46dc-b937-129b766d643e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.300 INFO  [http-nio-8081-exec-6] [20eff884-eb6d-4c0a-949b-d68f0f195cab] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.341 INFO  [http-nio-8081-exec-3] [a20d6c5a-6272-4283-b04f-c6f9b9debeb8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.360 INFO  [http-nio-8081-exec-4] [b2b38560-5f65-485d-a695-b89a961b3847] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.382 INFO  [http-nio-8081-exec-10] [e33667db-e12c-47e4-ad53-87e48296c051] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.427 INFO  [http-nio-8081-exec-5] [1880ab39-0743-4bd6-b997-2268c5814802] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:55:21.472 INFO  [http-nio-8081-exec-2] [a66fe234-fa3b-48d2-b59a-0cf4859c509d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.235 INFO  [http-nio-8081-exec-6] [d2b5877d-f4e2-45c1-a901-2443982bebab] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.261 INFO  [http-nio-8081-exec-3] [f24db898-8f5d-48c1-94c6-2179aa3589d8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.279 INFO  [http-nio-8081-exec-4] [c50a780d-9c30-4a10-86c6-b4e63281e083] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.328 INFO  [http-nio-8081-exec-10] [701590e3-6ac6-48b6-bf22-e37d66fdc03d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.343 INFO  [http-nio-8081-exec-5] [8656ec8c-d87a-4a4b-9e62-5d6256f2b0e1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.372 INFO  [http-nio-8081-exec-2] [b336755b-22e3-4b81-a25e-f0d27a716289] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.437 INFO  [http-nio-8081-exec-9] [135e3efd-356c-421c-a51d-bdca50cb472a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.454 INFO  [http-nio-8081-exec-7] [00ec2589-4aa5-4542-bd1b-18fbdef54009] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.473 INFO  [http-nio-8081-exec-1] [e6c1c666-88d4-4656-9d62-c48fcb61e254] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:56:21.509 INFO  [http-nio-8081-exec-8] [b2b86173-eed0-4764-a288-dd770fbb3ead] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.251 INFO  [http-nio-8081-exec-1] [a90929f8-964a-43a9-a248-fed0c5b1eb6e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.277 INFO  [http-nio-8081-exec-8] [d8295b8c-9ae4-4649-8af7-f599f0791fab] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.284 INFO  [http-nio-8081-exec-6] [a6307f99-7cf9-4f3e-9429-7f863962190a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.317 INFO  [http-nio-8081-exec-3] [9c5055a2-7446-463c-bd25-f69e3e9dafb5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.340 INFO  [http-nio-8081-exec-4] [213aed51-09b5-4238-b719-6b4a6bcc5bda] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.359 INFO  [http-nio-8081-exec-10] [fc5398c2-4353-4552-a4d4-aa7334bee4df] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.389 INFO  [http-nio-8081-exec-5] [2544acc8-7f08-4dcf-923c-e39df2ba2af7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.432 INFO  [http-nio-8081-exec-2] [5249c82b-55e2-4694-a99a-ecc2b28283aa] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.448 INFO  [http-nio-8081-exec-9] [4b3dbfc5-0049-4838-bba3-e245aeee5a36] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:57:21.465 INFO  [http-nio-8081-exec-7] [1248ab5c-b4bd-466b-8917-fb2b9d1a2b4e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.263 INFO  [http-nio-8081-exec-4] [6ce24a76-7a81-46eb-9011-e2c4b983527a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.297 INFO  [http-nio-8081-exec-10] [99bd56ef-41ad-49b4-8450-680a28670ff7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.303 INFO  [http-nio-8081-exec-5] [bd228466-18ae-4d3b-9e04-ac3a54c9d570] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.323 INFO  [http-nio-8081-exec-2] [beff5f32-28af-4589-a01f-96b1f3745416] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.339 INFO  [http-nio-8081-exec-9] [e60ac412-1702-471c-a434-37cd14484376] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.367 INFO  [http-nio-8081-exec-7] [5b541dcd-dbf4-4059-85fc-4e6c9ef44e5f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.383 INFO  [http-nio-8081-exec-1] [3faf9974-9a92-4d16-a02d-fc007e03ca8b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.401 INFO  [http-nio-8081-exec-8] [fc1c2f0c-d769-4baf-8803-48b852970773] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.450 INFO  [http-nio-8081-exec-6] [3b5ec976-1693-446c-af41-110cae76fdad] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:58:21.500 INFO  [http-nio-8081-exec-3] [9b73efb2-e021-4aa6-a63c-10f309b09eb9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.288 INFO  [http-nio-8081-exec-9] [d3365780-d79d-47ec-8f52-788be1aa5a8d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.310 INFO  [http-nio-8081-exec-7] [f5d74389-80a2-4b23-a5a6-d6af668ada4b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.317 INFO  [http-nio-8081-exec-1] [496037db-4def-4ead-9353-26c158c31392] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.350 INFO  [http-nio-8081-exec-8] [1dbe5743-5161-482e-aa26-ab1af5e69aec] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.372 INFO  [http-nio-8081-exec-6] [7045d299-8715-4427-8d90-78f4acf286a1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.391 INFO  [http-nio-8081-exec-3] [7bc8c330-82bb-4854-82af-1c68c9b8f64c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.409 INFO  [http-nio-8081-exec-4] [239f0368-1b19-4fee-8b09-4d4e4b96b209] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.465 INFO  [http-nio-8081-exec-10] [c24b447a-c1d9-4643-8ea4-ca7b8c9396e3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.468 INFO  [http-nio-8081-exec-5] [41b1c7db-2e93-4bc2-80ec-f7b8adfe46fd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 16:59:21.489 INFO  [http-nio-8081-exec-2] [4378bc4e-cfba-4a2f-93ac-bd4894ebcdd9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.299 INFO  [http-nio-8081-exec-6] [bed4acb8-b5fc-49b5-8f92-7115d6e34c11] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.319 INFO  [http-nio-8081-exec-3] [1d758e09-3937-40c8-bc8c-bcb2b366bdd1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.325 INFO  [http-nio-8081-exec-4] [20be5815-1e78-4bb8-8eb7-ebe18d0631c7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.356 INFO  [http-nio-8081-exec-10] [20e485e9-7573-4a26-9161-d80e355aae25] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.376 INFO  [http-nio-8081-exec-5] [a1480e07-3851-4bb7-9e00-85d779aa49a7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.401 INFO  [http-nio-8081-exec-2] [f6e7676c-bdb4-433c-941f-72946219f231] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.437 INFO  [http-nio-8081-exec-9] [e35abc53-9285-4607-a1d9-7b8dcadebbfb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.467 INFO  [http-nio-8081-exec-7] [be1dcc05-8711-4ef8-8c45-1d6cce6bceff] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.492 INFO  [http-nio-8081-exec-1] [00847df1-53eb-42ce-a385-c160ce3e23ff] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:21.509 INFO  [http-nio-8081-exec-8] [1206c957-c755-4bd5-b1f5-cd30fdc4e74a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:00:46.276 INFO  [http-nio-8081-exec-9] [6eb8d094-feb1-4926-bece-8ada5ec91139] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.329 INFO  [http-nio-8081-exec-9] [417f4291-d4db-4d3e-b431-a839d1b9cd2b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.353 INFO  [http-nio-8081-exec-7] [c897ef86-d683-4156-a835-39e58fbea8c6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.357 INFO  [http-nio-8081-exec-1] [9040861a-3760-4b8e-80cf-2cfb276e9ba6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.378 INFO  [http-nio-8081-exec-8] [3da14b29-f07b-400a-a951-d20481b44f2f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.400 INFO  [http-nio-8081-exec-6] [05f18aa7-5b56-461e-b8ef-5e01466efaf2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.415 INFO  [http-nio-8081-exec-3] [ea59fe4d-479e-4e6f-938a-6330bf70e479] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.431 INFO  [http-nio-8081-exec-4] [40b29d71-e5a6-4f5c-9b76-efbf13a44a92] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.448 INFO  [http-nio-8081-exec-10] [89a82923-11ce-4c06-b1ea-a219053ee122] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.498 INFO  [http-nio-8081-exec-5] [647d3471-8b3e-4658-84a8-5a7c91e6b69f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:01:21.514 INFO  [http-nio-8081-exec-2] [5dbac54a-5b91-4d39-806a-6fb37c4f70bd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:03.120 INFO  [http-nio-8081-exec-9] [a2593f0a-097a-43c9-b1c6-844a88974828] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.338 INFO  [http-nio-8081-exec-4] [157f98e6-6584-49f5-9c0a-319e590d859c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.360 INFO  [http-nio-8081-exec-10] [03ca0818-221c-4441-8532-089b5d72e439] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.365 INFO  [http-nio-8081-exec-5] [763e1ce8-84ba-4910-b135-9b7507f7696c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.395 INFO  [http-nio-8081-exec-2] [20c89192-6896-4d68-9070-16250f715036] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.416 INFO  [http-nio-8081-exec-9] [637a9de4-0155-44cd-8656-bd5119b97cde] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.432 INFO  [http-nio-8081-exec-7] [ebeae839-e0d7-4722-8b52-b789e13ae3d7] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.461 INFO  [http-nio-8081-exec-1] [9ce224e5-8737-41a6-a13d-b34708b83391] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.479 INFO  [http-nio-8081-exec-8] [4ee7de91-b84e-4bf2-bf32-3e0c10e35c82] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.499 INFO  [http-nio-8081-exec-6] [fb6d45e8-5245-45ad-8616-4169675ec690] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:02:21.577 INFO  [http-nio-8081-exec-3] [ef4e3272-dbbc-461b-9f98-99c8a9f0811f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.361 INFO  [http-nio-8081-exec-9] [b8cb020d-46f0-44cd-9768-2b21ee38e01c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.394 INFO  [http-nio-8081-exec-7] [c7682b7e-0e6c-4638-a370-032ba5ad9243] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.407 INFO  [http-nio-8081-exec-1] [0ffa15b3-3f51-42a8-930e-c7e08f13edf4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.435 INFO  [http-nio-8081-exec-8] [53273ffb-b2e6-4f08-bad7-58eaaf19a0b6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.452 INFO  [http-nio-8081-exec-6] [4e6a3dce-94aa-43e5-ae78-50d8ebe3bd3f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.475 INFO  [http-nio-8081-exec-3] [946e8ef8-c93a-482e-bbf5-237566f26bff] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.489 INFO  [http-nio-8081-exec-4] [6d08370f-2fab-4562-abcb-81d7c247f490] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.535 INFO  [http-nio-8081-exec-10] [d16942fb-e61a-4bce-883b-cf9c67f817ea] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.590 INFO  [http-nio-8081-exec-5] [3a215639-9d41-4e67-b5e5-ed651e31af99] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:03:21.612 INFO  [http-nio-8081-exec-2] [582881c3-4de7-404f-b20b-927af01f3559] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.374 INFO  [http-nio-8081-exec-1] [a1e53803-d51d-4396-826a-ab720479439e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.396 INFO  [http-nio-8081-exec-8] [a3664aff-131b-4c36-8386-f731c7b5ab69] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.404 INFO  [http-nio-8081-exec-4] [97e9bcb8-5ac6-45f3-bc4b-ebe0da67c83e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.432 INFO  [http-nio-8081-exec-10] [010baaab-f7b3-487f-92d4-c48d89d959d9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.459 INFO  [http-nio-8081-exec-5] [a1c8b608-869e-4a96-a0ab-e4143dc81d92] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.477 INFO  [http-nio-8081-exec-2] [7a02cab3-b86f-4deb-b45c-87c065a21bb4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.497 INFO  [http-nio-8081-exec-9] [0963bfb8-28be-40a9-8621-c249ae36f8cc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.518 INFO  [http-nio-8081-exec-7] [a3fb125a-a5da-42d1-9b7b-f81d0825cdf0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.560 INFO  [http-nio-8081-exec-1] [a3abc96e-b4c7-4221-804b-8662fc1af9f4] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:04:21.591 INFO  [http-nio-8081-exec-6] [f6e83dad-4fdb-40f7-a8e9-7f42ffa36c1e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.376 INFO  [http-nio-8081-exec-4] [1d3dc3b1-8a0e-4aa8-bd52-1af9f8335248] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.404 INFO  [http-nio-8081-exec-10] [bfb76dfc-2d7b-4f84-b2d2-c864d812147e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.412 INFO  [http-nio-8081-exec-5] [564cb549-b22c-475f-87c2-e55904cebb78] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.438 INFO  [http-nio-8081-exec-2] [a623648c-e317-47b0-a6b8-f6f9404b2e4d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.461 INFO  [http-nio-8081-exec-9] [38c46678-7379-4d0f-b0a5-55e407e13704] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.476 INFO  [http-nio-8081-exec-7] [455d8edb-e3d4-4e6e-a7e4-a7b76fd1015f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.496 INFO  [http-nio-8081-exec-1] [bf41b2e8-185a-4b29-a610-bce395893649] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.540 INFO  [http-nio-8081-exec-6] [506dc8e4-35a9-4787-a017-20b226660fa2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.555 INFO  [http-nio-8081-exec-3] [2d0d8787-919c-41b7-89dc-ea80506ab97f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:05:21.576 INFO  [http-nio-8081-exec-8] [02cceb1a-09ce-462f-85f6-72fd0c26568f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.405 INFO  [http-nio-8081-exec-9] [34a609cf-46a7-4e3a-93fb-74e8b9b80434] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.429 INFO  [http-nio-8081-exec-7] [e2ae5dd5-7494-4b81-a754-590af52ca701] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.436 INFO  [http-nio-8081-exec-1] [d8672612-b752-43fe-8696-dc0bc83e7e02] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.486 INFO  [http-nio-8081-exec-6] [4af25710-c1c9-4c64-a584-60240b2f2fad] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.500 INFO  [http-nio-8081-exec-3] [34119291-ee60-46c7-a9dd-18cb9ea9e28c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.515 INFO  [http-nio-8081-exec-8] [d8e8cdff-c834-43fa-a704-f7b9a19de8a3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.551 INFO  [http-nio-8081-exec-4] [f6b5d207-8434-48b9-8951-19794b39bf0c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.568 INFO  [http-nio-8081-exec-10] [a55d9f5c-16de-4881-8d3f-04eb5ea31a86] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.583 INFO  [http-nio-8081-exec-5] [90cbe8b1-c99a-4b87-b6af-4753847d2e84] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:06:21.597 INFO  [http-nio-8081-exec-2] [13da9acb-b276-4554-8b3b-43a9ffdcbb07] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.427 INFO  [http-nio-8081-exec-3] [0d29088f-5d09-47b0-8468-9a635c37eff8] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.448 INFO  [http-nio-8081-exec-8] [adb54f61-ba1c-4ddb-8377-94eee8b28f5f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.454 INFO  [http-nio-8081-exec-4] [a3a2d528-3d45-4c4a-a095-d83ec14454a9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.487 INFO  [http-nio-8081-exec-10] [de6984ab-6b99-4948-a996-fd282481c358] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.503 INFO  [http-nio-8081-exec-5] [53138dd6-1fa3-4126-b41b-38650e1a91b2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.516 INFO  [http-nio-8081-exec-2] [e22eb7a5-f877-4c12-840a-a3480c8ad16f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.535 INFO  [http-nio-8081-exec-9] [17a22408-9a4b-4191-a7f5-2a3d35c51fb9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.574 INFO  [http-nio-8081-exec-7] [00715ed4-7814-4164-a06c-348a1761c504] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.588 INFO  [http-nio-8081-exec-1] [c2b05fc0-d8cc-4413-bfdb-da52bf4842c1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:07:21.603 INFO  [http-nio-8081-exec-6] [3061114c-d015-4d46-bbe8-dc40907eda1c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.438 INFO  [http-nio-8081-exec-5] [17ea686d-06a2-4305-ba6d-8149b391f326] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.469 INFO  [http-nio-8081-exec-2] [b70ec9a0-d189-4a4d-9bcc-2052d57bcd43] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.478 INFO  [http-nio-8081-exec-9] [c662af55-b717-496e-9a8c-ce7066aa09e3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.510 INFO  [http-nio-8081-exec-7] [fd1c45fe-fbb5-4b67-94d3-e0ed6e069a8a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.528 INFO  [http-nio-8081-exec-1] [7c219686-9b4d-49fc-ad3a-24384eddd361] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.579 INFO  [http-nio-8081-exec-6] [fe5c32b4-8591-40bd-ae48-d95b43db642b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.598 INFO  [http-nio-8081-exec-3] [f555c1cf-e114-4e09-9029-a24631f7675a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.619 INFO  [http-nio-8081-exec-8] [f41f8c5c-4a79-4a11-83dc-6a8cee7193c0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.629 INFO  [http-nio-8081-exec-4] [0c97fa8a-892f-4eb0-a30a-274d2023d89a] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:08:21.664 INFO  [http-nio-8081-exec-10] [ac47adf5-18aa-4f04-a56f-656259e9ad40] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.456 INFO  [http-nio-8081-exec-1] [7c9867ec-1578-4953-9a24-2df6deff33d9] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.482 INFO  [http-nio-8081-exec-6] [4614f29b-f54c-4a91-b4ec-4ad3dbc9ccd5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.489 INFO  [http-nio-8081-exec-3] [34a5c93b-27eb-4f06-b10b-7de8c6b7b935] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.518 INFO  [http-nio-8081-exec-8] [54cbf277-db3e-4c38-9b29-ac721821da09] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.542 INFO  [http-nio-8081-exec-4] [fd3ba0e4-6a34-4cda-82b4-76acc79a3dca] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.558 INFO  [http-nio-8081-exec-10] [15a51327-3e36-49a8-ac25-8ec91eb18dcc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.571 INFO  [http-nio-8081-exec-5] [2842ac51-e113-4b0a-a02d-00929be8f687] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.589 INFO  [http-nio-8081-exec-2] [ca42ff64-b51a-481f-b391-7f1e5cc0e313] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.629 INFO  [http-nio-8081-exec-9] [22b9fdeb-d23f-43d4-8dac-173cd4463d33] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:09:21.644 INFO  [http-nio-8081-exec-7] [20907dd3-eefc-453f-a5d3-e376fc1ecf79] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.459 INFO  [http-nio-8081-exec-4] [ba949e1b-4fd1-4941-92bc-ec3ee830e580] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.486 INFO  [http-nio-8081-exec-10] [f8983116-8972-483b-b364-e4852c8ea94e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.497 INFO  [http-nio-8081-exec-5] [6959d49b-b83c-43b6-96f9-24c108ddd279] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.526 INFO  [http-nio-8081-exec-2] [b8820e2f-c76f-4b52-a3c0-351d3bc10452] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.537 INFO  [http-nio-8081-exec-9] [33d63452-7684-4d85-b14b-4192cf3bceeb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.571 INFO  [http-nio-8081-exec-7] [4595b32b-99b1-4bfa-bba7-38305f280aa1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.589 INFO  [http-nio-8081-exec-1] [11f26f6e-3831-43b8-886d-33822add4a28] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.606 INFO  [http-nio-8081-exec-6] [9429d01f-104c-46ae-8193-d59a80caa55b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.651 INFO  [http-nio-8081-exec-3] [ec7674b8-880e-4988-8040-74558f69fbb5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:10:21.668 INFO  [http-nio-8081-exec-8] [f0a19d13-e1af-4001-9377-b5611e6b6af3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.481 INFO  [http-nio-8081-exec-9] [4be6146a-aafd-413f-8279-cb0a2b7fba21] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.509 INFO  [http-nio-8081-exec-7] [c14e759f-6460-4a87-b039-183aecf087d0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.512 INFO  [http-nio-8081-exec-1] [939c4533-58fd-4cab-b76c-0fce64b8e93b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.533 INFO  [http-nio-8081-exec-6] [471781cb-5717-41a2-abf0-7bca1e21d751] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.557 INFO  [http-nio-8081-exec-3] [3874e683-b61b-4b54-a8ae-d6db611df6ef] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.573 INFO  [http-nio-8081-exec-8] [0860117a-c893-4d62-beb3-9c8e9dd79c1d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.597 INFO  [http-nio-8081-exec-4] [902c12f1-8557-43ab-8a37-e228cab08edb] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.643 INFO  [http-nio-8081-exec-10] [9f0607cf-464d-4774-976e-1169a1fb5b8f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.653 INFO  [http-nio-8081-exec-5] [843e1cf1-8702-46bf-a2e0-03168af2e80f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:11:21.676 INFO  [http-nio-8081-exec-2] [84811cfa-b889-4f90-898b-f50d99731ef6] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.499 INFO  [http-nio-8081-exec-3] [ac6582c1-e136-4895-98e1-8325aaddc19f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.523 INFO  [http-nio-8081-exec-8] [30981ab8-152b-40c6-beb6-9fee5b38703e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.530 INFO  [http-nio-8081-exec-4] [ef6ae8e0-e41c-434b-89a6-0b90c7b3b749] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.562 INFO  [http-nio-8081-exec-10] [b3155af4-a9d3-4dde-a497-1ba8ce0846bf] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.582 INFO  [http-nio-8081-exec-5] [b1be449d-4ea0-41bd-b38f-a35cffae59d5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.600 INFO  [http-nio-8081-exec-2] [045cf29b-e089-4913-8ac1-25b67ea18649] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.610 INFO  [http-nio-8081-exec-9] [92bd907e-bcb7-41c7-a019-81ad99374341] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.647 INFO  [http-nio-8081-exec-7] [d52811ef-14c7-4523-b1d8-a8eb45c694ab] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.662 INFO  [http-nio-8081-exec-1] [a06faa9d-fc21-4203-bee5-455997710516] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:12:21.675 INFO  [http-nio-8081-exec-6] [b060fd36-db9d-48f9-a533-7d056b3ed315] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.525 INFO  [http-nio-8081-exec-5] [57152695-d551-400b-91df-f1c5ede79f1c] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.553 INFO  [http-nio-8081-exec-2] [ff6f8b99-239c-4996-89b8-1e206b91e480] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.557 INFO  [http-nio-8081-exec-9] [8a0ac40c-c376-4f73-9962-a4bd3e0ba272] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.580 INFO  [http-nio-8081-exec-7] [f3539228-34b9-4188-8fdd-0efff652e5b0] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.604 INFO  [http-nio-8081-exec-1] [5d51b336-f478-468b-b82e-ec71c73cb439] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.622 INFO  [http-nio-8081-exec-6] [c9f96511-ff94-445f-ba65-42275d9f304e] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.638 INFO  [http-nio-8081-exec-3] [df321c8a-8a57-444f-90f9-83d2dbd85bc1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.647 INFO  [http-nio-8081-exec-8] [6c372d8e-6449-4176-a6a1-9fe16d2589fd] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.664 INFO  [http-nio-8081-exec-4] [528eb7c3-f5b2-43d2-acc1-a6a8b10ae2c5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:13:21.716 INFO  [http-nio-8081-exec-10] [afca9f64-ada0-4720-b81a-52129271ed59] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.524 INFO  [http-nio-8081-exec-6] [80566a19-a6ff-4aff-8e77-a15779e650f3] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.548 INFO  [http-nio-8081-exec-3] [369dbc27-480a-417e-a0a7-783d44ce54dc] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.552 INFO  [http-nio-8081-exec-8] [2546d208-642f-4837-84c8-afc6ee4991f1] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.583 INFO  [http-nio-8081-exec-4] [e17c99eb-8cc0-40c1-ae94-90a774703847] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.601 INFO  [http-nio-8081-exec-10] [86f57b4c-8f1e-4ead-a40d-8659611abd83] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.659 INFO  [http-nio-8081-exec-5] [8a67ecd1-c1bb-4178-bb66-c092b494a7f2] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.679 INFO  [http-nio-8081-exec-2] [13805678-61fe-4af6-9fc6-ed7383f621e5] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.696 INFO  [http-nio-8081-exec-9] [0203cbb6-69be-4e3f-ac76-9eae8f68689b] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.750 INFO  [http-nio-8081-exec-7] [bf0f54dd-1a85-4205-9a04-281f28ff5e3d] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+2026-06-01 17:14:21.765 INFO  [http-nio-8081-exec-1] [9a9054ae-a5d3-43fa-a8c9-4bbd9e663c8f] c.g.n.a.ingest.IngestItemProcessor -
+        ingest duplicate pre-check messageId=undefined gatewayUid=pi-gw-001
+
+rafalopezzz@raspberrypi:~/glea-nexo $ curl -i \
+  -X POST "http://192.168.1.10:8080/api/ingest/readings/batch" \
+  -H "Content-Type: application/json" \
+  --data-binary @/tmp/ex02-direct-payload.json
+HTTP/1.1 400
+X-Correlation-Id: 5f80f612-49f6-4924-966f-c4ccb44feea8
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 01 Jun 2026 17:15:32 GMT
+Connection: close
+
+{"timestamp":"2026-06-01T17:15:32.252354753Z","status":400,"error":"VALIDATION_ERROR","message":"JSON parse error: Unrecognized field \"sensorId\" (class com.glea.nexo.api.dto.ingest.IngestReadingDto), not marked as ignorable","path":"/api/ingest/readings/batch","correlationId":"5f80f612-49f6-4924-966f-c4ccb44feea8","fieldErrors":[]}

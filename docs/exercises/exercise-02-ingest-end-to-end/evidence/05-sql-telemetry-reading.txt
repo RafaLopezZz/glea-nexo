@@ -1,0 +1,4 @@
+ id | created_at | updated_at | batteryv | message_id | quality | raw_payload | rssi | ts | value_num | value_text | device_id | farm_id | ingest_event_id | organization_id | sensor_id | unit_id | zone_id 
+----+------------+------------+----------+------------+---------+-------------+------+----+-----------+------------+-----------+---------+-----------------+-----------------+-----------+---------+---------
+(0 rows)
+
