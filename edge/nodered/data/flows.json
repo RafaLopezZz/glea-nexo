@@ -35,7 +35,7 @@
         "type": "sqlitedb",
         "db": "/data/sqlite/edge.db",
         "mode": "RWC",
-        "info": "CREATE TABLE IF NOT EXISTS outbox (\r\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n  message_id TEXT NOT NULL UNIQUE,\r\n  ts TEXT NOT NULL,\r\n  topic TEXT NOT NULL,\r\n  payload TEXT NOT NULL,\r\n  sent_at TEXT,\r\n  tries INTEGER NOT NULL DEFAULT 0,\r\n  last_error TEXT\r\n);\r\n"
+        "info": "CREATE TABLE IF NOT EXISTS outbox (\r\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n  message_id TEXT NOT NULL UNIQUE,\r\n  ts TEXT NOT NULL,\r\n  topic TEXT NOT NULL,\r\n  payload TEXT NOT NULL,\r\n  state TEXT NOT NULL DEFAULT 'PENDING' CHECK (state IN ('PENDING', 'SENDING', 'SENT', 'FAILED', 'DEAD_LETTER')),\r\n  sent_at TEXT,\r\n  tries INTEGER NOT NULL DEFAULT 0 CHECK (tries >= 0),\r\n  last_error TEXT,\r\n  next_attempt_at TEXT NOT NULL\r\n);\r\nCREATE INDEX IF NOT EXISTS idx_outbox_state_next_attempt_at ON outbox (state, next_attempt_at);\r\nCREATE INDEX IF NOT EXISTS idx_outbox_sent_at ON outbox (sent_at);\r\n"
     },
     {
         "id": "b09c12a70ad626e3",
@@ -86,7 +86,7 @@
         "type": "mqtt in",
         "z": "ea264a2e957706b2",
         "name": "",
-        "topic": "agro/#",
+        "topic": "agro/+/+/+/sensor/+/+/telemetry",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "b09c12a70ad626e3",
@@ -154,7 +154,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "CREATE TABLE IF NOT EXISTS outbox (   id INTEGER PRIMARY KEY AUTOINCREMENT,   message_id TEXT NOT NULL UNIQUE,   ts TEXT NOT NULL,   topic TEXT NOT NULL,   payload TEXT NOT NULL,   sent_at TEXT,   tries INTEGER NOT NULL DEFAULT 0,   last_error TEXT );",
+        "topic": "CREATE TABLE IF NOT EXISTS outbox (   id INTEGER PRIMARY KEY AUTOINCREMENT,   message_id TEXT NOT NULL UNIQUE,   ts TEXT NOT NULL,   topic TEXT NOT NULL,   payload TEXT NOT NULL,   state TEXT NOT NULL DEFAULT 'PENDING' CHECK (state IN ('PENDING', 'SENDING', 'SENT', 'FAILED', 'DEAD_LETTER')),   sent_at TEXT,   tries INTEGER NOT NULL DEFAULT 0 CHECK (tries >= 0),   last_error TEXT,   next_attempt_at TEXT NOT NULL ); CREATE INDEX IF NOT EXISTS idx_outbox_state_next_attempt_at ON outbox (state, next_attempt_at); CREATE INDEX IF NOT EXISTS idx_outbox_sent_at ON outbox (sent_at);",
         "payload": "",
         "payloadType": "date",
         "x": 170,
@@ -262,7 +262,7 @@
         "type": "function",
         "z": "be15e65355010343",
         "name": "function 1",
-        "func": "// topic MQTT original\nconst mqttTopic = msg.topic;\n\n// payload ya debe venir como objeto (gracias al nodo JSON)\nconst p = msg.payload;\n\nif (!p || typeof p !== \"object\") {\n  node.warn(\"payload no es objeto\");\n  return null;\n}\nif (!p.messageId) {\n  node.warn(\"falta messageId; no inserto\");\n  return null;\n}\n\nmsg.params = {\n  $message_id: p.messageId,\n  $ts: p.ts || new Date().toISOString(),\n  $topic: mqttTopic,\n  $payload: JSON.stringify(p)\n};\n\n// Opcional: limpiar payload para no arrastrar cosas\n// msg.payload = null;\n\nreturn msg;\n",
+        "func": "// topic MQTT original\nconst mqttTopic = msg.topic;\n\n// payload ya debe venir como objeto (gracias al nodo JSON)\nconst p = msg.payload;\n\nif (!p || typeof p !== \"object\") {\n  node.warn(\"payload no es objeto\");\n  return null;\n}\nif (!p.messageId) {\n  node.warn(\"falta messageId; no inserto\");\n  return null;\n}\n\nconst enqueuedAt = new Date().toISOString();\n\nmsg.params = {\n  $message_id: p.messageId,\n  $ts: p.ts || enqueuedAt,\n  $topic: mqttTopic,\n  $payload: JSON.stringify(p),\n  $state: \"PENDING\",\n  $next_attempt_at: enqueuedAt\n};\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -313,7 +313,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "SELECT   COUNT(*) AS total,   COALESCE(SUM(CASE WHEN sent_at IS NULL THEN 1 ELSE 0 END), 0) AS pending,   COALESCE(SUM(CASE WHEN sent_at IS NOT NULL THEN 1 ELSE 0 END), 0) AS sent,   COALESCE(MAX(ts), '') AS last_ts FROM outbox;",
+        "topic": "SELECT   COUNT(*) AS total,   COALESCE(SUM(CASE WHEN state = 'PENDING' THEN 1 ELSE 0 END), 0) AS pending,   COALESCE(SUM(CASE WHEN state = 'SENDING' THEN 1 ELSE 0 END), 0) AS sending,   COALESCE(SUM(CASE WHEN state = 'FAILED' THEN 1 ELSE 0 END), 0) AS failed,   COALESCE(SUM(CASE WHEN state = 'DEAD_LETTER' THEN 1 ELSE 0 END), 0) AS dead_letter,   COALESCE(SUM(CASE WHEN state = 'SENT' THEN 1 ELSE 0 END), 0) AS sent,   COALESCE(MAX(ts), '') AS last_ts,   COALESCE(MIN(CASE WHEN state IN ('PENDING', 'FAILED') THEN next_attempt_at END), '') AS next_attempt_at FROM outbox;",
         "payload": "",
         "payloadType": "date",
         "x": 130,
@@ -329,7 +329,7 @@
         "type": "mqtt in",
         "z": "be15e65355010343",
         "name": "",
-        "topic": "agro/#",
+        "topic": "agro/+/+/+/sensor/+/+/telemetry",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "b09c12a70ad626e3",
@@ -383,7 +383,7 @@
         "z": "be15e65355010343",
         "mydb": "1fab4871eee1b9df",
         "sqlquery": "prepared",
-        "sql": "INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload)\nVALUES ($message_id, $ts, $topic, $payload);\n",
+        "sql": "INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload, state, next_attempt_at)\nVALUES ($message_id, $ts, $topic, $payload, $state, $next_attempt_at);\n",
         "name": "",
         "x": 830,
         "y": 180,
@@ -444,7 +444,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "const testMessageId = \"test-\" + Date.now();  msg.topic = ` INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload) VALUES (?, ?, ?, ?); `.trim();  msg.payload = [   testMessageId,   new Date().toISOString(),   \"agro/test/topic\",   JSON.stringify({ hello: \"world\", testMessageId }) ];  return msg;",
+        "topic": "const testMessageId = \"test-\" + Date.now(); const now = new Date().toISOString(); msg.topic = ` INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload, state, next_attempt_at) VALUES (?, ?, ?, ?, ?, ?); `.trim(); msg.payload = [ testMessageId, now, \"agro/test/topic\", JSON.stringify({ hello: \"world\", testMessageId }), \"PENDING\", now ]; return msg;",
         "payload": "",
         "payloadType": "date",
         "x": 470,
@@ -494,7 +494,7 @@
         "type": "function",
         "z": "be15e65355010343",
         "name": "function 3",
-        "func": "const row = (msg.payload && msg.payload[0]) ? msg.payload[0] : {\n    total: 0, pending: 0, sent: 0, last_ts: \"\"\n};\n\nconst text = `Outbox | total=${row.total} | pending=${row.pending} | sent=${row.sent} | last_ts=${row.last_ts}`;\n\nnode.status({ fill: row.pending > 0 ? \"yellow\" : \"green\", shape: \"dot\", text });\n\nmsg.payload = row;   // deja el objeto limpio para debug\nmsg.summary = text;  // por si quieres verlo como texto también\nreturn msg;\n",
+        "func": "const row = (msg.payload && msg.payload[0]) ? msg.payload[0] : {\n    total: 0, pending: 0, sending: 0, failed: 0, dead_letter: 0, sent: 0, last_ts: \"\", next_attempt_at: \"\"\n};\n\nconst text = `Outbox | total=${row.total} | pending=${row.pending} | sending=${row.sending} | failed=${row.failed} | dlq=${row.dead_letter} | sent=${row.sent} | next=${row.next_attempt_at || '-'} | last_ts=${row.last_ts}`;\n\nnode.status({ fill: (row.failed > 0 || row.dead_letter > 0) ? \"red\" : row.pending > 0 ? \"yellow\" : \"green\", shape: \"dot\", text });\n\nmsg.payload = row;\nmsg.summary = text;\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -543,7 +543,7 @@
         "type": "function",
         "z": "34b1aa9b2b86f572",
         "name": "function 2",
-        "func": "const id = \"manual-\" + Date.now();\n\nmsg.params = {\n  $message_id: id,\n  $ts: new Date().toISOString(),\n  $topic: \"agro/test/topic\",\n  $payload: JSON.stringify({ hello: \"world\", id })\n};\n\nreturn msg;\n",
+        "func": "const id = \"manual-\" + Date.now();\nconst now = new Date().toISOString();\n\nmsg.params = {\n  $message_id: id,\n  $ts: now,\n  $topic: \"agro/test/topic\",\n  $payload: JSON.stringify({ hello: \"world\", id }),\n  $state: \"PENDING\",\n  $next_attempt_at: now\n};\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -564,7 +564,7 @@
         "z": "34b1aa9b2b86f572",
         "mydb": "1fab4871eee1b9df",
         "sqlquery": "prepared",
-        "sql": "INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload)\nVALUES ($message_id, $ts, $topic, $payload);",
+        "sql": "INSERT OR IGNORE INTO outbox (message_id, ts, topic, payload, state, next_attempt_at)\nVALUES ($message_id, $ts, $topic, $payload, $state, $next_attempt_at);",
         "name": "",
         "x": 830,
         "y": 240,
@@ -612,8 +612,8 @@
         "id": "mqtt_in",
         "type": "mqtt in",
         "z": "tab_bridge",
-        "name": "MQTT IN agro/#",
-        "topic": "agro/#",
+        "name": "MQTT IN disabled (outbox-first)",
+        "topic": "agro/__bridge_disabled__",
         "qos": "1",
         "datatype": "auto",
         "broker": "mqtt_broker",
@@ -681,12 +681,13 @@
         "proxy": "",
         "insecureHTTPParser": false,
         "authType": "",
-        "senderr": false,
+        "senderr": true,
         "headers": [],
         "x": 880,
         "y": 120,
         "wires": [
             [
+                "sw_http_replay_status",
                 "dbg_resp"
             ]
         ]
@@ -732,5 +733,284 @@
         "x": 1090,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "replay_tick",
+        "type": "inject",
+        "z": "tab_bridge",
+        "name": "Replay tick 15s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "replay_select_due_query"
+            ]
+        ]
+    },
+    {
+        "id": "replay_select_due_query",
+        "type": "function",
+        "z": "tab_bridge",
+        "name": "Select due outbox rows",
+        "func": "msg.topic = `SELECT id, message_id, topic, payload, tries\nFROM outbox\nWHERE state IN ('PENDING', 'FAILED')\n  AND tries < 5\n  AND datetime(next_attempt_at) <= datetime('now')\nORDER BY next_attempt_at ASC, id ASC\nLIMIT 20;`;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "replay_select_due"
+            ]
+        ]
+    },
+    {
+        "id": "replay_select_due",
+        "type": "sqlite",
+        "z": "tab_bridge",
+        "mydb": "1fab4871eee1b9df",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Select due outbox rows",
+        "x": 570,
+        "y": 340,
+        "wires": [
+            [
+                "replay_fanout"
+            ]
+        ]
+    },
+    {
+        "id": "replay_fanout",
+        "type": "function",
+        "z": "tab_bridge",
+        "name": "Fan out outbox rows",
+        "func": "const rows = Array.isArray(msg.payload) ? msg.payload : [];\nfor (const row of rows) {\n  node.send({ payload: row });\n}\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 340,
+        "wires": [
+            [
+                "replay_prepare_claim"
+            ]
+        ]
+    },
+    {
+        "id": "replay_prepare_claim",
+        "type": "function",
+        "z": "tab_bridge",
+        "name": "Prepare SENDING claim",
+        "func": "const row = msg.payload || {};\nmsg.replayRow = row;\nmsg.replay = {\n  id: row.id,\n  messageId: row.message_id,\n  tries: Number(row.tries || 0)\n};\nmsg.params = {\n  $id: row.id\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 340,
+        "wires": [
+            [
+                "replay_mark_sending"
+            ]
+        ]
+    },
+    {
+        "id": "replay_mark_sending",
+        "type": "sqlite",
+        "z": "tab_bridge",
+        "mydb": "1fab4871eee1b9df",
+        "sqlquery": "prepared",
+        "sql": "UPDATE outbox\nSET state = 'SENDING'\nWHERE id = $id\n  AND state IN ('PENDING', 'FAILED');",
+        "name": "Mark SENDING",
+        "x": 1220,
+        "y": 340,
+        "wires": [
+            [
+                "replay_load_message"
+            ]
+        ]
+    },
+    {
+        "id": "replay_load_message",
+        "type": "function",
+        "z": "tab_bridge",
+        "name": "Load outbox message",
+        "func": "const row = msg.replayRow || {};\ntry {\n  msg.topic = String(row.topic || '');\n  msg.payload = JSON.parse(String(row.payload || '{}'));\n  msg.replay = {\n    id: row.id,\n    messageId: row.message_id,\n    tries: Number(row.tries || 0)\n  };\n  return [msg, null];\n} catch (err) {\n  msg.replay = {\n    id: row.id,\n    messageId: row.message_id,\n    tries: Number(row.tries || 0)\n  };\n  msg.replayError = `Invalid outbox payload JSON: ${err.message}`;\n  return [null, msg];\n}\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1430,
+        "y": 340,
+        "wires": [
+            [
+                "fn_to_batch"
+            ],
+            [
+                "replay_prepare_failure"
+            ]
+        ]
+    },
+    {
+        "id": "sw_http_replay_status",
+        "type": "switch",
+        "z": "tab_bridge",
+        "name": "Replay HTTP status",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "200",
+                "vt": "num",
+                "v2": "299",
+                "v2t": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1220,
+        "y": 60,
+        "wires": [
+            [
+                "replay_prepare_sent"
+            ],
+            [
+                "replay_prepare_failure"
+            ]
+        ]
+    },
+    {
+        "id": "replay_prepare_sent",
+        "type": "function",
+        "z": "tab_bridge",
+        "name": "Prepare SENT update",
+        "func": "msg.params = {\n  $id: msg.replay.id,\n  $sent_at: new Date().toISOString()\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 40,
+        "wires": [
+            [
+                "replay_update_sent"
+            ]
+        ]
+    },
+    {
+        "id": "replay_update_sent",
+        "type": "sqlite",
+        "z": "tab_bridge",
+        "mydb": "1fab4871eee1b9df",
+        "sqlquery": "prepared",
+        "sql": "UPDATE outbox\nSET state = 'SENT',\n    sent_at = $sent_at,\n    last_error = NULL,\n    next_attempt_at = NULL\nWHERE id = $id;",
+        "name": "Update SENT",
+        "x": 1650,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "replay_prepare_failure",
+        "type": "function",
+        "z": "tab_bridge",
+        "name": "Prepare FAILED or DLQ",
+        "func": "const replay = msg.replay || { id: null, tries: 0 };\nconst tries = Number(replay.tries || 0) + 1;\nconst delaySeconds = tries === 1 ? 30 : tries === 2 ? 60 : tries === 3 ? 120 : 300;\nconst nextAttemptAt = new Date(Date.now() + (delaySeconds * 1000)).toISOString();\nlet reason = 'Unknown replay error';\nif (msg.replayError) {\n  reason = msg.replayError;\n} else if (msg.error && msg.error.message) {\n  reason = String(msg.error.message);\n} else if (msg.statusCode) {\n  reason = `HTTP ${msg.statusCode}`;\n} else if (msg.payload != null) {\n  reason = typeof msg.payload === 'string' ? msg.payload : JSON.stringify(msg.payload);\n}\nmsg.params = {\n  $id: replay.id,\n  $last_error: String(reason).slice(0, 500),\n  $next_attempt_at: nextAttemptAt\n};\nif (tries >= 5 || msg.replayError) {\n  return [null, msg];\n}\nreturn [msg, null];\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 100,
+        "wires": [
+            [
+                "replay_update_failed"
+            ],
+            [
+                "replay_update_dead_letter"
+            ]
+        ]
+    },
+    {
+        "id": "replay_update_failed",
+        "type": "sqlite",
+        "z": "tab_bridge",
+        "mydb": "1fab4871eee1b9df",
+        "sqlquery": "prepared",
+        "sql": "UPDATE outbox\nSET state = 'FAILED',\n    tries = tries + 1,\n    last_error = $last_error,\n    next_attempt_at = $next_attempt_at\nWHERE id = $id;",
+        "name": "Update FAILED",
+        "x": 1660,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "replay_update_dead_letter",
+        "type": "sqlite",
+        "z": "tab_bridge",
+        "mydb": "1fab4871eee1b9df",
+        "sqlquery": "prepared",
+        "sql": "UPDATE outbox\nSET state = 'DEAD_LETTER',\n    tries = tries + 1,\n    last_error = $last_error\nWHERE id = $id;",
+        "name": "Update DEAD_LETTER",
+        "x": 1680,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "catch_http_replay",
+        "type": "catch",
+        "z": "tab_bridge",
+        "name": "Catch replay HTTP errors",
+        "scope": [
+            "http_post"
+        ],
+        "uncaught": false,
+        "x": 1200,
+        "y": 120,
+        "wires": [
+            [
+                "replay_prepare_failure"
+            ]
+        ]
     }
 ]
