@@ -16,6 +16,7 @@ import com.glea.nexo.api.dto.telemetry.TelemetryReadingResponseDto;
 import com.glea.nexo.application.telemetry.TelemetryQueryService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
@@ -30,22 +31,28 @@ public class TelemetryController {
     }
 
     @GetMapping("/readings")
-    @Operation(summary = "List telemetry readings for chart/table v1")
+    @Operation(summary = "List telemetry readings for chart/table v1",
+            description = "The query parameters from/to are optional. When both are present they must use ISO-8601 UTC timestamps, from must be before or equal to to, and the range must not exceed 2 years.")
     public ResponseEntity<List<TelemetryReadingResponseDto>> getReadings(
             @RequestParam(required = false) UUID zoneId,
             @RequestParam(required = false) UUID deviceId,
+            @Parameter(description = "Inclusive event-time lower bound in ISO-8601 UTC. Optional.", example = "2026-01-01T00:00:00Z")
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Instant from,
+            @Parameter(description = "Inclusive event-time upper bound in ISO-8601 UTC. Optional. If both from and to are present, the range must not exceed 2 years.", example = "2026-12-31T23:59:59Z")
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Instant to
     ) {
         return ResponseEntity.ok(telemetryQueryService.findReadings(zoneId, deviceId, from, to));
     }
 
     @GetMapping("/latest")
-    @Operation(summary = "Get latest telemetry snapshot per sensor")
+    @Operation(summary = "Get latest telemetry snapshot per sensor",
+            description = "The query parameters from/to are optional. When both are present they must use ISO-8601 UTC timestamps, from must be before or equal to to, and the range must not exceed 2 years.")
     public ResponseEntity<List<TelemetryLatestResponseDto>> getLatest(
             @RequestParam(required = false) UUID zoneId,
             @RequestParam(required = false) UUID deviceId,
+            @Parameter(description = "Inclusive event-time lower bound in ISO-8601 UTC. Optional.", example = "2026-01-01T00:00:00Z")
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Instant from,
+            @Parameter(description = "Inclusive event-time upper bound in ISO-8601 UTC. Optional. If both from and to are present, the range must not exceed 2 years.", example = "2026-12-31T23:59:59Z")
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Instant to
     ) {
         return ResponseEntity.ok(telemetryQueryService.findLatest(zoneId, deviceId, from, to));

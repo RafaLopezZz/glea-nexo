@@ -1,6 +1,7 @@
 package com.glea.nexo.api.controller;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -82,7 +83,7 @@ class IngestControllerIntegrationTest {
         String request = """
                 {
                   "source": "mqtt-gateway",
-                  "topic": "agro/finca-01/zona-01/sensor/temperature/telemetry",
+                  "topic": "agro/finca-01/zona-01/temp-01/sensor/sensor-temp-01/TEMPERATURE/telemetry",
                   "readings": [
                     {
                       "messageId": "m-0001",
@@ -131,7 +132,7 @@ class IngestControllerIntegrationTest {
         String payload = """
         {
           "source": "integration-test",
-          "topic": "agro/finca-test/zona-test/sensor/temperature/telemetry",
+          "topic": "agro/finca-test/zona-test/temp-sensor-01/sensor/temp-sensor-01-sensor/TEMPERATURE/telemetry",
           "readings": [
             {
               "messageId": "%s",
@@ -164,6 +165,7 @@ class IngestControllerIntegrationTest {
 
         assertThat(readings).hasSize(1);
         TelemetryReading reading = readings.get(0);
+        assertThat(reading.getTs()).isEqualTo(Instant.parse("2026-02-15T10:00:00Z"));
         assertThat(reading.getValueNum()).isEqualByComparingTo(new BigDecimal("23.4"));
         assertThat(reading.getBatteryV()).isEqualByComparingTo(new BigDecimal("3.85"));
         assertThat(reading.getRssi()).isEqualTo(-68);
@@ -173,7 +175,7 @@ class IngestControllerIntegrationTest {
         Sensor sensor = sensorRepository.findById(reading.getSensor().getId())
           .orElseThrow();
         assertThat(sensor.getState()).isEqualTo(OnlineState.ONLINE);
-        assertThat(sensor.getLastSeenAt()).isNotNull();
+        assertThat(sensor.getLastSeenAt()).isEqualTo(Instant.parse("2026-02-15T10:00:00Z"));
         assertThat(sensor.getLastBatteryV()).isEqualByComparingTo(new BigDecimal("3.85"));
         assertThat(sensor.getLastRssi()).isEqualTo(-68);
 
@@ -192,7 +194,7 @@ class IngestControllerIntegrationTest {
         String payload = """
         {
           "source": "integration-test",
-          "topic": "agro/finca-test/zona-test/sensor/temperature/telemetry",
+          "topic": "agro/finca-test/zona-test/temp-sensor-02/sensor/temp-sensor-02-sensor/TEMPERATURE/telemetry",
           "readings": [
             {
               "messageId": "%s",
@@ -230,6 +232,71 @@ class IngestControllerIntegrationTest {
                 .count();
 
         assertThat(count).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("Debe rechazar lecturas sin ts")
+    void shouldRejectReadingWithoutTs() throws Exception {
+        String messageId = "test-missing-ts-" + UUID.randomUUID();
+        String payload = """
+        {
+          "source": "integration-test",
+          "topic": "agro/finca-test/zona-test/temp-sensor-03/sensor/temp-sensor-03-sensor/TEMPERATURE/telemetry",
+          "readings": [
+            {
+              "messageId": "%s",
+              "deviceId": "temp-sensor-03",
+              "value": 20.0,
+              "unit": "C",
+              "battery": 3.7,
+              "rssi": -60
+            }
+          ]
+        }
+        """.formatted(messageId);
+
+        mockMvc.perform(post("/api/ingest/readings/batch")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("VALIDATION_ERROR"))
+                .andExpect(jsonPath("$.fieldErrors[0].field").value("readings[0].ts"));
+
+        long count = telemetryReadingRepository
+                .findAll()
+                .stream()
+                .filter(r -> r.getMessageId().equals(messageId))
+                .count();
+
+        assertThat(count).isZero();
+    }
+
+    @Test
+    @DisplayName("Debe rechazar lecturas con ts mal formado")
+    void shouldRejectReadingWithInvalidTsFormat() throws Exception {
+        String payload = """
+        {
+          "source": "integration-test",
+          "topic": "agro/finca-test/zona-test/temp-sensor-04/sensor/temp-sensor-04-sensor/TEMPERATURE/telemetry",
+          "readings": [
+            {
+              "messageId": "invalid-ts-format",
+              "deviceId": "temp-sensor-04",
+              "ts": "not-an-instant",
+              "value": 21.0,
+              "unit": "C",
+              "battery": 3.8,
+              "rssi": -61
+            }
+          ]
+        }
+        """;
+
+        mockMvc.perform(post("/api/ingest/readings/batch")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("VALIDATION_ERROR"));
     }
 
 }
