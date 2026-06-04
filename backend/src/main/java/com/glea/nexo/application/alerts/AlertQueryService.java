@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.glea.nexo.api.dto.alerts.AlertResponseDto;
+import com.glea.nexo.application.common.TimeRangeValidator;
 import com.glea.nexo.application.inventory.OrganizationContextResolver;
 import com.glea.nexo.domain.location.Organization;
 import com.glea.nexo.domain.repository.DeviceAlertRepository;
@@ -19,13 +20,16 @@ public class AlertQueryService {
 
     private final DeviceAlertRepository deviceAlertRepository;
     private final OrganizationContextResolver organizationContextResolver;
+    private final TimeRangeValidator timeRangeValidator;
 
     public AlertQueryService(
             DeviceAlertRepository deviceAlertRepository,
-            OrganizationContextResolver organizationContextResolver
+            OrganizationContextResolver organizationContextResolver,
+            TimeRangeValidator timeRangeValidator
     ) {
         this.deviceAlertRepository = deviceAlertRepository;
         this.organizationContextResolver = organizationContextResolver;
+        this.timeRangeValidator = timeRangeValidator;
     }
 
     public List<AlertResponseDto> findAlerts(UUID zoneId, UUID deviceId, Instant from, Instant to) {
@@ -49,8 +53,6 @@ public class AlertQueryService {
     }
 
     private void validateRange(Instant from, Instant to) {
-        if (from != null && to != null && from.isAfter(to)) {
-            throw new IllegalArgumentException("from must be before or equal to to");
-        }
+        timeRangeValidator.validate(from, to);
     }
 }

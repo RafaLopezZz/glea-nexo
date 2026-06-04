@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -136,6 +137,34 @@ class ObservabilityControllerIntegrationTest {
                 .andExpect(jsonPath("$.error").value("VALIDATION_ERROR"));
     }
 
+    @Test
+    void rangeGreaterThanTwoYearsShouldReturnBadRequest() throws Exception {
+        mockMvc.perform(get("/api/telemetry/readings")
+                        .param("from", "2024-03-29T10:00:00Z")
+                        .param("to", "2026-03-30T10:00:00Z"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("VALIDATION_ERROR"))
+                .andExpect(jsonPath("$.message").value("time range must not exceed 2 years"));
+    }
+
+    @Test
+    void rangeOfExactlyTwoYearsShouldBeAccepted() throws Exception {
+        mockMvc.perform(get("/api/telemetry/readings")
+                        .param("from", "2024-03-29T10:00:00Z")
+                        .param("to", "2026-03-29T10:00:00Z"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void alertsRangeGreaterThanTwoYearsShouldReturnBadRequest() throws Exception {
+        mockMvc.perform(get("/api/alerts")
+                        .param("from", "2024-03-29T10:00:00Z")
+                        .param("to", "2026-03-30T10:00:00Z"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("VALIDATION_ERROR"))
+                .andExpect(jsonPath("$.message").value("time range must not exceed 2 years"));
+    }
+
     private void ensureSensorType(String code, String name) {
         if (sensorTypeRepository.findByCode(code).isEmpty()) {
             SensorType sensorType = new SensorType();
@@ -146,6 +175,7 @@ class ObservabilityControllerIntegrationTest {
     }
 
     private void ingest(String messageId, String deviceUid, String sensorUid, String zoneCode, String ts, double value) throws Exception {
+        String valueJson = String.format(Locale.US, "%.1f", value);
         String payload = """
                 {
                   "source": "integration-test",
@@ -155,14 +185,14 @@ class ObservabilityControllerIntegrationTest {
                       "deviceId": "%s",
                       "topic": "agro/farm-observability/%s/%s/sensor/%s/TEMPERATURE/telemetry",
                       "ts": "%s",
-                      "value": %.1f,
+                      "value": %s,
                       "unit": "C",
                       "battery": 3.9,
                       "rssi": -67
                     }
                   ]
                 }
-                """.formatted(messageId, deviceUid, zoneCode, deviceUid, sensorUid, ts, value);
+                """.formatted(messageId, deviceUid, zoneCode, deviceUid, sensorUid, ts, valueJson);
 
         mockMvc.perform(post("/api/ingest/readings/batch")
                         .contentType(MediaType.APPLICATION_JSON)

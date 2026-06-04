@@ -26,7 +26,15 @@ public abstract class BaseEntityUuid {
   @Column(nullable = false)
   private Instant updatedAt;
 
-  public UUID getId() { return id; }
-  public Instant getCreatedAt() { return createdAt; }
-  public Instant getUpdatedAt() { return updatedAt; }
+  public UUID getId() {
+    return id;
+  }
+
+  public Instant getCreatedAt() {
+    return createdAt;
+  }
+
+  public Instant getUpdatedAt() {
+    return updatedAt;
+  }
 }

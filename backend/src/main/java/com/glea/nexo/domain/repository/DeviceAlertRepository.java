@@ -31,10 +31,10 @@ public interface DeviceAlertRepository extends JpaRepository<Device, UUID> {
             where d.organization_id = :organizationId
               and d.last_seen_at is not null
               and d.last_seen_at < :staleBefore
-              and (:zoneId is null or d.zone_id = :zoneId)
-              and (:deviceId is null or d.id = :deviceId)
-              and (:fromTs is null or d.last_seen_at >= :fromTs)
-              and (:toTs is null or d.last_seen_at <= :toTs)
+              and (cast(:zoneId as uuid) is null or d.zone_id = :zoneId)
+              and (cast(:deviceId as uuid) is null or d.id = :deviceId)
+              and (cast(:fromTs as timestamp with time zone) is null or d.last_seen_at >= :fromTs)
+              and (cast(:toTs as timestamp with time zone) is null or d.last_seen_at <= :toTs)
             order by d.last_seen_at asc, d.id asc
             """, nativeQuery = true)
     List<DeviceAlertView> findStaleDevices(

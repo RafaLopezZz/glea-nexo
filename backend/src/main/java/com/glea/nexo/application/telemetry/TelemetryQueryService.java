@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.glea.nexo.api.dto.telemetry.TelemetryLatestResponseDto;
 import com.glea.nexo.api.dto.telemetry.TelemetryReadingResponseDto;
+import com.glea.nexo.application.common.TimeRangeValidator;
 import com.glea.nexo.application.inventory.OrganizationContextResolver;
 import com.glea.nexo.domain.location.Organization;
 
@@ -21,13 +22,16 @@ public class TelemetryQueryService {
 
     private final EntityManager entityManager;
     private final OrganizationContextResolver organizationContextResolver;
+    private final TimeRangeValidator timeRangeValidator;
 
     public TelemetryQueryService(
             EntityManager entityManager,
-            OrganizationContextResolver organizationContextResolver
+            OrganizationContextResolver organizationContextResolver,
+            TimeRangeValidator timeRangeValidator
     ) {
         this.entityManager = entityManager;
         this.organizationContextResolver = organizationContextResolver;
+        this.timeRangeValidator = timeRangeValidator;
     }
 
     public List<TelemetryReadingResponseDto> findReadings(UUID zoneId, UUID deviceId, Instant from, Instant to) {
@@ -235,8 +239,6 @@ public class TelemetryQueryService {
     }
 
     private void validateRange(Instant from, Instant to) {
-        if (from != null && to != null && from.isAfter(to)) {
-            throw new IllegalArgumentException("from must be before or equal to to");
-        }
+        timeRangeValidator.validate(from, to);
     }
 }

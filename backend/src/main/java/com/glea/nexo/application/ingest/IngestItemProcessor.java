@@ -161,7 +161,10 @@ public class IngestItemProcessor {
             telemetry.setUnit(unit);
 
             telemetry.setMessageId(reading.messageId());
-            telemetry.setTs(reading.ts() != null ? reading.ts() : Instant.now());
+            if (reading.ts() == null) {
+                throw new IllegalArgumentException("ts is required and must represent event time");
+            }
+            telemetry.setTs(reading.ts());
             telemetry.setValueNum(reading.value());
             telemetry.setBatteryV(reading.battery());
             telemetry.setRssi(reading.rssi());
