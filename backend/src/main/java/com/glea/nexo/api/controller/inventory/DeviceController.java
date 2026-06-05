@@ -23,6 +23,8 @@ import com.glea.nexo.application.inventory.DeviceService;
 import com.glea.nexo.domain.common.enums.OnlineState;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -47,8 +49,11 @@ public class DeviceController {
             @ApiResponse(responseCode = "404", description = "Zone not found"),
             @ApiResponse(responseCode = "409", description = "Unique constraint conflict")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<DeviceResponseDto> createDevice(
-            @PathVariable UUID zoneId,
+            @Parameter(description = "Parent zone identifier", example = "41ef1c42-d2c3-4b6f-a702-e891be507f42") @PathVariable UUID zoneId,
             @Valid @RequestBody DeviceCreateRequestDto request
     ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(deviceService.createDevice(zoneId, request));
@@ -60,13 +65,23 @@ public class DeviceController {
             @ApiResponse(responseCode = "200", description = "Paged devices"),
             @ApiResponse(responseCode = "404", description = "Organization not found")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<Page<DeviceResponseDto>> listDevices(
+            @Parameter(description = "Zero-based page index", example = "0")
             @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "Page size", example = "20")
             @RequestParam(defaultValue = "20") int size,
+            @Parameter(description = "Sort expression field,direction", example = "createdAt,desc")
             @RequestParam(defaultValue = "createdAt,desc") String sort,
+            @Parameter(description = "Optional farm identifier filter", example = "d4620d12-97aa-49c4-afde-8cbcbf8472de")
             @RequestParam(required = false) UUID farmId,
+            @Parameter(description = "Optional zone identifier filter", example = "41ef1c42-d2c3-4b6f-a702-e891be507f42")
             @RequestParam(required = false) UUID zoneId,
+            @Parameter(description = "Optional online-state filter", example = "ONLINE")
             @RequestParam(required = false) OnlineState state,
+            @Parameter(description = "Optional free-text filter", example = "gateway norte")
             @RequestParam(required = false) String q
     ) {
         return ResponseEntity.ok(deviceService.listDevices(page, size, sort, farmId, zoneId, state, q));
@@ -78,7 +93,11 @@ public class DeviceController {
             @ApiResponse(responseCode = "200", description = "Device found"),
             @ApiResponse(responseCode = "404", description = "Device not found")
     })
-    public ResponseEntity<DeviceResponseDto> getDevice(@PathVariable UUID deviceId) {
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
+    public ResponseEntity<DeviceResponseDto> getDevice(
+            @Parameter(description = "Device identifier", example = "8e722a06-6ec2-4c63-bc32-d81a24bba95f") @PathVariable UUID deviceId) {
         return ResponseEntity.ok(deviceService.getDevice(deviceId));
     }
 
@@ -90,8 +109,11 @@ public class DeviceController {
             @ApiResponse(responseCode = "404", description = "Device not found"),
             @ApiResponse(responseCode = "409", description = "Unique constraint conflict")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<DeviceResponseDto> updateDevice(
-            @PathVariable UUID deviceId,
+            @Parameter(description = "Device identifier", example = "8e722a06-6ec2-4c63-bc32-d81a24bba95f") @PathVariable UUID deviceId,
             @Valid @RequestBody DeviceUpdateRequestDto request
     ) {
         return ResponseEntity.ok(deviceService.updateDevice(deviceId, request));
@@ -105,7 +127,11 @@ public class DeviceController {
             @ApiResponse(responseCode = "404", description = "Device not found"),
             @ApiResponse(responseCode = "409", description = "Reference conflict")
     })
-    public void deleteDevice(@PathVariable UUID deviceId) {
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
+    public void deleteDevice(
+            @Parameter(description = "Device identifier", example = "8e722a06-6ec2-4c63-bc32-d81a24bba95f") @PathVariable UUID deviceId) {
         deviceService.deleteDevice(deviceId);
     }
 }

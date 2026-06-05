@@ -22,6 +22,8 @@ import com.glea.nexo.api.dto.inventory.ZoneUpdateRequestDto;
 import com.glea.nexo.application.inventory.ZoneService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -46,8 +48,11 @@ public class ZoneController {
             @ApiResponse(responseCode = "404", description = "Farm not found"),
             @ApiResponse(responseCode = "409", description = "Unique constraint conflict")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<ZoneResponseDto> createZone(
-            @PathVariable UUID farmId,
+            @Parameter(description = "Parent farm identifier", example = "d4620d12-97aa-49c4-afde-8cbcbf8472de") @PathVariable UUID farmId,
             @Valid @RequestBody ZoneCreateRequestDto request
     ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(zoneService.createZone(farmId, request));
@@ -59,11 +64,18 @@ public class ZoneController {
             @ApiResponse(responseCode = "200", description = "Paged zones"),
             @ApiResponse(responseCode = "404", description = "Farm not found")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<Page<ZoneResponseDto>> listZones(
-            @PathVariable UUID farmId,
+            @Parameter(description = "Parent farm identifier", example = "d4620d12-97aa-49c4-afde-8cbcbf8472de") @PathVariable UUID farmId,
+            @Parameter(description = "Zero-based page index", example = "0")
             @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "Page size", example = "20")
             @RequestParam(defaultValue = "20") int size,
+            @Parameter(description = "Sort expression field,direction", example = "createdAt,desc")
             @RequestParam(defaultValue = "createdAt,desc") String sort,
+            @Parameter(description = "Optional free-text filter", example = "zona norte")
             @RequestParam(required = false) String q
     ) {
         return ResponseEntity.ok(zoneService.listZones(farmId, page, size, sort, q));
@@ -75,7 +87,11 @@ public class ZoneController {
             @ApiResponse(responseCode = "200", description = "Zone found"),
             @ApiResponse(responseCode = "404", description = "Zone not found")
     })
-    public ResponseEntity<ZoneResponseDto> getZone(@PathVariable UUID zoneId) {
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
+    public ResponseEntity<ZoneResponseDto> getZone(
+            @Parameter(description = "Zone identifier", example = "41ef1c42-d2c3-4b6f-a702-e891be507f42") @PathVariable UUID zoneId) {
         return ResponseEntity.ok(zoneService.getZone(zoneId));
     }
 
@@ -87,8 +103,11 @@ public class ZoneController {
             @ApiResponse(responseCode = "404", description = "Zone not found"),
             @ApiResponse(responseCode = "409", description = "Unique constraint conflict")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<ZoneResponseDto> updateZone(
-            @PathVariable UUID zoneId,
+            @Parameter(description = "Zone identifier", example = "41ef1c42-d2c3-4b6f-a702-e891be507f42") @PathVariable UUID zoneId,
             @Valid @RequestBody ZoneUpdateRequestDto request
     ) {
         return ResponseEntity.ok(zoneService.updateZone(zoneId, request));
@@ -102,7 +121,11 @@ public class ZoneController {
             @ApiResponse(responseCode = "404", description = "Zone not found"),
             @ApiResponse(responseCode = "409", description = "Reference conflict")
     })
-    public void deleteZone(@PathVariable UUID zoneId) {
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
+    public void deleteZone(
+            @Parameter(description = "Zone identifier", example = "41ef1c42-d2c3-4b6f-a702-e891be507f42") @PathVariable UUID zoneId) {
         zoneService.deleteZone(zoneId);
     }
 }

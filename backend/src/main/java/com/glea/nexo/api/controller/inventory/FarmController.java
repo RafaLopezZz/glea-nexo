@@ -22,6 +22,8 @@ import com.glea.nexo.api.dto.inventory.FarmUpdateRequestDto;
 import com.glea.nexo.application.inventory.FarmService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -46,6 +48,9 @@ public class FarmController {
             @ApiResponse(responseCode = "404", description = "Organization not found"),
             @ApiResponse(responseCode = "409", description = "Unique constraint conflict")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<FarmResponseDto> createFarm(@Valid @RequestBody FarmCreateRequestDto request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(farmService.createFarm(request));
     }
@@ -56,10 +61,17 @@ public class FarmController {
             @ApiResponse(responseCode = "200", description = "Paged farms"),
             @ApiResponse(responseCode = "404", description = "Organization not found")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<Page<FarmResponseDto>> listFarms(
+            @Parameter(description = "Zero-based page index", example = "0")
             @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "Page size", example = "20")
             @RequestParam(defaultValue = "20") int size,
+            @Parameter(description = "Sort expression field,direction", example = "createdAt,desc")
             @RequestParam(defaultValue = "createdAt,desc") String sort,
+            @Parameter(description = "Optional free-text filter", example = "finca norte")
             @RequestParam(required = false) String q
     ) {
         return ResponseEntity.ok(farmService.listFarms(page, size, sort, q));
@@ -71,7 +83,11 @@ public class FarmController {
             @ApiResponse(responseCode = "200", description = "Farm found"),
             @ApiResponse(responseCode = "404", description = "Farm not found")
     })
-    public ResponseEntity<FarmResponseDto> getFarm(@PathVariable UUID farmId) {
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
+    public ResponseEntity<FarmResponseDto> getFarm(
+            @Parameter(description = "Farm identifier", example = "d4620d12-97aa-49c4-afde-8cbcbf8472de") @PathVariable UUID farmId) {
         return ResponseEntity.ok(farmService.getFarm(farmId));
     }
 
@@ -83,8 +99,11 @@ public class FarmController {
             @ApiResponse(responseCode = "404", description = "Farm not found"),
             @ApiResponse(responseCode = "409", description = "Unique constraint conflict")
     })
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
     public ResponseEntity<FarmResponseDto> updateFarm(
-            @PathVariable UUID farmId,
+            @Parameter(description = "Farm identifier", example = "d4620d12-97aa-49c4-afde-8cbcbf8472de") @PathVariable UUID farmId,
             @Valid @RequestBody FarmUpdateRequestDto request
     ) {
         return ResponseEntity.ok(farmService.updateFarm(farmId, request));
@@ -98,7 +117,11 @@ public class FarmController {
             @ApiResponse(responseCode = "404", description = "Farm not found"),
             @ApiResponse(responseCode = "409", description = "Reference conflict")
     })
-    public void deleteFarm(@PathVariable UUID farmId) {
+    @Parameters({
+            @Parameter(ref = "#/components/parameters/XOrgCodeHeader")
+    })
+    public void deleteFarm(
+            @Parameter(description = "Farm identifier", example = "d4620d12-97aa-49c4-afde-8cbcbf8472de") @PathVariable UUID farmId) {
         farmService.deleteFarm(farmId);
     }
 }
