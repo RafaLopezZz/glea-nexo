@@ -1,273 +1,197 @@
 # Glea Nexo
 
-**Plataforma IoT para agricultura conectada, operativa incluso con conectividad irregular.**
+**Plataforma IoT agrícola orientada a observabilidad operativa, trazabilidad y evolución progresiva hacia automatización útil en campo.**
 
-Glea Nexo es una plataforma IoT agrícola orientada a monitorización, trazabilidad operativa y evolución progresiva hacia automatización e inteligencia aplicada.
-Combina una capa **edge** (Mosquitto, Node-RED, Python, SQLite) con una **plataforma** (Spring Boot, PostgreSQL, Angular) para capturar telemetría, estructurar inventario operativo y construir una experiencia de observabilidad útil por finca, zona y dispositivo.
+Glea Nexo nace para resolver un problema muy concreto: en entornos agrícolas reales, los datos existen, pero suelen llegar dispersos, tarde, sin contexto operativo claro y con una conectividad que no siempre acompaña. El resultado habitual es una operación reactiva, con poca capacidad para entender qué está pasando, dónde ocurre y cuándo requiere atención.
+
+La propuesta de Glea Nexo es construir una base técnica sólida para transformar esa realidad en una experiencia más útil: capturar telemetría desde edge, organizar el contexto operativo por finca, zona y dispositivo, y ofrecer una capa de observabilidad que ayude a tomar mejores decisiones antes de dar el salto a automatización y analítica avanzada.
+
+---
+
+## Qué problema resuelve
+
+Glea Nexo está pensado para escenarios donde no basta con “recibir datos”. Lo importante es poder convertirlos en información operativa fiable.
+
+En ese contexto, el proyecto busca ayudar a resolver problemas como:
+
+- baja visibilidad de lo que está ocurriendo en campo en cada momento;
+- dificultad para relacionar lecturas con su ubicación y contexto operativo;
+- pérdida de trazabilidad cuando hay conectividad irregular;
+- ingestión poco robusta frente a reintentos o duplicados;
+- falta de una base coherente sobre la que construir alertas, automatización o analítica útil.
 
 ---
 
 ## Qué es Glea Nexo
 
-El objetivo de Glea Nexo no es ser una demo genérica de IoT, sino una base realista para casos de uso agrícolas donde importan:
+Glea Nexo es un proyecto técnico serio orientado a construir una plataforma IoT agrícola modular y evolutiva.
 
-- ingestión fiable de telemetría
-- operación con edge/gateway local
-- visibilidad por finca, zona y dispositivo
-- trazabilidad de eventos y estados
-- evolución posterior hacia alertas, automatización y ML cuando tenga sentido
+Su foco actual no es prometer complejidad innecesaria, sino cerrar una vertical de producto que ya aporte valor real:
 
----
+- captar telemetría;
+- contextualizarla por organización, finca, zona y dispositivo;
+- consultar histórico y estado reciente;
+- hacer visibles alertas operativas básicas;
+- dejar contratos, semántica temporal e idempotencia suficientemente claros como para seguir escalando con seguridad.
 
-## Estado actual del proyecto
-
-### Base ya construida
-
-- **Edge** con Mosquitto, Node-RED y servicios Python
-- **Backend** Spring Boot con ingestión de telemetría y persistencia
-- **Inventario operativo**: `farm`, `zone`, `device`
-- **Scoping por organización**
-- **Infraestructura Compose** para edge y plataforma
-- **Documentación base de arquitectura e iteraciones**
-
-### Iteraciones completadas
-
-- ✅ **ITER-001** — ingest event + deduplicación
-- ✅ **ITER-002** — persistencia de telemetría
-- ✅ **ITER-003** — inventory CRUD (`farm`, `zone`, `device`)
-
-### Iteración actual en foco
-
-## Observabilidad operativa v1
-
-La iteración activa del proyecto está orientada a cerrar una primera vertical de producto útil y demostrable:
-
-- histórico de telemetría por zona/dispositivo
-- snapshot operativo de estado actual
-- alertas básicas visibles
-- una interfaz mínima pero útil de observabilidad
-
-### Qué entra en esta iteración
-
-- consulta histórica
-- lectura de último estado
-- alertas simples
-- frontend con filtros, gráfico y panel de alertas
-
-### Qué NO entra todavía
-
-- realtime con WebSocket/SSE
-- seguridad completa JWT + roles
-- motor complejo de reglas
-- notificaciones externas
-- capa ML/MLOps
-- observabilidad avanzada de infraestructura
+En otras palabras, Glea Nexo no intenta parecer una demo genérica de IoT. Intenta parecer una base creíble sobre la que un producto agrícola pueda evolucionar de forma robusta.
 
 ---
 
-## Arquitectura
+## Enfoque de producto
+
+El producto se está orientando con varios principios claros:
+
+### 1. Edge-first cuando tiene sentido
+
+En agricultura, asumir conectividad perfecta suele ser una mala decisión. Por eso el proyecto contempla una capa edge capaz de convivir con conectividad irregular y de servir como puente operativo entre sensores y plataforma.
+
+### 2. Observabilidad antes que sofisticación
+
+Antes de hablar de automatización avanzada, reglas complejas o IA, primero hay que responder bien preguntas básicas:
+
+- ¿qué está pasando?
+- ¿dónde está pasando?
+- ¿desde cuándo ocurre?
+- ¿es una lectura nueva, repetida o conflictiva?
+
+### 3. Contratos claros
+
+La fiabilidad de un sistema no depende solo de almacenar datos, sino de que el significado de esos datos sea estable. Por eso el proyecto ha ido reforzando aspectos como semántica temporal, deduplicación y documentación viva de la API.
+
+### 4. Evolución progresiva
+
+La visión de Glea Nexo incluye automatización, actuadores, reglas operativas y analítica avanzada, pero siempre sobre una base ya validada en ingest, trazabilidad, errores y operación mínima demostrable.
+
+---
+
+## Capacidades actuales
+
+Hoy el proyecto ya cubre una base funcional relevante:
+
+- ingestión de telemetría desde una capa edge hacia backend;
+- organización del contexto operativo por finca, zona y dispositivo;
+- persistencia y consulta de lecturas históricas;
+- snapshot operativo de estado reciente;
+- alertas operativas básicas;
+- contratos API documentados con OpenAPI/Swagger;
+- validaciones de contrato temporal;
+- deduplicación funcional validada frente a reenvíos idénticos.
+
+Esto no significa que el producto esté “terminado”, pero sí que ya existe una base coherente sobre la que seguir construyendo con criterio.
+
+---
+
+## Arquitectura conceptual
+
+Glea Nexo se apoya en una arquitectura por capas, pensada para separar captura, transporte, plataforma y visualización.
 
 ```mermaid
 flowchart LR
-  Sensors[Sensores] -->|MQTT| MQTT[(Mosquitto)]
-  MQTT --> NR[Node-RED]
-  NR --> API[Spring Boot API]
-  API --> PG[(PostgreSQL)]
-  API --> FE[Angular]
+  Sensors[Sensores] -->|MQTT| Edge[Edge / Gateway]
+  Edge --> Platform[Backend y persistencia]
+  Platform --> UI[Frontend de observabilidad]
+  Platform --> Ops[Alertas / decisiones operativas]
 ```
 
-### Capas
+### Capas conceptuales
 
-- **Edge**: captura, transporte y preprocesado operativo
-- **Backend**: dominio, persistencia, consultas y contratos API
-- **Frontend**: visualización operativa y experiencia de uso
-- **Infra**: arranque reproducible con Docker Compose
-
----
-
-## Stack tecnológico
-
-- **Backend:** Spring Boot 3.5.0, Java 21, Spring Data JPA, Flyway
-- **Frontend:** Angular 17
-- **Edge:** Mosquitto 2.x, Node-RED 3.1, Python 3.11, SQLite
-- **Base de datos:** PostgreSQL
-- **Infra:** Docker Compose v2
+- **Sensores y edge**: origen de eventos y primera capa operativa.
+- **Plataforma**: ingestión, contratos, persistencia, trazabilidad y consultas.
+- **Visualización**: lectura operativa del estado del sistema.
+- **Evolución futura**: automatización, reglas y control más inteligente.
 
 ---
 
-## Inicio rápido
+## Base tecnológica
 
-### Prerrequisitos
+Glea Nexo se apoya en una base tecnológica pragmática, elegida para cubrir bien el recorrido completo entre edge, plataforma y visualización.
 
-- Docker Desktop + Docker Compose v2
-- PowerShell
+- **Backend**: Spring Boot y Java para contratos API, dominio y persistencia.
+- **Frontend**: Angular para la capa de observabilidad y experiencia operativa.
+- **Edge**: MQTT, Node-RED, Python y almacenamiento local ligero para integración con campo y tolerancia operativa.
+- **Persistencia**: PostgreSQL como base principal de datos de plataforma.
+- **Infraestructura**: Docker Compose para entornos reproducibles de desarrollo y validación.
 
-### Build plataforma
-
-```powershell
-docker compose -f infra/compose/docker-compose.platform.yml build
-```
-
-### Levantar edge + platform
-
-```powershell
-docker compose `
-  -f infra/compose/docker-compose.edge.yml `
-  -f infra/compose/docker-compose.platform.yml `
-  up -d
-```
-
-### Ver estado
-
-```powershell
-docker compose `
-  -f infra/compose/docker-compose.edge.yml `
-  -f infra/compose/docker-compose.platform.yml `
-  ps
-```
+La elección del stack responde menos a una búsqueda de sofisticación y más a una idea simple: poder iterar rápido sin perder claridad arquitectónica entre captura, procesamiento, consulta y visualización.
 
 ---
 
-## Checks rápidos
+## Estado del proyecto
 
-```powershell
-Invoke-WebRequest -Uri http://localhost:8080/actuator/health -UseBasicParsing
-Invoke-WebRequest -Uri http://localhost:8080/api/ping -UseBasicParsing
-Invoke-WebRequest -Uri http://localhost:4200 -UseBasicParsing
+El proyecto se encuentra en una fase de consolidación de su base operativa.
 
-docker compose -f infra/compose/docker-compose.edge.yml exec mosquitto `
-  mosquitto_sub -h localhost -t '$SYS/broker/uptime' -C 1 -v
-```
+Durante las iteraciones recientes se han reforzado especialmente:
 
----
+- la trazabilidad temporal de lecturas;
+- el endurecimiento del contrato temporal de la API;
+- la validación de deduplicación real;
+- la documentación de OpenAPI como contrato vivo.
 
-## Servicios y puertos
-
-- **Backend:** `http://localhost:8080`
-- **Frontend:** `http://localhost:4200`
-- **Node-RED:** `http://localhost:1880`
-- **Mosquitto:** `mqtt://localhost:1883`
-- **PostgreSQL host:** `localhost:3608`
+Eso sitúa a Glea Nexo en un punto importante: ya no solo “funciona”, sino que empieza a comportarse como un sistema con semántica y contratos más explícitos.
 
 ---
 
-## API disponible hoy
+## Hacia dónde evoluciona
 
-### Inventario operativo
+La dirección del producto está pensada para avanzar por capas de madurez, no por acumulación de features.
 
-#### Header de organización
+Las líneas de evolución más naturales son:
 
-- Header opcional: `X-Org-Code`
-- Si falta: usa organización `default`
-- Si no existe: `404 NOT_FOUND`
+- observabilidad más rica y utilizable;
+- endurecimiento de errores y límites de contrato;
+- operación offline y replay más robustos;
+- seguridad incremental;
+- alertas más expresivas;
+- integración con actuadores cuando el control cerrado tenga sentido;
+- automatización basada en reglas;
+- analítica e IA cuando exista base de datos, contexto y necesidad reales.
 
-#### Endpoints principales
-
-- **Farms**
-  - `POST /api/farms`
-  - `GET /api/farms?page&size&sort&q?`
-  - `GET /api/farms/{farmId}`
-  - `PUT /api/farms/{farmId}`
-  - `DELETE /api/farms/{farmId}`
-
-- **Zones**
-  - `POST /api/farms/{farmId}/zones`
-  - `GET /api/farms/{farmId}/zones?page&size&sort&q?`
-  - `GET /api/zones/{zoneId}`
-  - `PUT /api/zones/{zoneId}`
-  - `DELETE /api/zones/{zoneId}`
-
-- **Devices**
-  - `POST /api/zones/{zoneId}/devices`
-  - `GET /api/devices?page&size&sort&farmId?&zoneId?&state?&q?`
-  - `GET /api/devices/{deviceId}`
-  - `PUT /api/devices/{deviceId}`
-  - `DELETE /api/devices/{deviceId}`
-
-### Contrato relevante actual
-
-- `deviceUid` es inmutable después de creación
-- `PUT /api/devices/{deviceId}` solo permite actualizar `name` y `state`
+La intención no es añadir complejidad por sí misma, sino hacer que cada nueva capacidad se apoye sobre una base ya defendible técnica y operativamente.
 
 ---
 
-## Próxima API en construcción
+## Principios técnicos que sostienen el producto
 
-Para la iteración **Observabilidad operativa v1**, el siguiente bloque de API se orienta a:
+Aunque este README no entra en detalle operativo, sí conviene dejar claros algunos principios que hoy ya forman parte de la identidad del proyecto:
 
-- histórico de lecturas
-- snapshot operativo por zona
-- alertas persistidas y consultables
+- la conectividad irregular no se trata como una excepción exótica;
+- el tiempo importa y debe tener semántica estable;
+- los reintentos no deberían romper el estado funcional;
+- la API debe ser entendible sin depender de memoria tácita;
+- la evolución del sistema debe ser incremental y comprobable.
 
-A nivel de diseño, los contratos previstos son:
-
-- `GET /api/readings`
-- `GET /api/readings/series`
-- `GET /api/zones/{zoneId}/snapshot`
-- `GET /api/alerts`
-- `POST /api/ingest/events` *(si se persisten eventos desde edge en esta fase)*
-
-> Estos contratos forman parte del foco actual del proyecto y pueden ajustarse durante la iteración mientras se mantenga estable el objetivo funcional.
+Estos principios son los que permiten que Glea Nexo aspire a ser algo más que una demo técnica aislada.
 
 ---
 
-## OpenAPI / Swagger
+## A quién puede interesar
 
-- OpenAPI JSON: `http://localhost:8080/v3/api-docs`
-- Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+Glea Nexo puede resultar interesante como:
 
----
-
-## Testing
-
-```powershell
-cd backend
-mvn test
-```
-
-Incluye base de testing para backend y validación de iteraciones previas.
+- base de producto IoT agrícola;
+- proyecto técnico orientado a edge + plataforma + observabilidad;
+- ejemplo de evolución incremental desde ingest básica hacia arquitectura más seria;
+- portfolio de ingeniería aplicado a sistemas conectados con restricciones reales de operación.
 
 ---
 
-## Documentación del repo
+## Documentación técnica
 
-- Operación base: `agents.md`
-- API inventario: `docs/api/inventory-openapi.md`
-- Runbook inventario: `docs/runbook/inventory-crud.md`
-- Iteraciones: `docs/iterations/`
-- Diagramas: `docs/diagrams/`
-- Roadmap ampliado: `roadmap.md`
+La documentación operativa y técnica detallada se mantiene fuera de este README para no mezclar narrativa de producto con detalles internos de implementación.
 
----
+Puntos de entrada recomendados:
 
-## Roadmap inmediato
-
-### Cerrado
-- ✅ ingest + deduplicación
-- ✅ persistencia de telemetría
-- ✅ inventory CRUD
-
-### En foco ahora
-- ⏭️ histórico por zona/dispositivo
-- ⏭️ snapshot operativo
-- ⏭️ alertas básicas
-- ⏭️ frontend de observabilidad
-
-### Después
-- seguridad JWT + roles
-- control de actuadores más sólido
-- automatización basada en reglas
-- IA/ML solo cuando el caso de uso y los datos lo justifiquen
+- `AGENTS.md` — guía operativa y comandos de trabajo reales del repo.
+- `docs/api/` — documentación específica de contratos API.
+- `docs/runbook/` — procedimientos operativos reproducibles.
+- `docs/exercises/` — roadmap técnico y cierre documentado de ejercicios.
+- Swagger UI — contrato vivo de la API expuesta por el backend.
 
 ---
 
-## Posicionamiento del proyecto
+## Idea fuerza del proyecto
 
-Glea Nexo no busca parecer complejo: busca parecer útil.
+Glea Nexo no intenta impresionar por cantidad de piezas.
 
-La prioridad actual no es meter más piezas, sino cerrar una vertical demostrable de producto:
-**ver qué está pasando, dónde está pasando y cuándo requiere atención.**
-
----
-
-**Última actualización:** 2026-03-29
+Intenta construir algo más valioso: una base técnica creíble para entender qué está pasando en campo, sostener decisiones operativas y evolucionar con sentido hacia automatización útil.
