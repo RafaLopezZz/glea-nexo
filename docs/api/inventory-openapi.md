@@ -4,6 +4,7 @@
 
 - JSON OpenAPI: `http://localhost:8080/v3/api-docs`
 - Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+- Matriz de status codes: `docs/api/status-code-matrix.md`
 
 ## Header transversal
 
@@ -98,6 +99,53 @@
   "message": "Unique or relational constraint violation",
   "path": "/api/farms",
   "correlationId": "rbk-001",
+  "fieldErrors": []
+}
+```
+
+### Ejemplo 400 VALIDATION_ERROR
+
+```json
+{
+  "timestamp": "2026-02-15T22:00:00Z",
+  "status": 400,
+  "error": "VALIDATION_ERROR",
+  "message": "Request validation failed",
+  "path": "/api/farms",
+  "correlationId": "rbk-400",
+  "fieldErrors": [
+    {
+      "field": "code",
+      "message": "must not be blank"
+    }
+  ]
+}
+```
+
+### Ejemplo 404 NOT_FOUND
+
+```json
+{
+  "timestamp": "2026-02-15T22:00:00Z",
+  "status": 404,
+  "error": "NOT_FOUND",
+  "message": "Farm not found",
+  "path": "/api/farms/00000000-0000-0000-0000-000000000000",
+  "correlationId": "rbk-404",
+  "fieldErrors": []
+}
+```
+
+### Ejemplo 409 CONFLICT
+
+```json
+{
+  "timestamp": "2026-02-15T22:00:00Z",
+  "status": 409,
+  "error": "CONFLICT",
+  "message": "Unique or relational constraint violation",
+  "path": "/api/farms",
+  "correlationId": "rbk-409",
   "fieldErrors": []
 }
 ```

@@ -157,6 +157,7 @@ Asegura que la validación del sistema se hace sobre un entorno real y no sobre 
 3. Verificar `BACKEND_URL` en Compose y Node-RED.
 4. Confirmar que el simulador Python no sigue en `sleep`.
 5. Levantar el stack completo y validar healths básicos.
+6. Verificar que los Dockerfiles reflejan puertos reales (backend `EXPOSE 8081`, frontend con build estático para producción).
 
 ### Done
 
@@ -760,10 +761,11 @@ Introduce seguridad como parte del criterio de ingeniería y no como añadido ta
 
 ### Mini ejercicios
 
-1. Revisar superficie expuesta: backend, Swagger, Node-RED, Mosquitto, PostgreSQL.
-2. Revisar inputs, auth, CORS, errores y secretos.
-3. Priorizar top 3 riesgos.
-4. Proponer top 3 mitigaciones MVP.
+1. Auditar superficie expuesta: backend, Swagger, Node-RED (verificar `adminAuth` habilitado o proponerlo), Mosquitto, PostgreSQL.
+2. Revisar hardening de contenedores: verificar que los Dockerfiles no corren como root, evaluar `read_only`, `cap_drop`, secretos en compose, y puertos expuestos correctos.
+3. Revisar inputs, CORS, errores y secretos.
+4. Priorizar top 3 riesgos.
+5. Proponer top 3 mitigaciones MVP.
 
 ### Done
 
@@ -1086,11 +1088,13 @@ Reduce acoplamiento entre UI y construcción manual de requests.
 
 ### Mini ejercicios
 
-1. Crear interfaces DTO.
-2. Crear `TelemetryApiService`.
-3. Centralizar `apiBaseUrl`.
-4. Mover llamadas HTTP fuera del componente.
-5. Añadir estados loading/error/empty.
+1. Previo: actualizar `app.component.spec.ts` para que refleje el componente real y los tests pasen (hoy están desactualizados respecto al template y las signals).
+2. Crear interfaces DTO.
+3. Crear `TelemetryApiService`.
+4. Centralizar `apiBaseUrl`.
+5. Mover llamadas HTTP fuera del componente.
+6. Añadir estados loading/error/empty.
+7. Verificar que los tests unitarios del componente y del nuevo servicio pasan.
 
 ### Done
 
@@ -1221,10 +1225,14 @@ Distingue ausencia de datos, retraso y caída real.
 3. Probar casos borde.
 4. Definir umbral stale.
 5. Añadir `statusReason` o equivalente.
+6. Verificar que `IngestItemProcessor` actualiza `Device.lastSeenAt` además de `Sensor.lastSeenAt`. Si no lo hace, corregirlo.
+7. Probar alerta `STALE_DEVICE` con un device que solo recibe telemetría vía ingest.
 
 ### Done
 
 - Semántica estable y explicable.
+- `Device.lastSeenAt` consistente con la última telemetría recibida.
+- Alerta stale funciona correctamente tras una corrección o deuda documentada.
 
 ---
 
@@ -1640,6 +1648,9 @@ Si el objetivo es **hardening técnico**, el recorrido más sólido es:
 
 - Blindar Node-RED timestamps para soportar sensores heterogéneos.
 - Retomar en preparación de demo técnica el caso de `messageId` reutilizado con contenido distinto: evaluar si conviene comparar contenido, registrar conflicto semántico explícito o reforzar contratos/productores/Node-RED para evitar reutilización inválida.
+- Evaluar si el frontend debe migrar de `ng serve` a build estático con nginx/caddy para reducir superficie de ataque y mejorar rendimiento (no crítico para MVP, sí para release seria).
+- Auditar migraciones Flyway V002 vs V003: resolver inconsistencia de códigos de unidad (`M_S` vs `M_PER_S`, `VOLTS` vs `VOLT`) consolidando el catálogo en una migración de limpieza.
+- Verificar que los contratos documentados en `agents.md` (ej. respuesta de ingest `{inserted, duplicates, rejected}`) estén alineados con el código real (`{total, processed, duplicates, errors, items}`).
 
 # Recomendación final de uso
 
