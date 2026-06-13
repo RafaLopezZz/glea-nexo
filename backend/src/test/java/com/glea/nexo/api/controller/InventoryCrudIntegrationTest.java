@@ -156,6 +156,68 @@ class InventoryCrudIntegrationTest {
     }
 
     @Test
+    void farmCreateBlankFieldsReturnsValidationErrorWithStandardErrorBody() throws Exception {
+        mockMvc.perform(post("/api/farms")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "code":"",
+                                  "name":""
+                                }
+                                """))
+                .andExpect(status().isBadRequest())
+                .andExpect(header().exists("X-Correlation-Id"))
+                .andExpect(jsonPath("$.status").value(400))
+                .andExpect(jsonPath("$.error").value("VALIDATION_ERROR"))
+                .andExpect(jsonPath("$.message").value("Request validation failed"))
+                .andExpect(jsonPath("$.path").value("/api/farms"))
+                .andExpect(jsonPath("$.correlationId").exists())
+                .andExpect(jsonPath("$.fieldErrors[0].field").exists())
+                .andExpect(jsonPath("$.fieldErrors[0].message").exists());
+    }
+
+    @Test
+    void farmGetUnknownIdReturnsNotFoundWithStandardErrorBody() throws Exception {
+        UUID unknownFarmId = UUID.randomUUID();
+
+        mockMvc.perform(get("/api/farms/{farmId}", unknownFarmId))
+                .andExpect(status().isNotFound())
+                .andExpect(header().exists("X-Correlation-Id"))
+                .andExpect(jsonPath("$.status").value(404))
+                .andExpect(jsonPath("$.error").value("NOT_FOUND"))
+                .andExpect(jsonPath("$.path").value("/api/farms/" + unknownFarmId))
+                .andExpect(jsonPath("$.correlationId").exists())
+                .andExpect(jsonPath("$.fieldErrors").isArray());
+    }
+
+    @Test
+    void farmDuplicateReturnsConflictWithStandardErrorBody() throws Exception {
+        String payload = """
+                {
+                  "code":"farm-conflict",
+                  "name":"Farm Conflict"
+                }
+                """;
+
+        mockMvc.perform(post("/api/farms")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payload))
+                .andExpect(status().isCreated());
+
+        mockMvc.perform(post("/api/farms")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payload))
+                .andExpect(status().isConflict())
+                .andExpect(header().exists("X-Correlation-Id"))
+                .andExpect(jsonPath("$.status").value(409))
+                .andExpect(jsonPath("$.error").value("CONFLICT"))
+                .andExpect(jsonPath("$.message").value("Unique or relational constraint violation"))
+                .andExpect(jsonPath("$.path").value("/api/farms"))
+                .andExpect(jsonPath("$.correlationId").exists())
+                .andExpect(jsonPath("$.fieldErrors").isArray());
+    }
+
+    @Test
     void zoneCreateAndUniquePerFarm() throws Exception {
         Farm farm = new Farm();
         farm.setOrganization(defaultOrganization);
